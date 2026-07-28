@@ -2,6 +2,28 @@
 
 All notable changes to the M4TH formalisation packages.
 
+## [3.0.0] -- 2026-07-28
+
+### Added
+- `MertensPNT` package: Meissel-Mertens constant, compensated convergence, conditional PNT+ closure
+  - `Basic.lean`: prime harmonic sums, Chebyshev bounds, reciprocal estimates
+  - `Connections.lean`: bridges between prime sums and Chebyshev functions
+  - `ErdosBlocks.lean`: Erdos block iteration with explicit rate
+  - `MertensBridge.lean`: exact identities linking Euler product and prime sums
+  - `MertensConstant.lean`: Meissel-Mertens constant definition and sumability
+  - `PNTFrontier.lean`: conditional closure over PNT+, typed frontier pattern
+  - `TTAOData.lean`: certified empirical brackets (wheel sieves, primorial products)
+- Live single-file variant and mathematical manual for MertensPNT
+- Native Lean-generated SVG cover figure
+
+### Changed
+- README package table, axiom certificate, theorems, and architecture tree updated for 8 packages
+- CITATION.cff updated to v3.0.0
+
+### Verification
+- Zero `axiom`, zero `sorry` across all 8 packages (27 source modules)
+- Every headline theorem: `[propext, Classical.choice, Quot.sound]`
+
 ## [2.0.0] -- 2026-07-28
 
 ### Added

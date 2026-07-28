@@ -39,11 +39,17 @@ One mathematical idea per package, fully proved.
 | `XiLogResidue` | Logarithmic residue = multiplicity; dictionary with `MeromorphicOn.divisor` | Proved |
 | `XiLogDeriv` | Expansion of `Ξ'/Ξ`; digamma identity for `Γ_ℝ` | Proved |
 
+### v3.0.0 -- Meissel-Mertens constant and compensated convergence
+
+| Package | Theorem | Status |
+|---|---|---|
+| `MertensPNT` | Meissel-Mertens constant, compensated prime harmonic convergence, conditional PNT+ closure | Proved |
+
 To our knowledge this is the first formalisation of weak solutions of
 conservation laws, of Rankine-Hugoniot and Lax entropy conditions, of gradient
 blow-up for a nonlinear PDE, of the KdV soliton, of the Riemann-von Mangoldt
-zero-counting function, and of the logarithmic-residue/multiplicity dictionary,
-in any major proof assistant.
+zero-counting function, of the logarithmic-residue/multiplicity dictionary,
+and of the Meissel-Mertens constant with compensated convergence,\nin any major proof assistant.
 
 ## Quick start
 
@@ -51,7 +57,8 @@ Each package is an independent Lean 4 project. Choose one and build:
 
 ```bash
 cd ConservationLaws   # or BurgersBlowUp, KdV, DirichletEta,
-                      #    ZetaZeroCounting, XiLogResidue, XiLogDeriv
+                      #    ZetaZeroCounting, XiLogResidue, XiLogDeriv,
+                      #    MertensPNT
 
 lake update
 lake exe cache get
@@ -85,6 +92,10 @@ echo 'import XiLogResidue
 
 echo 'import XiLogDeriv
 #print axioms RiemannLogDeriv.gammaRFactorLogDeriv_eq_neg_half_log_pi_add_half_digamma' | lake env lean --stdin
+
+# v3.0.0
+echo 'import MertensPNT
+#print axioms Mertens.mertens_product_convergence' | lake env lean --stdin
 ```
 
 Each must report only `[propext, Classical.choice, Quot.sound]`.
@@ -146,6 +157,14 @@ Each must report only `[propext, Classical.choice, Quot.sound]`.
 | `logDeriv_entireXiPolynomialFactor_eq` | Polynomial factor of `Ξ'/Ξ` |
 | `gammaRFactorLogDeriv_eq_neg_half_log_pi_add_half_digamma` | Digamma identity for `Γ_ℝ` |
 
+### MertensPNT -- Meissel-Mertens constant and compensated convergence
+
+| Theorem | Statement |
+|---|---|
+| `mertensConstant` | The Meissel-Mertens constant `M` is well-defined via summable logarithmic correction |
+| `tendsto_partialProduct_mul_exp_partialSum_add_gamma` | `∏(1-1/p)·e^{S(n)+γ} → e^M` (compensated convergence, unconditional) |
+| `mertens_product_convergence` | The Euler product converges to zero with exact compensated rate |
+
 ## Architecture
 
 ```
@@ -180,6 +199,12 @@ M4TH/
     README.md, lakefile.toml, KdV.lean, KdV.svg
     KdV/                    (Basic, Hyperbolic, Soliton, ConservationLaws)
     KdVLive/                (single-file live version + mathematical manual)
+
+  MertensPNT/             Meissel-Mertens constant and compensated convergence
+    README.md, lakefile.toml, MertensPNT.lean, MertensPNT.svg
+    MertensPNT/             (Basic, Connections, ErdosBlocks, MertensBridge,
+                             MertensConstant, PNTFrontier, TTAOData)
+    MertensPNTLive/         (single-file live version + mathematical manual)
 
   XiLogDeriv/             Log-derivative expansion of Ξ and digamma identity
     README.md, lakefile.toml, XiLogDeriv.lean, XiLogDeriv.svg
@@ -242,7 +267,7 @@ If you use this work in academic research, please cite:
   orcid     = {0009-0001-5993-4057},
   doi       = {10.5281/zenodo.21635317},
   year      = {2026},
-  version   = {v2.0.0},
+  version   = {v3.0.0},
   url       = {https://github.com/Alektronnik/M4TH}
 }
 ```

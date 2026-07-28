@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1800.000000 1400.000000" width="1800.000000" height="1400.000000">
+  <rect x="0.000000" y="0.000000" width="1800.000000" height="1400.000000" fill="#fbfaf7" stroke="none" stroke-width="0.000000"/>
+  <text x="900.000000" y="66.000000" font-size="52" fill="#1f2933" text-anchor="middle" font-family="DejaVu Serif, Georgia, serif">MertensPNT</text>
+  <text x="900.000000" y="100.000000" font-size="24" fill="#475569" text-anchor="middle" font-family="DejaVu Serif, Georgia, serif">by Alektronnik</text>
+  <text x="900.000000" y="202.000000" font-size="30" fill="#475569" text-anchor="middle" font-family="DejaVu Serif, Georgia, serif">Reciprocal-prime sums, Mertens correction, Euler products, and the conditional PNT+ frontier</text>
+  <rect x="205.000000" y="310.000000" width="960.000000" height="705.000000" fill="#eef7f2" stroke="#1f2933" stroke-width="2.200000" opacity="0.550000"/>
+  <line x1="205.000000" y1="310.000000" x2="205.000000" y2="1015.000000" stroke="#d1d5db" stroke-width="0.650000" fill="none" stroke-dasharray="4 7"/>
+  <line x1="381.326531" y1="310.000000" x2="381.326531" y2="1015.000000" stroke="#d1d5db" stroke-width="0.650000" fill="none" stroke-dasharray="4 7"/>
+  <line x1="577.244898" y1="310.000000" x2="577.244898" y2="1015.000000" stroke="#d1d5db" stroke-width="0.650000" fill="none" stroke-dasharray="4 7"/>
+  <line x1="773.163265" y1="310.000000" x2="773.163265" y2="1015.000000" stroke="#d1d5db" stroke-width="0.650000" fill="none" stroke-dasharray="4 7"/>
+  <line x1="969.081633" y1="310.000000" x2="969.081633" y2="1015.000000" stroke="#d1d5db" stroke-width="0.650000" fill="none" stroke-dasharray="4 7"/>
+  <line x1="1165.000000" y1="310.000000" x2="1165.000000" y2="1015.000000" stroke="#d1d5db" stroke-width="0.650000" fill="none" stroke-dasharray="4 7"/>
+  <line x1="205.000000" y1="1015.000000" x2="1165.000000" y2="1015.000000" stroke="#d1d5db" stroke-width="0.650000" fill="none" stroke-dasharray="4 7"/>
+  <line x1="205.000000" y1="847.142857" x2="1165.000000" y2="847.142857" stroke="#d1d5db" stroke-width="0.650000" fill="none" stroke-dasharray="4 7"/>
+  <line x1="205.000000" y1="679.285714" x2="1165.000000" y2="679.285714" stroke="#d1d5db" stroke-width="0.650000" fill="none" stroke-dasharray="4 7"/>
+  <line x1="205.000000" y1="511.428571" x2="1165.000000" y2="511.428571" stroke="#d1d5db" stroke-width="0.650000" fill="none" stroke-dasharray="4 7"/>
+  <line x1="205.000000" y1="343.571429" x2="1165.000000" y2="343.571429" stroke="#d1d5db" stroke-width="0.650000" fill="none" stroke-dasharray="4 7"/>
+  <line x1="205.000000" y1="1015.000000" x2="1165.000000" y2="1015.000000" stroke="#1f2933" stroke-width="1.800000" fill="none"/>
+  <line x1="205.000000" y1="310.000000" x2="205.000000" y2="1015.000000" stroke="#1f2933" stroke-width="1.800000" fill="none"/>
+  <text x="685.000000" y="1091.000000" font-size="30" fill="#1f2933" text-anchor="middle" font-family="DejaVu Serif, Georgia, serif">n</text>
+  <text x="129.000000" y="662.500000" font-size="30" fill="#1f2933" text-anchor="middle" font-family="DejaVu Serif, Georgia, serif" transform="rotate(-90 129.000000 662.500000)">scale</text>
+  <polyline points="205.000000,931.071429 214.795918,931.071429 214.795918,875.124643 234.387755,875.124643 234.387755,841.553214 253.979592,841.553214 253.979592,817.566429 293.163265,817.566429 293.163265,802.308214 312.755102,802.308214 312.755102,789.400000 351.938776,789.400000 351.938776,779.530000 371.530612,779.530000 371.530612,770.700714 410.714286,770.700714 410.714286,763.398929 469.489796,763.398929 469.489796,757.607857 489.081633,757.607857 489.081633,752.202857 547.857143,752.202857 547.857143,747.670714 587.040816,747.670714 587.040816,743.575000 606.632653,743.575000 606.632653,739.663929 645.816327,739.663929 645.816327,736.088571 704.591837,736.088571 704.591837,732.916071 763.367347,732.916071 763.367347,730.062500 782.959184,730.062500 782.959184,727.309643 841.734694,727.309643 841.734694,724.808571 880.918367,724.808571 880.918367,722.441786 900.510204,722.441786 900.510204,720.142143 959.285714,720.142143 959.285714,718.010357 998.469388,718.010357 998.469388,715.996071 1057.244898,715.996071 1057.244898,714.099286 1135.612245,714.099286 1135.612245,712.370357" stroke="#0f766e" stroke-width="4.200000" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <polyline points="214.795918,867.285714 234.387755,837.071429 253.979592,815.250000 293.163265,795.107143 351.938776,774.964286 410.714286,763.214286 489.081633,751.464286 606.632653,739.714286 763.367347,729.642857 959.285714,719.571429 1135.612245,712.017857" stroke="#1f5fd1" stroke-width="3.600000" fill="none" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="12 8"/>
+  <polyline points="205.000000,494.642857 214.795918,494.642857 214.795918,541.642857 234.387755,541.642857 234.387755,586.964286 253.979592,586.964286 253.979592,610.464286 293.163265,610.464286 293.163265,637.321429 351.938776,637.321429 351.938776,662.500000 410.714286,662.500000 410.714286,677.607143 489.081633,677.607143 489.081633,691.035714 606.632653,691.035714 606.632653,702.785714 763.367347,702.785714 763.367347,711.178571 959.285714,711.178571 959.285714,717.892857 1135.612245,717.892857 1135.612245,721.250000" stroke="#b91c1c" stroke-width="3.600000" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="1135.612245" cy="712.370357" r="7.000000" fill="#0f766e" stroke="#ffffff" stroke-width="1.500000"/>
+  <text x="459.693878" y="821.964286" font-size="22" fill="#0f766e" text-anchor="start" font-family="DejaVu Serif, Georgia, serif">partialSum n = sum_{p &lt;= n} 1/p</text>
+  <text x="822.142857" y="687.678571" font-size="22" fill="#1f5fd1" text-anchor="start" font-family="DejaVu Serif, Georgia, serif">log log n + M</text>
+  <text x="459.693878" y="595.357143" font-size="22" fill="#b91c1c" text-anchor="start" font-family="DejaVu Serif, Georgia, serif">compensated Euler product</text>
+  <rect x="1215.000000" y="330.000000" width="430.000000" height="158.000000" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.450000" opacity="0.960000"/>
+  <text x="1239.000000" y="370.000000" font-size="20" fill="#1f2933" text-anchor="start" font-family="DejaVu Serif, Georgia, serif">Meissel-Mertens layer</text>
+  <text x="1239.000000" y="408.000000" font-size="22" fill="#0f766e" text-anchor="start" font-family="DejaVu Serif, Georgia, serif">mertensConstant</text>
+  <text x="1239.000000" y="446.000000" font-size="20" fill="#475569" text-anchor="start" font-family="DejaVu Serif, Georgia, serif">mertensResidual n</text>
+  <rect x="1215.000000" y="545.000000" width="430.000000" height="166.000000" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.450000" opacity="0.960000"/>
+  <text x="1239.000000" y="585.000000" font-size="20" fill="#1f2933" text-anchor="start" font-family="DejaVu Serif, Georgia, serif">Euler product closure</text>
+  <text x="1239.000000" y="623.000000" font-size="20" fill="#b91c1c" text-anchor="start" font-family="DejaVu Serif, Georgia, serif">mertens_product_convergence</text>
+  <text x="1239.000000" y="663.000000" font-size="19" fill="#475569" text-anchor="start" font-family="DejaVu Serif, Georgia, serif">partialProduct * exp(partialSum)</text>
+  <rect x="1215.000000" y="770.000000" width="430.000000" height="170.000000" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.450000" opacity="0.960000"/>
+  <text x="1239.000000" y="810.000000" font-size="20" fill="#1f2933" text-anchor="start" font-family="DejaVu Serif, Georgia, serif">conditional PNT+ frontier</text>
+  <text x="1239.000000" y="848.000000" font-size="20" fill="#1f5fd1" text-anchor="start" font-family="DejaVu Serif, Georgia, serif">MertensSecondTheorem</text>
+  <text x="1239.000000" y="888.000000" font-size="18" fill="#475569" text-anchor="start" font-family="DejaVu Serif, Georgia, serif">mertens_euler_closure_conditional</text>
+  <text x="900.000000" y="1348.000000" font-size="22" fill="#475569" text-anchor="middle" font-family="DejaVu Serif, Georgia, serif">Illustration of formal objects in MertensPNT: partialSum, partialProduct, mertensConstant, mertensResidual, MertensSecondTheorem.</text>
+</svg>

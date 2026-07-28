@@ -2,7 +2,7 @@ cff-version: 1.2.0
 message: "If you use this formalisation in your research, please cite it as follows."
 title: "M4TH: Formalised PDE and Analytic Number Theory in Lean 4"
 doi: 10.5281/zenodo.21635317
-version: 2.0.0
+version: 3.0.0
 date-released: 2026-07-28
 authors:
   - family-names: Izquierdo Perez
@@ -13,15 +13,13 @@ repository-code: "https://github.com/Alektronnik/M4TH"
 url: "https://github.com/Alektronnik/M4TH"
 abstract: >
   Self-contained formalisation in Lean 4 over Mathlib of elementary PDE theory
-  and analytic number theory. Seven independent packages across two releases:
-  v1.0.0 -- ConservationLaws (weak solutions, travelling shocks, Rankine-Hugoniot,
-  Lax entropy condition for arbitrary flux), BurgersBlowUp (finite-time gradient
-  blow-up via exact Riccati solution), KdV (exact one-soliton profile and
-  conservation laws). v2.0.0 -- DirichletEta (Dirichlet eta function and
-  non-vanishing of zeta on (0,1)), ZetaZeroCounting (Riemann-von Mangoldt N(T)
-  with safe height enclosures), XiLogResidue (logarithmic residue = multiplicity,
-  dictionary with MeromorphicOn.divisor), XiLogDeriv (expansion of the xi
-  log-derivative and digamma identity for GammaR). Zero axioms, zero sorry.
+  and analytic number theory. Eight independent packages across three releases:
+  v1.0.0 -- PDE (ConservationLaws, BurgersBlowUp, KdV).
+  v2.0.0 -- Riemann-von Mangoldt (DirichletEta, ZetaZeroCounting, XiLogResidue,
+  XiLogDeriv).
+  v3.0.0 -- Meissel-Mertens constant, compensated prime harmonic convergence,
+  conditional PNT+ closure (MertensPNT, 281 theorems).
+  Zero axioms, zero sorry.
   Every headline theorem carries the clean axiom certificate [propext,
   Classical.choice, Quot.sound].
 keywords:
@@ -42,5 +40,8 @@ keywords:
   - logarithmic residue
   - digamma
   - analytic number theory
+  - Meissel-Mertens constant
+  - prime harmonic series
+  - compensated convergence
 license: Apache-2.0
 type: software
