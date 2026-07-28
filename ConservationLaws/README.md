@@ -62,9 +62,6 @@ in this order, each self-contained and useful on its own.
 ## Build
 
 ```
-# 1. Pin Mathlib: edit lakefile.toml, replacing <MATHLIB_REV> with the exact
-#    Mathlib commit used to validate this package.
-# 2. Fetch dependencies and build:
 lake update
 lake exe cache get
 lake build ConservationLaws
