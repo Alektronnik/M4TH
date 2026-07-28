@@ -55,8 +55,7 @@ theorem ErdosReciprocals.mertens_euler_closure_conditional
 ## Build
 
 ```text
-# 1. Pin Mathlib in lakefile.toml by replacing <MATHLIB_REV>.
-# 2. Fetch dependencies and build.
+# Mathlib is already pinned in lakefile.toml (rev fabf563a, Lean 4 v4.31.0).
 lake update
 lake exe cache get
 lake build MertensPNT

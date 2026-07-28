@@ -19,7 +19,7 @@ Zero `sorry`, zero `axiom`. Every headline theorem:
 
 ## Packages
 
-Seven independent Lean 4 packages, each self-contained on top of Mathlib.
+Eight independent Lean 4 packages, each self-contained on top of Mathlib.
 One mathematical idea per package, fully proved.
 
 ### v1.0.0 -- Hyperbolic and dispersive PDE
@@ -49,7 +49,8 @@ To our knowledge this is the first formalisation of weak solutions of
 conservation laws, of Rankine-Hugoniot and Lax entropy conditions, of gradient
 blow-up for a nonlinear PDE, of the KdV soliton, of the Riemann-von Mangoldt
 zero-counting function, of the logarithmic-residue/multiplicity dictionary,
-and of the Meissel-Mertens constant with compensated convergence,\nin any major proof assistant.
+and of the Meissel-Mertens constant with compensated convergence,
+in any major proof assistant.
 
 ## Quick start
 
@@ -95,7 +96,7 @@ echo 'import XiLogDeriv
 
 # v3.0.0
 echo 'import MertensPNT
-#print axioms Mertens.mertens_product_convergence' | lake env lean --stdin
+#print axioms ErdosReciprocals.mertens_product_convergence' | lake env lean --stdin
 ```
 
 Each must report only `[propext, Classical.choice, Quot.sound]`.
@@ -161,7 +162,7 @@ Each must report only `[propext, Classical.choice, Quot.sound]`.
 
 | Theorem | Statement |
 |---|---|
-| `mertensConstant` | The Meissel-Mertens constant `M` is well-defined via summable logarithmic correction |
+| `summable_mertensPrimeCorrection` | The correction series `∑_p (log(1-1/p)+1/p)` is summable, defining the Meissel-Mertens constant `M` |
 | `tendsto_partialProduct_mul_exp_partialSum_add_gamma` | `∏(1-1/p)·e^{S(n)+γ} → e^M` (compensated convergence, unconditional) |
 | `mertens_product_convergence` | The Euler product converges to zero with exact compensated rate |
 
@@ -236,6 +237,8 @@ Each package includes a `*Live/` subfolder with:
   dispersive PDE: conservation laws, gradient blow-up, KdV solitons.
 - `M4THDocs/Riemann_von_Mangoldt_in_Lean4.md` (v2.0.0) -- analytic number
   theory: Dirichlet eta, zero counting, logarithmic residues, digamma identity.
+- `M4THDocs/Mertens_PNT_in_Lean4.md` (v3.0.0) -- Mertens' theorems,
+  Meissel-Mertens constant, compensated convergence, conditional PNT+ closure.
 
 ## Related work
 
