@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1800.000000 1180.000000" width="1800.000000" height="1180.000000">
+  <defs>
+    <marker id="arrow-muted" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#475569"/>
+    </marker>
+  </defs>
+<rect x="0.000000" y="0.000000" width="1800.000000" height="1180.000000" fill="#fffefd" stroke="none" stroke-width="0.000000"/>
+<text x="900.000000" y="62.000000" font-family="DejaVu Serif, Georgia, serif" font-size="48" fill="#1f2937" text-anchor="middle">DiscreteAbelChebyshev</text>
+<text x="900.000000" y="96.000000" font-family="DejaVu Serif, Georgia, serif" font-size="22" fill="#475569" text-anchor="middle">by Alektronnik</text>
+<text x="900.000000" y="172.000000" font-family="DejaVu Serif, Georgia, serif" font-size="30" fill="#475569" text-anchor="middle">finite Abel summation and a typed Chebyshev error-transfer frontier</text>
+<rect x="210.000000" y="255.000000" width="1380.000000" height="640.000000" fill="#f8fafc" stroke="#1f2937" stroke-width="2.200000" opacity="0.580000"/>
+<rect x="250.000000" y="310.000000" width="500.000000" height="150.000000" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.600000" opacity="0.950000"/>
+<text x="278.000000" y="352.000000" font-family="DejaVu Serif, Georgia, serif" font-size="24" fill="#1f2937" text-anchor="start">abel_summation</text>
+<text x="278.000000" y="394.000000" font-family="DejaVu Serif, Georgia, serif" font-size="17" fill="#0f766e" text-anchor="start">Σ a_n f_n = A_N f_N − Σ A_{n+1} Δf_n</text>
+<text x="278.000000" y="432.000000" font-family="DejaVu Serif, Georgia, serif" font-size="19" fill="#475569" text-anchor="start">finite, exact, no limits</text>
+<rect x="1050.000000" y="310.000000" width="500.000000" height="150.000000" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.600000" opacity="0.950000"/>
+<text x="1078.000000" y="352.000000" font-family="DejaVu Serif, Georgia, serif" font-size="24" fill="#1f2937" text-anchor="start">ChebyshevErrorSumBound</text>
+<text x="1078.000000" y="394.000000" font-family="DejaVu Serif, Georgia, serif" font-size="21" fill="#b91c1c" text-anchor="start">explicit residual frontier</text>
+<text x="1078.000000" y="432.000000" font-family="DejaVu Serif, Georgia, serif" font-size="19" fill="#475569" text-anchor="start">no trusted declaration</text>
+<rect x="650.000000" y="570.000000" width="500.000000" height="150.000000" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.600000" opacity="0.950000"/>
+<text x="678.000000" y="612.000000" font-family="DejaVu Serif, Georgia, serif" font-size="24" fill="#1f2937" text-anchor="start">pi_approx_final</text>
+<text x="678.000000" y="654.000000" font-family="DejaVu Serif, Georgia, serif" font-size="21" fill="#2563eb" text-anchor="start">weighted Λ sum = discrete Li + error</text>
+<text x="678.000000" y="692.000000" font-family="DejaVu Serif, Georgia, serif" font-size="19" fill="#475569" text-anchor="start">main term collapses by reverse Abel</text>
+<line x1="700.000000" y1="460.000000" x2="850.000000" y2="570.000000" stroke="#475569" stroke-width="2.600000" stroke-linecap="round" stroke-dasharray="9 7" marker-end="url(#arrow-muted)"/>
+<line x1="1100.000000" y1="460.000000" x2="950.000000" y2="570.000000" stroke="#475569" stroke-width="2.600000" stroke-linecap="round" stroke-dasharray="9 7" marker-end="url(#arrow-muted)"/>
+<text x="900.000000" y="800.000000" font-family="DejaVu Serif, Georgia, serif" font-size="30" fill="#1f2937" text-anchor="middle">chebyshev_implies_prime_error</text>
+<text x="900.000000" y="842.000000" font-family="DejaVu Serif, Georgia, serif" font-size="22" fill="#475569" text-anchor="middle">Chebyshev bound + residual frontier → prime-counting error</text>
+<text x="900.000000" y="1120.000000" font-family="DejaVu Serif, Georgia, serif" font-size="21" fill="#475569" text-anchor="middle">Illustration of formal objects in DiscreteAbelChebyshev: abel_summation, invLog, pi_approx_final, ChebyshevErrorSumBound.</text>
+</svg>

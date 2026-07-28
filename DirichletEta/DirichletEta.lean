@@ -40,7 +40,7 @@ def esc (s : String) : String := s.replace "&" "&amp;" |>.replace "<" "&lt;" |>.
 def attrs (xs : List (String × String)) : String :=
   String.intercalate " " (xs.map fun (k, v) => s!"{k}=\"{esc v}\"")
 def tag (name : String) (xs : List (String × String)) (body : String := "") : String :=
-  if body.isEmpty then s!"<{name} {attrs xs}/>\n" else s!"<{name} {attrs xs}>{body}</{name}>\n"
+  if body.isEmpty then s!"<{name} {attrs xs}/>\n" else s!"<{name} {attrs xs}>{esc body}</{name}>\n"
 
 def rect (x y w h : Float) (fill stroke : String) (sw : Float) (opacity : Option Float := none) :
     String :=
@@ -67,6 +67,9 @@ def circle (cx cy r : Float) (fill stroke : String) (sw : Float) : String :=
   tag "circle"
     [("cx", fstr cx), ("cy", fstr cy), ("r", fstr r), ("fill", fill),
       ("stroke", stroke), ("stroke-width", fstr sw)]
+
+def markerLine (x y : Float) (stroke : String) (dash : Option String := none) : String :=
+  line x y (x + 58.0) y stroke 4.2 dash
 
 def textAt (x y : Float) (body : String) (size : Nat) (fill : String)
     (anchor : String := "middle") (extra : List (String × String) := []) : String :=
@@ -112,10 +115,21 @@ def axes : String :=
   grid ++
   line plotLeft (py 0.0) plotRight (py 0.0) styleAxis 1.8 ++
   line (px 1.0) plotTop (px 1.0) plotBottom styleRed 2.6 (some "11 8") ++
-  textAt ((plotLeft + plotRight) / 2.0) (plotBottom + 76.0) "real parameter x" 30 styleAxis ++
+  -- x-axis tick labels
+  textAt (px 0.0) (plotBottom + 42.0) "0" 22 styleAxis ++
+  textAt (px 0.5) (plotBottom + 42.0) "0.5" 22 styleAxis ++
+  textAt (px 1.0) (plotBottom + 42.0) "1" 22 styleAxis ++
+  textAt ((plotLeft + plotRight) / 2.0) (plotBottom + 88.0) "real parameter x" 26 styleAxis ++
   textAt (plotLeft - 82.0) ((plotTop + plotBottom) / 2.0) "eta scale" 30 styleAxis "middle"
     [("transform", s!"rotate(-90 {fstr (plotLeft - 82.0)} {fstr ((plotTop + plotBottom) / 2.0)})")] ++
-  textAt (px 1.0 + 22.0) (plotTop + 38.0) "pole x = 1" 23 styleRed "start"
+  -- zeta pole label centred above the red dashed line
+  textAt (px 1.0) (plotTop - 18.0) "zeta pole x = 1" 22 styleRed "middle"
+
+def legend : String :=
+  markerLine 350.0 224.0 styleTeal ++
+  textAt 425.0 232.0 "positive alternating limit" 22 styleTeal "start" ++
+  markerLine 940.0 224.0 styleBlue (some "9 8") ++
+  textAt 1015.0 232.0 "partial sums oscillate" 22 styleBlue "start"
 
 def etaPoints : String :=
   String.intercalate " "
@@ -132,9 +146,7 @@ def partialPoints : String :=
 def curves : String :=
   polyline partialPoints styleBlue 3.2 (some "9 8") ++
   polyline etaPoints styleTeal 4.2 ++
-  circle (px 0.55) (py 0.78) 7.0 styleTeal stylePanel 1.4 ++
-  textAt (px 0.09) (py 1.06) "positive alternating limit" 24 styleTeal "start" ++
-  textAt (px 0.10) (py 0.28) "partial sums oscillate" 23 styleBlue "start"
+  circle (px 0.55) (py 0.78) 7.0 styleTeal stylePanel 1.4
 
 def panel (x y w h : Float) (head body1 body2 color : String) : String :=
   rect x y w h stylePanel "#cbd5e1" 1.6 (some 0.95) ++
@@ -142,22 +154,33 @@ def panel (x y w h : Float) (head body1 body2 color : String) : String :=
   textAt (x + 28.0) (y + 84.0) body1 21 color "start" ++
   textAt (x + 28.0) (y + 122.0) body2 19 styleMuted "start"
 
+def panelCompactTwoLine (x y w h : Float) (line1 line2 body1 body2 color : String) : String :=
+  rect x y w h stylePanel "#cbd5e1" 1.6 (some 0.95) ++
+  textAt (x + 28.0) (y + 38.0) line1 19 styleAxis "start" ++
+  textAt (x + 28.0) (y + 62.0) line2 19 styleAxis "start" ++
+  textAt (x + 28.0) (y + 102.0) body1 20 color "start" ++
+  textAt (x + 28.0) (y + 130.0) body2 18 styleMuted "start"
+
 def panels : String :=
   panel 265.0 905.0 525.0 145.0 "eta_eq_zeta_of_re_gt_one"
-    "η(s) = (1 - 2^(1-s)) ζ(s)" "proved by even/odd splitting in Re(s) > 1" styleTeal ++
-  panel 1010.0 905.0 525.0 145.0 "RiemannZetaAlternatingLimitIdentity"
+    "η(s) = (1 − 2^(1−s)) ζ(s)" "proved by even/odd splitting in Re(s) > 1" styleTeal ++
+  panelCompactTwoLine 1010.0 905.0 525.0 145.0
+    "Alternating-limit bridge" "(RiemannZetaAlternatingLimitIdentity)"
     "typed continuation frontier" "implies ζ(x) ≠ 0 for 0 < x < 1" styleRed
 
 def footer : String :=
-  textAt (width / 2.0) 1120.0
-    "Illustration of formal objects in DirichletEta: etaTerm, dirichletEtaSeries, eta_eq_zeta_of_re_gt_one, alternating_zeta_real_pos."
-    21 styleMuted
+  textAt (width / 2.0) 1110.0
+    "Formal objects: etaTerm, dirichletEtaSeries, eta_eq_zeta_of_re_gt_one, alternating_zeta_real_pos."
+    20 styleMuted ++
+  textAt (width / 2.0) 1140.0
+    "Schematic illustration — green curve depicts the alternating-series limit trend."
+    18 styleMuted
 
 def svg : String :=
   "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" ++
   s!"<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 {fstr width} {fstr height}\" width=\"{fstr width}\" height=\"{fstr height}\">\n" ++
   rect 0.0 0.0 width height "#fffefd" "none" 0.0 ++
-  title ++ axes ++ curves ++ panels ++ footer ++
+  title ++ legend ++ axes ++ curves ++ panels ++ footer ++
   "</svg>\n"
 
 def writeDefault : IO Unit := do

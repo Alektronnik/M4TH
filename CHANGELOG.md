@@ -2,6 +2,38 @@
 
 All notable changes to the M4TH formalisation packages.
 
+## [4.0.0] -- 2026-07-28
+
+### Added
+- `XiArgumentPrinciple` package: critical-box argument-principle chain for the Xi variant
+  - `Basic.lean`: entire Xi variant, critical box, nontrivial zeros, multiplicity
+  - `Contour.lean`: edge parametrisations, contour/rectangle integral identity (unconditional)
+  - `Counting.lean`: `ArgumentPrincipleBridge` typed structure, conditional winding = count theorem
+- `XiAsymptoticFrontier` package: typed analytic frontier for contour synthesis
+  - `Basic.lean`: von Mangoldt main term, contour components, normalised real parts
+  - `Frontier.lean`: `AnalyticFrontier` structure (7 fields), residual negligibility lemma
+  - `Synthesis.lean`: conditional Riemann-von Mangoldt equivalence theorem
+- `DiscreteAbelChebyshev` package: finite Abel summation and Chebyshev-to-prime bridge
+  - `Basic.lean`: `abel_summation` identity, Mangoldt/psi/invLog definitions
+  - `ChebyshevBridge.lean`: exact Abel decomposition, typed `ChebyshevErrorSumBound` frontier
+- Paper `Argument_Principle_over_Critical_Box_in_Lean4.md` in `M4THDocs/`
+- Native Lean-generated SVG cover figures for all 3 new packages
+- `lake-manifest.json` added to all 11 packages for reproducible builds
+- All SVG generators aligned: `esc body` fix, arrow markers, standard sizes, balanced layouts
+
+### Changed
+- `DirichletEta.svg`: 6 publication-quality corrections (ticks, labels, legend, footer)
+- `DiscreteAbelChebyshev.svg`: 7 layout corrections (V-flow arrows, panel sizing, formula fit)
+- `XiArgumentPrinciple.svg`: 8 alignment corrections (esc body, rotation, marker, sizing)
+- `XiAsymptoticFrontier.svg`: 5 alignment corrections (esc body, arrows, footer)
+- `.gitignore`: scoped `lake-manifest.json` to root only (preserves package-level manifests)
+- README, CITATION.cff updated for 11 packages across 4 releases
+
+### Verification
+- Zero `axiom`, zero `sorry` across all 11 packages (35 source modules)
+- Every headline theorem: `[propext, Classical.choice, Quot.sound]`
+- All 11 SVGs valid XML, generated from Lean code
+
 ## [3.0.0] -- 2026-07-28
 
 ### Added

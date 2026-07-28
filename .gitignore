@@ -3,7 +3,7 @@ lake-packages/
 .lake/
 build/
 lakefile.olean
-lake-manifest.json
+/lake-manifest.json
 *.olean
 *.ilean
 *.trace

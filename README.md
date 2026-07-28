@@ -7,7 +7,9 @@
 
 **Formalised PDE and analytic number theory in Lean 4 -- weak solutions,
 shock waves, Lax entropy, gradient blow-up, KdV solitons, Dirichlet eta,
-Riemann zero-counting, logarithmic residues, and digamma identities.
+Riemann zero-counting, logarithmic residues, digamma identities,
+argument-principle contour chain, asymptotic von Mangoldt synthesis,
+and discrete Abel-Chebyshev bridge.
 Zero `sorry`, zero `axiom`. Every headline theorem:
 `[propext, Classical.choice, Quot.sound]`.**
 
@@ -19,7 +21,7 @@ Zero `sorry`, zero `axiom`. Every headline theorem:
 
 ## Packages
 
-Eight independent Lean 4 packages, each self-contained on top of Mathlib.
+Eleven independent Lean 4 packages, each self-contained on top of Mathlib.
 One mathematical idea per package, fully proved.
 
 ### v1.0.0 -- Hyperbolic and dispersive PDE
@@ -45,11 +47,21 @@ One mathematical idea per package, fully proved.
 |---|---|---|
 | `MertensPNT` | Meissel-Mertens constant, compensated prime harmonic convergence, conditional PNT+ closure | Proved |
 
+### v4.0.0 -- Argument principle, asymptotic synthesis, and discrete Abel-Chebyshev
+
+| Package | Theorem | Status |
+|---|---|---|
+| `XiArgumentPrinciple` | Contour/rectangle integral identity; conditional winding = count via typed `ArgumentPrincipleBridge` | Proved |
+| `XiAsymptoticFrontier` | Conditional Riemann-von Mangoldt equivalence via typed `AnalyticFrontier` (7 fields) | Proved |
+| `DiscreteAbelChebyshev` | Finite Abel summation; Chebyshev-to-prime error transfer via typed `ChebyshevErrorSumBound` | Proved |
+
 To our knowledge this is the first formalisation of weak solutions of
 conservation laws, of Rankine-Hugoniot and Lax entropy conditions, of gradient
 blow-up for a nonlinear PDE, of the KdV soliton, of the Riemann-von Mangoldt
 zero-counting function, of the logarithmic-residue/multiplicity dictionary,
-and of the Meissel-Mertens constant with compensated convergence,
+of the Meissel-Mertens constant with compensated convergence, of the
+critical-box argument-principle contour chain for the entire Xi variant,
+and of the typed analytic-frontier synthesis for the asymptotic counting formula,
 in any major proof assistant.
 
 ## Quick start
@@ -59,7 +71,8 @@ Each package is an independent Lean 4 project. Choose one and build:
 ```bash
 cd ConservationLaws   # or BurgersBlowUp, KdV, DirichletEta,
                       #    ZetaZeroCounting, XiLogResidue, XiLogDeriv,
-                      #    MertensPNT
+                      #    MertensPNT, XiArgumentPrinciple,
+                      #    XiAsymptoticFrontier, DiscreteAbelChebyshev
 
 lake update
 lake exe cache get
@@ -97,6 +110,22 @@ echo 'import XiLogDeriv
 # v3.0.0
 echo 'import MertensPNT
 #print axioms ErdosReciprocals.mertens_product_convergence' | lake env lean --stdin
+
+# v4.0.0
+echo 'import XiArgumentPrinciple
+#print axioms RiemannArgumentPrinciple.entireXiContourIntegral_eq_rectangleIntegral' | lake env lean --stdin
+
+echo 'import XiArgumentPrinciple
+#print axioms RiemannArgumentPrinciple.contour_winding_equals_count_of_safe' | lake env lean --stdin
+
+echo 'import XiAsymptoticFrontier
+#print axioms RiemannAsymptoticFrontier.riemann_von_mangoldt_from_contour_frontier' | lake env lean --stdin
+
+echo 'import DiscreteAbelChebyshev
+#print axioms DiscreteAbelChebyshev.abel_summation' | lake env lean --stdin
+
+echo 'import DiscreteAbelChebyshev
+#print axioms DiscreteAbelChebyshev.chebyshev_implies_prime_error' | lake env lean --stdin
 ```
 
 Each must report only `[propext, Classical.choice, Quot.sound]`.
@@ -166,6 +195,30 @@ Each must report only `[propext, Classical.choice, Quot.sound]`.
 | `tendsto_partialProduct_mul_exp_partialSum_add_gamma` | `∏(1-1/p)·e^{S(n)+γ} → e^M` (compensated convergence, unconditional) |
 | `mertens_product_convergence` | The Euler product converges to zero with exact compensated rate |
 
+### XiArgumentPrinciple -- critical-box argument-principle chain
+
+| Theorem | Statement |
+|---|---|
+| `entireXiContourIntegral_eq_rectangleIntegral` | Contour integral of `Ξ′/Ξ` equals the rectangle integral (unconditional) |
+| `contour_winding_equals_count_of_safe` | Under `ArgumentPrincipleBridge`, contour integral = `2πi·N(T)` |
+| `contour_winding_index_one_of_safe` | Winding index = +1 for all zeros inside the critical box |
+
+### XiAsymptoticFrontier -- typed analytic frontier
+
+| Theorem | Statement |
+|---|---|
+| `riemann_von_mangoldt_from_contour_frontier` | Under `AnalyticFrontier`, `N(T) ~ (T/2π)(log(T/2π)−1)` |
+| `riemann_von_mangoldt_from_contour_bridge` | Point-free Prop form of the same implication |
+| `safe_counting_equiv_main` | Safe-height counting follows the main term under gamma dominance |
+
+### DiscreteAbelChebyshev -- discrete Abel summation and Chebyshev bridge
+
+| Theorem | Statement |
+|---|---|
+| `abel_summation` | `Σ a_n f_n = A_N f_N − Σ A_{n+1} Δf_n` (finite, exact, no limits) |
+| `pi_approx_final` | Exact Abel decomposition of the weighted Mangoldt sum |
+| `chebyshev_implies_prime_error` | Chebyshev bound + residual frontier → prime-counting error estimate |
+
 ## Architecture
 
 ```
@@ -177,8 +230,10 @@ M4TH/
   CHANGELOG.md
 
   M4THDocs/
-    Hyperbolic_Dispersive_PDE_in_Lean4.md   (v1.0.0 paper, CC-BY 4.0)
-    Riemann_von_Mangoldt_in_Lean4.md        (v2.0.0 paper, CC-BY 4.0)
+    Hyperbolic_Dispersive_PDE_in_Lean4.md              (v1.0.0 paper, CC-BY 4.0)
+    Riemann_von_Mangoldt_in_Lean4.md                   (v2.0.0 paper, CC-BY 4.0)
+    Mertens_PNT_in_Lean4.md                            (v3.0.0 paper, CC-BY 4.0)
+    Argument_Principle_over_Critical_Box_in_Lean4.md   (v4.0.0 paper, CC-BY 4.0)
 
   BurgersBlowUp/          Gradient blow-up for the inviscid Burgers equation
     README.md, lakefile.toml, BurgersBlowUp.lean, BurgersBlowUp.svg
@@ -221,6 +276,21 @@ M4TH/
     README.md, lakefile.toml, ZetaZeroCounting.lean, ZetaZeroCounting.svg
     ZetaZeroCounting/       (Xi, ZeroCounting, SafeHeights, MainTerm)
     ZetaZeroCountingLive/   (single-file live version + mathematical manual)
+
+  XiArgumentPrinciple/    Critical-box argument-principle chain
+    README.md, lakefile.toml, XiArgumentPrinciple.lean, XiArgumentPrinciple.svg
+    XiArgumentPrinciple/    (Basic, Contour, Counting)
+    XiArgumentPrincipleLive/ (single-file live version + mathematical manual)
+
+  XiAsymptoticFrontier/   Typed analytic frontier for contour synthesis
+    README.md, lakefile.toml, XiAsymptoticFrontier.lean, XiAsymptoticFrontier.svg
+    XiAsymptoticFrontier/   (Basic, Frontier, Synthesis)
+    XiAsymptoticFrontierLive/ (single-file live version + mathematical manual)
+
+  DiscreteAbelChebyshev/  Discrete Abel summation and Chebyshev bridge
+    README.md, lakefile.toml, DiscreteAbelChebyshev.lean, DiscreteAbelChebyshev.svg
+    DiscreteAbelChebyshev/  (Basic, ChebyshevBridge)
+    DiscreteAbelChebyshevLive/ (single-file live version + mathematical manual)
 ```
 
 ## Live versions
@@ -239,6 +309,9 @@ Each package includes a `*Live/` subfolder with:
   theory: Dirichlet eta, zero counting, logarithmic residues, digamma identity.
 - `M4THDocs/Mertens_PNT_in_Lean4.md` (v3.0.0) -- Mertens' theorems,
   Meissel-Mertens constant, compensated convergence, conditional PNT+ closure.
+- `M4THDocs/Argument_Principle_over_Critical_Box_in_Lean4.md` (v4.0.0) --
+  argument principle over the critical box, asymptotic contour synthesis,
+  discrete Abel-Chebyshev bridge.
 
 ## Related work
 
@@ -270,7 +343,7 @@ If you use this work in academic research, please cite:
   orcid     = {0009-0001-5993-4057},
   doi       = {10.5281/zenodo.21635317},
   year      = {2026},
-  version   = {v3.0.0},
+  version   = {v4.0.0},
   url       = {https://github.com/Alektronnik/M4TH}
 }
 ```
