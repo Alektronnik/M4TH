@@ -1,0 +1,17 @@
+# Lean 4
+lake-packages/
+.lake/
+build/
+lakefile.olean
+*.olean
+*.ilean
+*.trace
+*.trace.timing
+
+# IDE
+.idea/
+.vscode/
+*.DS_Store
+
+# OS
+Thumbs.db

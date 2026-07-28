@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1900.000000 1400.000000" width="1900.000000" height="1400.000000">
+  <defs>
+    <marker id="arrow-blue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#1f5fd1"/>
+    </marker>
+  </defs>
+  <rect x="0.000000" y="0.000000" width="1900.000000" height="1400.000000" fill="#fbfaf7" stroke="none" stroke-width="0.000000"/>
+  <text x="950.000000" y="62.000000" font-size="54" fill="#1f2933" text-anchor="middle" font-family="DejaVu Serif, Georgia, serif">KdV</text>
+  <text x="950.000000" y="96.000000" font-size="24" fill="#475569" text-anchor="middle" font-family="DejaVu Serif, Georgia, serif">by Alektronnik</text>
+  <text x="950.000000" y="202.000000" font-size="34" fill="#475569" text-anchor="middle" font-family="DejaVu Serif, Georgia, serif">Exact sech-squared soliton, travelling-wave reduction, and conservation laws</text>
+  <rect x="170.000000" y="250.000000" width="1560.000000" height="870.000000" fill="#ecfdf5" stroke="none" stroke-width="0.000000" opacity="0.450000"/>
+  <rect x="170.000000" y="250.000000" width="1560.000000" height="870.000000" fill="none" stroke="#1f2933" stroke-width="2.400000"/>
+  <line x1="170.000000" y1="250.000000" x2="170.000000" y2="1120.000000" stroke="#e5e7eb" stroke-width="0.650000" fill="none" stroke-dasharray="4 6"/>
+  <line x1="560.000000" y1="250.000000" x2="560.000000" y2="1120.000000" stroke="#e5e7eb" stroke-width="0.650000" fill="none" stroke-dasharray="4 6"/>
+  <line x1="950.000000" y1="250.000000" x2="950.000000" y2="1120.000000" stroke="#e5e7eb" stroke-width="0.650000" fill="none" stroke-dasharray="4 6"/>
+  <line x1="1340.000000" y1="250.000000" x2="1340.000000" y2="1120.000000" stroke="#e5e7eb" stroke-width="0.650000" fill="none" stroke-dasharray="4 6"/>
+  <line x1="1730.000000" y1="250.000000" x2="1730.000000" y2="1120.000000" stroke="#e5e7eb" stroke-width="0.650000" fill="none" stroke-dasharray="4 6"/>
+  <line x1="170.000000" y1="1082.714286" x2="1730.000000" y2="1082.714286" stroke="#d1d5db" stroke-width="0.650000" fill="none" stroke-dasharray="4 6"/>
+  <line x1="170.000000" y1="834.142857" x2="1730.000000" y2="834.142857" stroke="#d1d5db" stroke-width="0.650000" fill="none" stroke-dasharray="4 6"/>
+  <line x1="170.000000" y1="585.571429" x2="1730.000000" y2="585.571429" stroke="#d1d5db" stroke-width="0.650000" fill="none" stroke-dasharray="4 6"/>
+  <line x1="170.000000" y1="337.000000" x2="1730.000000" y2="337.000000" stroke="#d1d5db" stroke-width="0.650000" fill="none" stroke-dasharray="4 6"/>
+  <line x1="170.000000" y1="1082.714286" x2="1730.000000" y2="1082.714286" stroke="#1f2933" stroke-width="2.200000" fill="none"/>
+  <line x1="950.000000" y1="250.000000" x2="950.000000" y2="1120.000000" stroke="#1f2933" stroke-width="2.000000" fill="none" stroke-dasharray="8 8"/>
+  <text x="170.000000" y="1162.000000" font-size="24" fill="#1f2933" text-anchor="middle" font-family="DejaVu Serif, Georgia, serif">-8</text>
+  <text x="950.000000" y="1162.000000" font-size="24" fill="#1f2933" text-anchor="middle" font-family="DejaVu Serif, Georgia, serif">0</text>
+  <text x="1730.000000" y="1162.000000" font-size="24" fill="#1f2933" text-anchor="middle" font-family="DejaVu Serif, Georgia, serif">8</text>
+  <text x="950.000000" y="1215.000000" font-size="30" fill="#1f2933" text-anchor="middle" font-family="DejaVu Serif, Georgia, serif">space coordinate</text>
+  <text x="78.000000" y="685.000000" font-size="30" fill="#1f2933" text-anchor="middle" font-family="DejaVu Serif, Georgia, serif" transform="rotate(-90 78.000000 685.000000)">amplitude</text>
+  <polyline points="170.000000,1081.720000 267.500000,1080.004857 365.000000,1075.356571 462.500000,1062.878286 560.000000,1030.017143 657.500000,947.988571 755.000000,769.514286 852.500000,496.582857 950.000000,337.000000 1047.500000,496.582857 1145.000000,769.514286 1242.500000,947.988571 1340.000000,1030.017143 1437.500000,1062.878286 1535.000000,1075.356571 1632.500000,1080.004857 1730.000000,1081.720000" stroke="#0f766e" stroke-width="4.400000" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <polyline points="404.000000,1081.720000 501.500000,1080.004857 599.000000,1075.356571 696.500000,1062.878286 794.000000,1030.017143 891.500000,947.988571 989.000000,769.514286 1086.500000,496.582857 1184.000000,337.000000 1281.500000,496.582857 1379.000000,769.514286 1476.500000,947.988571 1574.000000,1030.017143 1671.500000,1062.878286 1730.000000,1071.777143" stroke="#1f5fd1" stroke-width="4.000000" fill="none" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="16 11"/>
+  <line x1="950.000000" y1="337.000000" x2="1184.000000" y2="337.000000" stroke="#1f5fd1" stroke-width="2.400000" fill="none" stroke-dasharray="10 8" marker-end="url(#arrow-blue)"/>
+  <circle cx="950.000000" cy="337.000000" r="8.000000" fill="#0f766e" stroke="#ffffff" stroke-width="1.800000"/>
+  <circle cx="1184.000000" cy="337.000000" r="8.000000" fill="#1f5fd1" stroke="#ffffff" stroke-width="1.800000"/>
+  <text x="1071.875000" y="292.257143" font-size="22" fill="#1f5fd1" text-anchor="middle" font-family="DejaVu Serif, Georgia, serif">translation by c t</text>
+  <line x1="657.500000" y1="1082.714286" x2="657.500000" y2="1112.542857" stroke="#475569" stroke-width="2.000000" fill="none" stroke-dasharray="8 6"/>
+  <line x1="1242.500000" y1="1082.714286" x2="1242.500000" y2="1112.542857" stroke="#475569" stroke-width="2.000000" fill="none" stroke-dasharray="8 6"/>
+  <text x="657.500000" y="1157.285714" font-size="24" fill="#1f2933" text-anchor="middle" font-family="DejaVu Serif, Georgia, serif">-c t</text>
+  <text x="1242.500000" y="1157.285714" font-size="24" fill="#1f2933" text-anchor="middle" font-family="DejaVu Serif, Georgia, serif">+c t</text>
+  <rect x="1275.000000" y="282.000000" width="410.000000" height="130.000000" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.450000" opacity="0.960000"/>
+  <text x="1299.000000" y="318.000000" font-size="20" fill="#1f2933" text-anchor="start" font-family="DejaVu Serif, Georgia, serif">travellingWave_reduction</text>
+  <text x="1299.000000" y="352.000000" font-size="21" fill="#b91c1c" text-anchor="start" font-family="DejaVu Serif, Georgia, serif">-c f' + f f' + f''' = 0</text>
+  <text x="1299.000000" y="386.000000" font-size="20" fill="#0f766e" text-anchor="start" font-family="DejaVu Serif, Georgia, serif">soliton_satisfies_kdv</text>
+  <rect x="215.000000" y="282.000000" width="500.000000" height="130.000000" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.450000" opacity="0.960000"/>
+  <text x="239.000000" y="318.000000" font-size="20" fill="#1f2933" text-anchor="start" font-family="DejaVu Serif, Georgia, serif">compact-support conservation</text>
+  <text x="239.000000" y="352.000000" font-size="19" fill="#475569" text-anchor="start" font-family="DejaVu Serif, Georgia, serif">massRate_conserved: integral u_t = 0</text>
+  <text x="239.000000" y="386.000000" font-size="19" fill="#475569" text-anchor="start" font-family="DejaVu Serif, Georgia, serif">energyRate_conserved: integral u u_t = 0</text>
+  <text x="950.000000" y="1350.000000" font-size="22" fill="#475569" text-anchor="middle" font-family="DejaVu Serif, Georgia, serif">Illustration of formal objects in KdV: solitonProfile, travellingWave_reduction, soliton_satisfies_kdv, massRate_conserved, energyRate_conserved.</text>
+</svg>

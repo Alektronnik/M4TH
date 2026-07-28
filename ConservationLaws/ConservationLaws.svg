@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1900.000000 1400.000000" width="1900.000000" height="1400.000000">
+  <defs>
+    <marker id="arrow-slate" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#475569"/>
+    </marker>
+    <marker id="arrow-teal" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#0f766e"/>
+    </marker>
+  </defs>
+  <rect x="0.000000" y="0.000000" width="1900.000000" height="1400.000000" fill="#fbfaf7" stroke="none" stroke-width="0.000000"/>
+  <text x="950.000000" y="62.000000" font-size="54" fill="#1f2933" text-anchor="middle" font-family="DejaVu Serif, Georgia, serif">ConservationLaws</text>
+  <text x="950.000000" y="96.000000" font-size="24" fill="#475569" text-anchor="middle" font-family="DejaVu Serif, Georgia, serif">by Alektronnik</text>
+  <text x="950.000000" y="202.000000" font-size="34" fill="#475569" text-anchor="middle" font-family="DejaVu Serif, Georgia, serif">Travelling shocks, Rankine-Hugoniot reduction, and entropy admissibility</text>
+  <rect x="180.000000" y="250.000000" width="1540.000000" height="870.000000" fill="none" stroke="#1f2933" stroke-width="2.400000"/>
+  <polygon points="180.000000,1120.000000 1720.000000,1120.000000 1720.000000,517.214286 180.000000,902.500000" fill="#dbeafe" stroke="none" stroke-width="0.000000" opacity="0.720000"/>
+  <polygon points="180.000000,902.500000 1720.000000,517.214286 1720.000000,250.000000 180.000000,250.000000" fill="#fee2e2" stroke="none" stroke-width="0.000000" opacity="0.620000"/>
+  <line x1="180.000000" y1="250.000000" x2="180.000000" y2="1120.000000" stroke="#e5e7eb" stroke-width="0.650000" fill="none" stroke-dasharray="4 6"/>
+  <line x1="565.000000" y1="250.000000" x2="565.000000" y2="1120.000000" stroke="#e5e7eb" stroke-width="0.650000" fill="none" stroke-dasharray="4 6"/>
+  <line x1="950.000000" y1="250.000000" x2="950.000000" y2="1120.000000" stroke="#e5e7eb" stroke-width="0.650000" fill="none" stroke-dasharray="4 6"/>
+  <line x1="1335.000000" y1="250.000000" x2="1335.000000" y2="1120.000000" stroke="#e5e7eb" stroke-width="0.650000" fill="none" stroke-dasharray="4 6"/>
+  <line x1="1720.000000" y1="250.000000" x2="1720.000000" y2="1120.000000" stroke="#e5e7eb" stroke-width="0.650000" fill="none" stroke-dasharray="4 6"/>
+  <line x1="180.000000" y1="1057.857143" x2="1720.000000" y2="1057.857143" stroke="#d1d5db" stroke-width="0.650000" fill="none" stroke-dasharray="4 6"/>
+  <line x1="180.000000" y1="902.500000" x2="1720.000000" y2="902.500000" stroke="#d1d5db" stroke-width="0.650000" fill="none" stroke-dasharray="4 6"/>
+  <line x1="180.000000" y1="747.142857" x2="1720.000000" y2="747.142857" stroke="#d1d5db" stroke-width="0.650000" fill="none" stroke-dasharray="4 6"/>
+  <line x1="180.000000" y1="591.785714" x2="1720.000000" y2="591.785714" stroke="#d1d5db" stroke-width="0.650000" fill="none" stroke-dasharray="4 6"/>
+  <line x1="180.000000" y1="436.428571" x2="1720.000000" y2="436.428571" stroke="#d1d5db" stroke-width="0.650000" fill="none" stroke-dasharray="4 6"/>
+  <line x1="180.000000" y1="281.071429" x2="1720.000000" y2="281.071429" stroke="#d1d5db" stroke-width="0.650000" fill="none" stroke-dasharray="4 6"/>
+  <line x1="180.000000" y1="1120.000000" x2="1720.000000" y2="1120.000000" stroke="#1f2933" stroke-width="2.200000" fill="none"/>
+  <line x1="180.000000" y1="250.000000" x2="180.000000" y2="1120.000000" stroke="#1f2933" stroke-width="2.200000" fill="none"/>
+  <text x="180.000000" y="1162.000000" font-size="26" fill="#1f2933" text-anchor="middle" font-family="DejaVu Serif, Georgia, serif">0</text>
+  <text x="950.000000" y="1162.000000" font-size="26" fill="#1f2933" text-anchor="middle" font-family="DejaVu Serif, Georgia, serif">T/2</text>
+  <text x="1720.000000" y="1162.000000" font-size="26" fill="#1f2933" text-anchor="middle" font-family="DejaVu Serif, Georgia, serif">T</text>
+  <text x="950.000000" y="1215.000000" font-size="30" fill="#1f2933" text-anchor="middle" font-family="DejaVu Serif, Georgia, serif">time t</text>
+  <text x="85.000000" y="685.000000" font-size="30" fill="#1f2933" text-anchor="middle" font-family="DejaVu Serif, Georgia, serif" transform="rotate(-90 85.000000 685.000000)">space x</text>
+  <line x1="334.000000" y1="936.057143" x2="642.000000" y2="786.914286" stroke="#475569" stroke-width="2.200000" fill="none" stroke-dasharray="10 9" marker-end="url(#arrow-slate)"/>
+  <line x1="719.000000" y1="857.757143" x2="1104.000000" y2="671.328571" stroke="#475569" stroke-width="2.200000" fill="none" stroke-dasharray="10 9" marker-end="url(#arrow-slate)"/>
+  <line x1="1104.000000" y1="779.457143" x2="1566.000000" y2="555.742857" stroke="#475569" stroke-width="2.200000" fill="none" stroke-dasharray="10 9" marker-end="url(#arrow-slate)"/>
+  <line x1="180.000000" y1="820.471429" x2="488.000000" y2="825.442857" stroke="#475569" stroke-width="2.200000" fill="none" stroke-dasharray="10 9" marker-end="url(#arrow-slate)"/>
+  <line x1="411.000000" y1="701.157143" x2="950.000000" y2="709.857143" stroke="#475569" stroke-width="2.200000" fill="none" stroke-dasharray="10 9" marker-end="url(#arrow-slate)"/>
+  <line x1="719.000000" y1="583.085714" x2="1412.000000" y2="594.271429" stroke="#475569" stroke-width="2.200000" fill="none" stroke-dasharray="10 9" marker-end="url(#arrow-slate)"/>
+  <text x="411.000000" y="883.857143" font-size="32" fill="#1f2933" text-anchor="middle" font-family="DejaVu Serif, Georgia, serif">uL</text>
+  <text x="1489.000000" y="467.500000" font-size="32" fill="#1f2933" text-anchor="middle" font-family="DejaVu Serif, Georgia, serif">uR</text>
+  <text x="719.000000" y="641.500000" font-size="22" fill="#475569" text-anchor="middle" font-family="DejaVu Serif, Georgia, serif">characteristics enter the shock</text>
+  <line x1="180.000000" y1="902.500000" x2="1720.000000" y2="517.214286" stroke="#b91c1c" stroke-width="5.000000" fill="none"/>
+  <circle cx="180.000000" cy="902.500000" r="7.000000" fill="#b91c1c" stroke="#ffffff" stroke-width="1.500000"/>
+  <circle cx="1720.000000" cy="517.214286" r="7.000000" fill="#b91c1c" stroke="#ffffff" stroke-width="1.500000"/>
+  <text x="1172.800000" y="643.622857" font-size="24" fill="#b91c1c" text-anchor="start" font-family="DejaVu Serif, Georgia, serif">interface x = s t</text>
+  <text x="457.200000" y="1039.214286" font-size="24" fill="#475569" text-anchor="start" font-family="DejaVu Serif, Georgia, serif">left state region: x &lt; s t</text>
+  <text x="1211.800000" y="386.714286" font-size="24" fill="#475569" text-anchor="start" font-family="DejaVu Serif, Georgia, serif">right state region: x &gt;= s t</text>
+  <rect x="1030.000000" y="835.000000" width="590.000000" height="205.000000" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.600000" opacity="0.920000"/>
+  <text x="1064.000000" y="877.000000" font-size="24" fill="#1f2933" text-anchor="start" font-family="DejaVu Serif, Georgia, serif">HasShockIntegralReduction</text>
+  <text x="1064.000000" y="920.000000" font-size="24" fill="#475569" text-anchor="start" font-family="DejaVu Serif, Georgia, serif">weakResidual =</text>
+  <text x="1064.000000" y="957.000000" font-size="24" fill="#475569" text-anchor="start" font-family="DejaVu Serif, Georgia, serif">integral over x = s t</text>
+  <text x="1064.000000" y="1001.000000" font-size="22" fill="#b91c1c" text-anchor="start" font-family="DejaVu Serif, Georgia, serif">(f(uL)-f(uR)) - s(uL-uR)</text>
+  <rect x="275.000000" y="300.000000" width="485.000000" height="170.000000" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.600000" opacity="0.920000"/>
+  <text x="307.000000" y="342.000000" font-size="23" fill="#1f2933" text-anchor="start" font-family="DejaVu Serif, Georgia, serif">Burgers flux: f(u) = u^2 / 2</text>
+  <text x="307.000000" y="382.000000" font-size="22" fill="#475569" text-anchor="start" font-family="DejaVu Serif, Georgia, serif">Rankine-Hugoniot: s = (uL + uR) / 2</text>
+  <text x="307.000000" y="422.000000" font-size="22" fill="#0f766e" text-anchor="start" font-family="DejaVu Serif, Georgia, serif">compression: uL &gt; uR satisfies Lax</text>
+  <text x="950.000000" y="1350.000000" font-size="22" fill="#475569" text-anchor="middle" font-family="DejaVu Serif, Georgia, serif">Illustration of formal objects in ConservationLaws: shockProfile, weakResidual, RankineHugoniot, HasShockIntegralReduction, LaxEntropyCondition.</text>
+</svg>

@@ -1,0 +1,39 @@
+cff-version: 1.2.0
+message: "If you use this formalisation in your research, please cite it as follows."
+title: "Hyperbolic and Dispersive 1D PDE in Lean 4: Weak Solutions, Shock Waves, Gradient Blow-up, and Solitons"
+version: 1.0.0
+date-released: 2026-07-28
+authors:
+  - family-names: Izquierdo Perez
+    given-names: Bezalel
+    orcid: "https://orcid.org/0009-0001-5993-4057"
+    alias: Alektronnik
+repository-code: "https://github.com/Alektronnik/M4TH"
+url: "https://github.com/Alektronnik/M4TH"
+abstract: >
+  Self-contained formalisation in Lean 4 over Mathlib of the elementary theory
+  of one-dimensional evolutionary PDE of hyperbolic and dispersive type. Three
+  independent packages: ConservationLaws (weak solutions, travelling shocks,
+  Rankine-Hugoniot, Lax entropy condition for arbitrary flux), BurgersBlowUp
+  (finite-time gradient blow-up via exact Riccati solution), and KdV (exact
+  one-soliton profile and conservation laws). Zero axioms, zero sorry. Every
+  headline theorem carries the clean axiom certificate [propext,
+  Classical.choice, Quot.sound]. First formalisation of weak solutions of
+  conservation laws, Rankine-Hugoniot, Lax entropy, gradient blow-up for a
+  nonlinear PDE, and the KdV soliton, in any major proof assistant.
+keywords:
+  - formal verification
+  - Lean 4
+  - Mathlib
+  - partial differential equations
+  - conservation laws
+  - Rankine-Hugoniot
+  - Lax entropy condition
+  - Burgers equation
+  - gradient blow-up
+  - KdV equation
+  - solitons
+  - weak solutions
+  - shock waves
+license: Apache-2.0
+type: software
