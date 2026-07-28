@@ -1,5 +1,5 @@
-name = "KdV"
-defaultTargets = ["KdV"]
+name = "DirichletEta"
+defaultTargets = ["DirichletEta"]
 
 # Mathlib revision pinned for reproducibility.
 [[require]]
@@ -8,4 +8,4 @@ scope = "leanprover-community"
 rev = "fabf563a7c95a166b8d7b6efca11c8b4dc9d911f"
 
 [[lean_lib]]
-name = "KdV"
+name = "DirichletEta"

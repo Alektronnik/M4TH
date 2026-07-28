@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1900.000000 1400.000000" width="1900.000000" height="1400.000000">
+  <rect x="0.000000" y="0.000000" width="1900.000000" height="1400.000000" fill="#fbfaf7" stroke="none" stroke-width="0.000000"/>
+  <text x="950.000000" y="62.000000" font-size="54" fill="#1f2933" text-anchor="middle" font-family="DejaVu Serif, Georgia, serif">ZetaZeroCounting</text>
+  <text x="950.000000" y="96.000000" font-size="24" fill="#475569" text-anchor="middle" font-family="DejaVu Serif, Georgia, serif">by Alektronnik</text>
+  <text x="950.000000" y="202.000000" font-size="34" fill="#475569" text-anchor="middle" font-family="DejaVu Serif, Georgia, serif">Critical box, counted zeros, and a safe height</text>
+  <rect x="150.000000" y="240.000000" width="1620.000000" height="890.000000" fill="none" stroke="#1f2933" stroke-width="2.400000"/>
+  <rect x="261.724138" y="240.000000" width="1396.551724" height="890.000000" fill="#eaf2fb" stroke="none" stroke-width="0.000000" opacity="0.740000"/>
+  <line x1="150.000000" y1="1130.000000" x2="1770.000000" y2="1130.000000" stroke="#d1d5db" stroke-width="0.700000" fill="none" stroke-dasharray="4 6"/>
+  <text x="122.000000" y="1137.000000" font-size="24" fill="#1f2933" text-anchor="end" font-family="DejaVu Serif, Georgia, serif">0</text>
+  <line x1="150.000000" y1="907.500000" x2="1770.000000" y2="907.500000" stroke="#d1d5db" stroke-width="0.700000" fill="none" stroke-dasharray="4 6"/>
+  <text x="122.000000" y="914.500000" font-size="24" fill="#1f2933" text-anchor="end" font-family="DejaVu Serif, Georgia, serif">10</text>
+  <line x1="150.000000" y1="685.000000" x2="1770.000000" y2="685.000000" stroke="#d1d5db" stroke-width="0.700000" fill="none" stroke-dasharray="4 6"/>
+  <text x="122.000000" y="692.000000" font-size="24" fill="#1f2933" text-anchor="end" font-family="DejaVu Serif, Georgia, serif">20</text>
+  <line x1="150.000000" y1="462.500000" x2="1770.000000" y2="462.500000" stroke="#d1d5db" stroke-width="0.700000" fill="none" stroke-dasharray="4 6"/>
+  <text x="122.000000" y="469.500000" font-size="24" fill="#1f2933" text-anchor="end" font-family="DejaVu Serif, Georgia, serif">30</text>
+  <line x1="261.724138" y1="240.000000" x2="261.724138" y2="1130.000000" stroke="#e5e7eb" stroke-width="0.650000" fill="none" stroke-dasharray="4 6"/>
+  <line x1="960.000000" y1="240.000000" x2="960.000000" y2="1130.000000" stroke="#e5e7eb" stroke-width="0.650000" fill="none" stroke-dasharray="4 6"/>
+  <line x1="1658.275862" y1="240.000000" x2="1658.275862" y2="1130.000000" stroke="#e5e7eb" stroke-width="0.650000" fill="none" stroke-dasharray="4 6"/>
+  <line x1="150.000000" y1="1130.000000" x2="1770.000000" y2="1130.000000" stroke="#1f2933" stroke-width="2.200000" fill="none"/>
+  <line x1="150.000000" y1="240.000000" x2="150.000000" y2="1130.000000" stroke="#1f2933" stroke-width="2.200000" fill="none"/>
+  <text x="261.724138" y="1172.000000" font-size="26" fill="#1f2933" text-anchor="middle" font-family="DejaVu Serif, Georgia, serif">0</text>
+  <text x="960.000000" y="1172.000000" font-size="26" fill="#1f2933" text-anchor="middle" font-family="DejaVu Serif, Georgia, serif">1/2</text>
+  <text x="1658.275862" y="1172.000000" font-size="26" fill="#1f2933" text-anchor="middle" font-family="DejaVu Serif, Georgia, serif">1</text>
+  <text x="960.000000" y="1225.000000" font-size="30" fill="#1f2933" text-anchor="middle" font-family="DejaVu Serif, Georgia, serif">Re(s)</text>
+  <text x="60.000000" y="685.000000" font-size="30" fill="#1f2933" text-anchor="middle" font-family="DejaVu Serif, Georgia, serif" transform="rotate(-90 60.000000 685.000000)">Im(s)</text>
+  <text x="122.000000" y="430.450000" font-size="26" fill="#1f2933" text-anchor="end" font-family="DejaVu Serif, Georgia, serif">T_safe</text>
+  <rect x="261.724138" y="422.450000" width="1396.551724" height="707.550000" fill="none" stroke="#1f5fd1" stroke-width="4.200000"/>
+  <line x1="150.000000" y1="422.450000" x2="1770.000000" y2="422.450000" stroke="#b91c1c" stroke-width="4.000000" fill="none" stroke-dasharray="34 16"/>
+  <line x1="960.000000" y1="240.000000" x2="960.000000" y2="1130.000000" stroke="#475569" stroke-width="2.600000" fill="none" stroke-dasharray="12 12"/>
+  <circle cx="904.137931" cy="815.502366" r="9.500000" fill="#111827" stroke="#ffffff" stroke-width="1.600000"/>
+  <text x="928.137931" y="810.502366" font-size="21" fill="#475569" text-anchor="start" font-family="DejaVu Serif, Georgia, serif">rho_1</text>
+  <circle cx="1001.896552" cy="662.259618" r="9.500000" fill="#111827" stroke="#ffffff" stroke-width="1.600000"/>
+  <text x="1025.896552" y="657.259618" font-size="21" fill="#475569" text-anchor="start" font-family="DejaVu Serif, Georgia, serif">rho_2</text>
+  <circle cx="946.034483" cy="573.508419" r="9.500000" fill="#111827" stroke="#ffffff" stroke-width="1.600000"/>
+  <text x="970.034483" y="568.508419" font-size="21" fill="#475569" text-anchor="start" font-family="DejaVu Serif, Georgia, serif">rho_3</text>
+  <circle cx="987.931034" cy="453.046506" r="9.500000" fill="#111827" stroke="#ffffff" stroke-width="1.600000"/>
+  <text x="1011.931034" y="448.046506" font-size="21" fill="#475569" text-anchor="start" font-family="DejaVu Serif, Georgia, serif">rho_4</text>
+  <circle cx="960.000000" cy="397.194880" r="9.000000" fill="none" stroke="#475569" stroke-width="3.000000"/>
+  <circle cx="1029.827586" cy="293.707536" r="9.000000" fill="none" stroke="#475569" stroke-width="3.000000"/>
+  <text x="303.620690" y="398.450000" font-size="25" fill="#b91c1c" text-anchor="start" font-family="DejaVu Serif, Georgia, serif">safe height: no rho in nontrivialZeros has Im(rho) = T</text>
+  <text x="303.620690" y="1076.600000" font-size="28" fill="#1f5fd1" text-anchor="start" font-family="DejaVu Serif, Georgia, serif">criticalBox(T)</text>
+  <text x="303.620690" y="1112.200000" font-size="21" fill="#475569" text-anchor="start" font-family="DejaVu Serif, Georgia, serif">bottom edge in criticalBox(T); counted zeros require Im(s) &gt; 0</text>
+  <text x="1071.724138" y="729.500000" font-size="23" fill="#1f2933" text-anchor="start" font-family="DejaVu Serif, Georgia, serif">sample zeros in zerosUpToIm(T)</text>
+  <text x="1043.793103" y="382.400000" font-size="22" fill="#475569" text-anchor="start" font-family="DejaVu Serif, Georgia, serif">above T, not counted</text>
+  <text x="1030.000000" y="940.875000" font-size="22" fill="#475569" text-anchor="middle" font-family="DejaVu Serif, Georgia, serif" transform="rotate(-90 1030.000000 940.875000)">critical line Re(s) = 1/2</text>
+  <text x="950.000000" y="1350.000000" font-size="22" fill="#475569" text-anchor="middle" font-family="DejaVu Serif, Georgia, serif">Illustration of formal objects in ZetaZeroCounting: criticalBox T, zerosUpToIm T, IsSafeHeight T.</text>
+</svg>

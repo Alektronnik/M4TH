@@ -2,6 +2,46 @@
 
 All notable changes to the M4TH formalisation packages.
 
+## [2.0.0] -- 2026-07-28
+
+### Added
+- `DirichletEta` package: Dirichlet eta function and non-vanishing of ζ on (0,1)
+  - `Basic.lean`: alternating series, `η(s) = (1-2^{1-s})ζ(s)` for `Re(s) > 0`
+  - `Analytic.lean`: analytic continuation of `η`
+  - `Nonvanishing.lean`: `ζ(x) ≠ 0` for all `x ∈ (0,1)`
+- `ZetaZeroCounting` package: Riemann-von Mangoldt zero-counting infrastructure
+  - `Xi.lean`: completed xi function, nontrivial zeros, symmetry
+  - `ZeroCounting.lean`: `N(T)` with multiplicities, finiteness
+  - `SafeHeights.lean`: safe height enclosures, density
+  - `MainTerm.lean`: von Mangoldt main term and asymptotics
+- `XiLogResidue` package: logarithmic residue = multiplicity
+  - `Basic.lean`: meromorphy of `Ξ`, log-derivative on the critical box
+  - `LocalResidue.lean`: residue equals `analyticOrderNatAt`
+  - `Divisor.lean`: dictionary with `MeromorphicOn.divisor` (bridge to ProjectVD)
+- `XiLogDeriv` package: expansion of `Ξ'/Ξ` and digamma identity
+  - `Basic.lean`: three-component log-derivative expansion
+  - `GammaR.lean`: non-vanishing and differentiability of `Γ_ℝ`
+  - `DigammaContinuity.lean`: continuity of digamma away from poles
+  - `Expansion.lean`: closed identity for `Γ_ℝ` via digamma
+- Paper `Riemann_von_Mangoldt_in_Lean4.md` in `M4THDocs/`
+- Live single-file variants and mathematical manuals for each new package
+- Native Lean-generated SVG cover figures per new package
+
+### Changed
+- README header, package table, axiom certificate, and citation updated to reflect 7 packages
+- CITATION.cff updated to v2.0.0 with expanded abstract and keywords
+- `lakefile.toml` Mathlib revision pinned to `fabf563a` across all 7 packages
+- Build instructions simplified (no manual pin step)
+
+### Verification
+- Zero `axiom`, zero `sorry` across all 7 packages (20 source modules)
+- Every headline theorem: `[propext, Classical.choice, Quot.sound]`
+
+### Known Limitations
+- Mathlib revision pinned to `fabf563a` (Lean 4 v4.31.0); update `lakefile.toml` when migrating to newer Mathlib
+- Import lists not yet minimised with import linter (flagged for PR review)
+- `set_option maxHeartbeats 600000` in `KdV/Soliton.lean` (computationally heavy derivative proofs)
+
 ## [1.0.0] -- 2026-07-28
 
 ### Added

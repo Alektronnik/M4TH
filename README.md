@@ -5,9 +5,11 @@
 [![Lean 4](https://img.shields.io/badge/Lean-4-green.svg)](https://leanprover.github.io/)
 [![Mathlib](https://img.shields.io/badge/Mathlib-latest-orange.svg)](https://github.com/leanprover-community/mathlib4)
 
-**Hyperbolic and dispersive 1D PDE in Lean 4 -- weak solutions, shock waves,
-the Lax entropy condition, gradient blow-up, and solitons. Zero `sorry`,
-zero `axiom`. Every headline theorem: `[propext, Classical.choice, Quot.sound]`.**
+**Formalised PDE and analytic number theory in Lean 4 -- weak solutions,
+shock waves, Lax entropy, gradient blow-up, KdV solitons, Dirichlet eta,
+Riemann zero-counting, logarithmic residues, and digamma identities.
+Zero `sorry`, zero `axiom`. Every headline theorem:
+`[propext, Classical.choice, Quot.sound]`.**
 
 - Author: Bezalel Izquierdo Perez
 - ORCID: [0009-0001-5993-4057](https://orcid.org/0009-0001-5993-4057)
@@ -15,10 +17,12 @@ zero `axiom`. Every headline theorem: `[propext, Classical.choice, Quot.sound]`.
 
 ---
 
-## One result
+## Packages
 
-Three independent Lean 4 packages, each self-contained on top of Mathlib.
+Seven independent Lean 4 packages, each self-contained on top of Mathlib.
 One mathematical idea per package, fully proved.
+
+### v1.0.0 -- Hyperbolic and dispersive PDE
 
 | Package | Theorem | Status |
 |---|---|---|
@@ -26,17 +30,28 @@ One mathematical idea per package, fully proved.
 | `BurgersBlowUp` | No C^2 solution of Burgers reaches `t = 1` for `u_0(x) = -x` | Proved |
 | `KdV` | `3c sech^2(sqrt(c)/2 x)` is an exact soliton for all `c > 0` | Proved |
 
+### v2.0.0 -- Riemann-von Mangoldt: zero counting and logarithmic residues
+
+| Package | Theorem | Status |
+|---|---|---|
+| `DirichletEta` | `η(s) = (1-2^{1-s})ζ(s)` and non-vanishing of ζ on `(0,1)` | Proved |
+| `ZetaZeroCounting` | `N(T)` with multiplicities, safe heights, von Mangoldt main term | Proved |
+| `XiLogResidue` | Logarithmic residue = multiplicity; dictionary with `MeromorphicOn.divisor` | Proved |
+| `XiLogDeriv` | Expansion of `Ξ'/Ξ`; digamma identity for `Γ_ℝ` | Proved |
+
 To our knowledge this is the first formalisation of weak solutions of
 conservation laws, of Rankine-Hugoniot and Lax entropy conditions, of gradient
-blow-up for a nonlinear PDE, and of the KdV soliton, in any major proof
-assistant.
+blow-up for a nonlinear PDE, of the KdV soliton, of the Riemann-von Mangoldt
+zero-counting function, and of the logarithmic-residue/multiplicity dictionary,
+in any major proof assistant.
 
 ## Quick start
 
 Each package is an independent Lean 4 project. Choose one and build:
 
 ```bash
-cd ConservationLaws   # or BurgersBlowUp, or KdV
+cd ConservationLaws   # or BurgersBlowUp, KdV, DirichletEta,
+                      #    ZetaZeroCounting, XiLogResidue, XiLogDeriv
 
 lake update
 lake exe cache get
@@ -48,6 +63,7 @@ lake build
 After a successful build, verify zero `sorry` and zero `axiom`:
 
 ```bash
+# v1.0.0
 echo 'import ConservationLaws
 #print axioms ConservationLaw.hasShockIntegralReduction' | lake env lean --stdin
 
@@ -56,6 +72,19 @@ echo 'import BurgersBlowUp
 
 echo 'import KdV
 #print axioms KdV.soliton_satisfies_kdv' | lake env lean --stdin
+
+# v2.0.0
+echo 'import DirichletEta
+#print axioms DirichletEta.zeta_real_open_interval_nonvanishing_from_eta' | lake env lean --stdin
+
+echo 'import ZetaZeroCounting
+#print axioms Riemann.zerosUpToIm_finite' | lake env lean --stdin
+
+echo 'import XiLogResidue
+#print axioms RiemannLogResidue.entireXi_divisor_finset_eq_zerosUpToImFinset' | lake env lean --stdin
+
+echo 'import XiLogDeriv
+#print axioms RiemannLogDeriv.gammaRFactorLogDeriv_eq_neg_half_log_pi_add_half_digamma' | lake env lean --stdin
 ```
 
 Each must report only `[propext, Classical.choice, Quot.sound]`.
@@ -66,21 +95,18 @@ Each must report only `[propext, Classical.choice, Quot.sound]`.
 
 | Theorem | Statement |
 |---|---|
-| `hasShockIntegralReduction` | `weakResidual f (shockProfile uL uR s) phi = integral of R-H deficit along interface` |
+| `hasShockIntegralReduction` | Residual collapses exactly to R-H deficit along the interface |
 | `isWeakSolution_shockProfile_of_rankineHugoniot` | Step is weak solution iff Rankine-Hugoniot holds |
-| `expansion_midpoint_is_weak_but_not_entropic` | Expansion step is a weak solution violating the Lax entropy condition |
-
-For the Burgers flux `f(u) = u^2/2`, the Lax entropy pair `(eta, q) = (u^2/2, u^3/6)` and
-entropy dissipation sign are fully formalised.
+| `expansion_midpoint_is_weak_but_not_entropic` | Expansion step violates the Lax entropy condition |
 
 ### BurgersBlowUp -- gradient blow-up
 
 | Theorem | Statement |
 |---|---|
-| `constant_along_characteristic` | `u` constant along `x = x_0(1-t)` (Lyapunov-energy uniqueness) |
+| `constant_along_characteristic` | `u` constant along `x = x_0(1-t)` |
 | `gradient_riccati_evolution` | `V'(t) = -V(t)^2` with `V(0) = -1` |
 | `gradient_eq_neg_one_div` | `V(t) = -1/(1-t)` (exact Riccati solution) |
-| `not_isRegularSolution_initialRamp` | No C^2 solution reaches `t = 1` (algebraic contradiction) |
+| `not_isRegularSolution_initialRamp` | No C^2 solution reaches `t = 1` |
 
 ### KdV -- exact soliton and conservation laws
 
@@ -90,6 +116,35 @@ entropy dissipation sign are fully formalised.
 | `soliton_satisfies_kdv` | `3c sech^2(sqrt(c)/2 x)` satisfies the soliton ODE for all `c > 0` |
 | `massRate_conserved` | `d/dt integral u = 0` for compactly supported smooth solutions |
 | `energyRate_conserved` | `d/dt integral u^2 = 0` for compactly supported smooth solutions |
+
+### DirichletEta -- Dirichlet eta function
+
+| Theorem | Statement |
+|---|---|
+| `eta_eq_zeta_of_re_gt_one` | `η(s) = (1-2^{1-s})ζ(s)` for `Re(s) > 1` |
+| `zeta_real_open_interval_nonvanishing_from_eta` | `ζ(x) ≠ 0` for all `x ∈ (0,1)` |
+
+### ZetaZeroCounting -- Riemann-von Mangoldt N(T)
+
+| Theorem | Statement |
+|---|---|
+| `zerosUpToIm_finite` | Finite number of nontrivial zeros up to any finite height |
+| `exists_safe_height_above` | Density of safe heights: every `(T, T+ε]` contains a height avoided by all zero ordinates |
+| `T_isLittleO_vonMangoldtMainTerm` | `T = o` of the von Mangoldt main term `(T/2π)(log(T/2π)-1)` |
+
+### XiLogResidue -- logarithmic residue = multiplicity
+
+| Theorem | Statement |
+|---|---|
+| `entireXi_logDeriv_residue_eq_multiplicity` | Residue of `Ξ'/Ξ` at a zero equals its multiplicity |
+| `entireXi_divisor_finset_eq_zerosUpToImFinset` | Divisor support = counted zeros; bridge to `MeromorphicOn.divisor` |
+
+### XiLogDeriv -- expansion and digamma identity
+
+| Theorem | Statement |
+|---|---|
+| `logDeriv_entireXiPolynomialFactor_eq` | Polynomial factor of `Ξ'/Ξ` |
+| `gammaRFactorLogDeriv_eq_neg_half_log_pi_add_half_digamma` | Digamma identity for `Γ_ℝ` |
 
 ## Architecture
 
@@ -102,32 +157,44 @@ M4TH/
   CHANGELOG.md
 
   M4THDocs/
-    Hyperbolic_Dispersive_PDE_in_Lean4.md   (companion paper, CC-BY 4.0)
+    Hyperbolic_Dispersive_PDE_in_Lean4.md   (v1.0.0 paper, CC-BY 4.0)
+    Riemann_von_Mangoldt_in_Lean4.md        (v2.0.0 paper, CC-BY 4.0)
 
   BurgersBlowUp/          Gradient blow-up for the inviscid Burgers equation
-    README.md
-    lakefile.toml
-    BurgersBlowUp.lean
-    BurgersBlowUp.svg
+    README.md, lakefile.toml, BurgersBlowUp.lean, BurgersBlowUp.svg
     BurgersBlowUp/          (Calculus, ODE, Characteristics, BlowUp)
     BurgersBlowUpLive/      (single-file live version + mathematical manual)
 
   ConservationLaws/       Weak solutions and shock theory
-    README.md
-    lakefile.toml
-    ConservationLaws.lean
-    ConservationLaws.svg
+    README.md, lakefile.toml, ConservationLaws.lean, ConservationLaws.svg
     ConservationLaws/       (TestFunction, WeakSolution, Galilean,
                              ShockProfile, ShockReduction, Burgers)
     ConservationLawsLive/   (single-file live version + mathematical manual)
 
+  DirichletEta/           Dirichlet eta function and non-vanishing of ζ on (0,1)
+    README.md, lakefile.toml, DirichletEta.lean, DirichletEta.svg
+    DirichletEta/           (Basic, Analytic, Nonvanishing)
+    DirichletEtaLive/       (single-file live version + mathematical manual)
+
   KdV/                    Exact soliton and conservation laws
-    README.md
-    lakefile.toml
-    KdV.lean
-    KdV.svg
+    README.md, lakefile.toml, KdV.lean, KdV.svg
     KdV/                    (Basic, Hyperbolic, Soliton, ConservationLaws)
     KdVLive/                (single-file live version + mathematical manual)
+
+  XiLogDeriv/             Log-derivative expansion of Ξ and digamma identity
+    README.md, lakefile.toml, XiLogDeriv.lean, XiLogDeriv.svg
+    XiLogDeriv/             (Basic, GammaR, DigammaContinuity, Expansion)
+    XiLogDerivLive/         (single-file live version + mathematical manual)
+
+  XiLogResidue/           Logarithmic residue = multiplicity; divisor dictionary
+    README.md, lakefile.toml, XiLogResidue.lean, XiLogResidue.svg
+    XiLogResidue/           (Basic, LocalResidue, Divisor)
+    XiLogResidueLive/       (single-file live version + mathematical manual)
+
+  ZetaZeroCounting/       Riemann-von Mangoldt N(T), safe heights, main term
+    README.md, lakefile.toml, ZetaZeroCounting.lean, ZetaZeroCounting.svg
+    ZetaZeroCounting/       (Xi, ZeroCounting, SafeHeights, MainTerm)
+    ZetaZeroCountingLive/   (single-file live version + mathematical manual)
 ```
 
 ## Live versions
@@ -138,23 +205,25 @@ Each package includes a `*Live/` subfolder with:
   reading and independent verification.
 - `*.live.MANUAL.md` -- a mathematical exposition in theorem-style format.
 
-## Paper
+## Papers
 
-The companion paper `M4THDocs/Hyperbolic_Dispersive_PDE_in_Lean4.md`
-provides the full mathematical context, references, and formalisation notes.
+- `M4THDocs/Hyperbolic_Dispersive_PDE_in_Lean4.md` (v1.0.0) -- hyperbolic and
+  dispersive PDE: conservation laws, gradient blow-up, KdV solitons.
+- `M4THDocs/Riemann_von_Mangoldt_in_Lean4.md` (v2.0.0) -- analytic number
+  theory: Dirichlet eta, zero counting, logarithmic residues, digamma identity.
 
 ## Related work
 
 - S. Armstrong et al., *A formalisation of the De Giorgi-Nash-Moser theorem in
-  Lean* (2026). The first non-trivial PDE regularity result in a proof assistant;
-  this work is complementary, addressing evolutionary hyperbolic and dispersive
-  equations.
+  Lean* (2026).
+- D. Loeffler, M. Stoll, *Formalizing the Riemann zeta function in Mathlib*,
+  arXiv:2503.00959 (2025).
 - The Mathlib library: <https://github.com/leanprover-community/mathlib4>
 
 ## Requirements
 
 - Lean 4 (v4.31.0 or later)
-- Mathlib (pinned per package via `lakefile.toml`)
+- Mathlib (pinned per package via `lakefile.toml` to `fabf563a`)
 - macOS / Linux / Windows
 
 ## License
@@ -164,16 +233,16 @@ provides the full mathematical context, references, and formalisation notes.
 
 ## Citation
 
-If you use this work in academic research, please cite the companion paper and
-the repository:
+If you use this work in academic research, please cite:
 
 ```bibtex
-@software{M4TH_v1.0.0,
-  title     = {Hyperbolic and Dispersive 1D PDE in Lean 4:
-               Weak Solutions, Shock Waves, Gradient Blow-up, and Solitons},
+@software{M4TH,
+  title     = {M4TH: Formalised PDE and Analytic Number Theory in {Lean} 4},
   author    = {Izquierdo P{\'{e}}rez, Bezalel},
-  orcid     = {0009-0001-5993-4057},  doi       = {10.5281/zenodo.21635317},  year      = {2026},
-  version   = {v1.0.0},
+  orcid     = {0009-0001-5993-4057},
+  doi       = {10.5281/zenodo.21635317},
+  year      = {2026},
+  version   = {v2.0.0},
   url       = {https://github.com/Alektronnik/M4TH}
 }
 ```

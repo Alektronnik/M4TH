@@ -1,9 +1,7 @@
 name = "BurgersBlowUp"
 defaultTargets = ["BurgersBlowUp"]
 
-# PIN OBLIGATORIO: fijar exactamente la revisión de Mathlib usada para validar
-# este paquete antes del primer `lake build`.
-# Sustituir <MATHLIB_REV> por el hash de commit y ejecutar `lake update` una vez.
+# Mathlib revision pinned for reproducibility.
 [[require]]
 name = "mathlib"
 scope = "leanprover-community"
