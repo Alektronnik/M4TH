@@ -1,6 +1,7 @@
 cff-version: 1.2.0
 message: "If you use this formalisation in your research, please cite it as follows."
 title: "Hyperbolic and Dispersive 1D PDE in Lean 4: Weak Solutions, Shock Waves, Gradient Blow-up, and Solitons"
+doi: 10.5281/zenodo.21635317
 version: 1.0.0
 date-released: 2026-07-28
 authors:

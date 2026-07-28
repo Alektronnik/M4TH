@@ -1,5 +1,6 @@
 # M4TH
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21635317.svg)](https://doi.org/10.5281/zenodo.21635317)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![Lean 4](https://img.shields.io/badge/Lean-4-green.svg)](https://leanprover.github.io/)
 [![Mathlib](https://img.shields.io/badge/Mathlib-latest-orange.svg)](https://github.com/leanprover-community/mathlib4)
@@ -171,8 +172,7 @@ the repository:
   title     = {Hyperbolic and Dispersive 1D PDE in Lean 4:
                Weak Solutions, Shock Waves, Gradient Blow-up, and Solitons},
   author    = {Izquierdo P{\'{e}}rez, Bezalel},
-  orcid     = {0009-0001-5993-4057},
-  year      = {2026},
+  orcid     = {0009-0001-5993-4057},  doi       = {10.5281/zenodo.21635317},  year      = {2026},
   version   = {v1.0.0},
   url       = {https://github.com/Alektronnik/M4TH}
 }
