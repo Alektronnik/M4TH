@@ -5,11 +5,13 @@
 [![Lean 4](https://img.shields.io/badge/Lean-4-green.svg)](https://leanprover.github.io/)
 [![Mathlib](https://img.shields.io/badge/Mathlib-latest-orange.svg)](https://github.com/leanprover-community/mathlib4)
 
-**Formalised PDE and analytic number theory in Lean 4 -- weak solutions,
-shock waves, Lax entropy, gradient blow-up, KdV solitons, Dirichlet eta,
-Riemann zero-counting, logarithmic residues, digamma identities,
-argument-principle contour chain, asymptotic von Mangoldt synthesis,
-and discrete Abel-Chebyshev bridge.
+**Formalised PDE, analytic number theory, gauge theory, lattice field theory,
+and arithmetic geometry in Lean 4 -- weak solutions, shock waves, Lax entropy,
+gradient blow-up, KdV solitons, Dirichlet eta, Riemann zero-counting,
+logarithmic residues, digamma identities, argument-principle contour chain,
+asymptotic von Mangoldt synthesis, discrete Abel-Chebyshev bridge,
+concrete su(3) from Gell-Mann matrices, SU(3) Wilson action positivity,
+certified elliptic curve 5077a1, and Sophie Germain prime-gap parity.
 Zero `sorry`, zero `axiom`. Every headline theorem:
 `[propext, Classical.choice, Quot.sound]`.**
 
@@ -21,7 +23,7 @@ Zero `sorry`, zero `axiom`. Every headline theorem:
 
 ## Packages
 
-Eleven independent Lean 4 packages, each self-contained on top of Mathlib.
+Fifteen independent Lean 4 packages, each self-contained on top of Mathlib.
 One mathematical idea per package, fully proved.
 
 ### v1.0.0 -- Hyperbolic and dispersive PDE
@@ -55,13 +57,25 @@ One mathematical idea per package, fully proved.
 | `XiAsymptoticFrontier` | Conditional Riemann-von Mangoldt equivalence via typed `AnalyticFrontier` (7 fields) | Proved |
 | `DiscreteAbelChebyshev` | Finite Abel summation; Chebyshev-to-prime error transfer via typed `ChebyshevErrorSumBound` | Proved |
 
+### v5.0.0 -- Gauge theory, lattice QCD, elliptic curves, and prime-gap parity
+
+| Package | Theorem | Status |
+|---|---|---|
+| `SU3Concrete` | Concrete su(3) from Gell-Mann matrices: structure constants, Jacobi, Killing form, Casimirs (45 theorems) | Proved |
+| `SU3Wilson` | SU(3) trace bound, Wilson plaquette positivity, 4D lattice action nonnegative (18 theorems) | Proved |
+| `CertifiedElliptic5077` | Kernel-certified 5077a1: discriminant, local counts, rational points (27 theorems) | Proved |
+| `PrimeGapsSophie` | Sophie Germain congruences, nth-order prime-gap parity (9 theorems) | Proved |
+
 To our knowledge this is the first formalisation of weak solutions of
 conservation laws, of Rankine-Hugoniot and Lax entropy conditions, of gradient
 blow-up for a nonlinear PDE, of the KdV soliton, of the Riemann-von Mangoldt
 zero-counting function, of the logarithmic-residue/multiplicity dictionary,
 of the Meissel-Mertens constant with compensated convergence, of the
 critical-box argument-principle contour chain for the entire Xi variant,
-and of the typed analytic-frontier synthesis for the asymptotic counting formula,
+of the typed analytic-frontier synthesis for the asymptotic counting formula,
+of the concrete Gell-Mann realisation of su(3) with certified structure constants,
+of the SU(3) Wilson action positivity, of the kernel-certified LMFDB curve 5077a1,
+and of the parity of nth-order prime-gap finite differences,
 in any major proof assistant.
 
 ## Quick start
@@ -72,7 +86,9 @@ Each package is an independent Lean 4 project. Choose one and build:
 cd ConservationLaws   # or BurgersBlowUp, KdV, DirichletEta,
                       #    ZetaZeroCounting, XiLogResidue, XiLogDeriv,
                       #    MertensPNT, XiArgumentPrinciple,
-                      #    XiAsymptoticFrontier, DiscreteAbelChebyshev
+                      #    XiAsymptoticFrontier, DiscreteAbelChebyshev,
+                      #    SU3Concrete, SU3Wilson,
+                      #    CertifiedElliptic5077, PrimeGapsSophie
 
 lake update
 lake exe cache get
@@ -126,6 +142,31 @@ echo 'import DiscreteAbelChebyshev
 
 echo 'import DiscreteAbelChebyshev
 #print axioms DiscreteAbelChebyshev.chebyshev_implies_prime_error' | lake env lean --stdin
+
+# v5.0.0
+echo 'import SU3Concrete
+#print axioms Physics.YangMills.structureConstant_jacobi' | lake env lean --stdin
+
+echo 'import SU3Concrete
+#print axioms Physics.YangMills.fundamentalCasimir_diagonal' | lake env lean --stdin
+
+echo 'import SU3Wilson
+#print axioms Physics.YangMills.su3_trace_re_bound' | lake env lean --stdin
+
+echo 'import SU3Wilson
+#print axioms Physics.YangMills.WilsonAction4D_nonneg' | lake env lean --stdin
+
+echo 'import CertifiedElliptic5077
+#print axioms CertifiedEC.shortDiscriminant_E5077' | lake env lean --stdin
+
+echo 'import CertifiedElliptic5077
+#print axioms CertifiedEC.P1_add_self' | lake env lean --stdin
+
+echo 'import PrimeGapsSophie
+#print axioms PrimeGapsSophie.sophie_germain_mod6_eq_5' | lake env lean --stdin
+
+echo 'import PrimeGapsSophie
+#print axioms PrimeGapsSophie.nthOrderGap_even_of_odd_primes' | lake env lean --stdin
 ```
 
 Each must report only `[propext, Classical.choice, Quot.sound]`.
@@ -219,6 +260,39 @@ Each must report only `[propext, Classical.choice, Quot.sound]`.
 | `pi_approx_final` | Exact Abel decomposition of the weighted Mangoldt sum |
 | `chebyshev_implies_prime_error` | Chebyshev bound + residual frontier → prime-counting error estimate |
 
+### SU3Concrete -- concrete su(3) from Gell-Mann matrices
+
+| Theorem | Statement |
+|---|---|
+| `structureConstant_jacobi` | Jacobi identity for the 8 structure constants (finite sum) |
+| `adjointCasimir_diagonal` | Adjoint Casimir = `(-3)·I₈` |
+| `killingFormBasis_diagonal` | `κ(Tᵃ,Tᵇ) = -3 δᵃᵇ` |
+| `fundamentalCasimir_diagonal` | `∑ₐ TᵃTᵃ = -(16/3)·I₃` |
+
+### SU3Wilson -- SU(3) trace bound and Wilson action
+
+| Theorem | Statement |
+|---|---|
+| `su3_trace_re_bound` | `-1 ≤ Re(tr U)/3 ≤ 1` for every `U ∈ SU(3)` |
+| `wilsonTerm_nonneg` | Every Wilson plaquette term ∈ `[0,2]` |
+| `WilsonAction4D_nonneg` | 4D Wilson action ≥ 0 for `β ≥ 0` |
+
+### CertifiedElliptic5077 -- certified LMFDB curve 5077a1
+
+| Theorem | Statement |
+|---|---|
+| `shortDiscriminant_E5077` | `Δ = 5077` (kernel `decide`) |
+| `N_two`, `N_three`, `N_five` | `N₂ = 5`, `N₃ = 7`, `N₅ = 10` |
+| `P1_add_self` | Explicit rational point doubling verified |
+
+### PrimeGapsSophie -- Sophie Germain primes and higher-order gap parity
+
+| Theorem | Statement |
+|---|---|
+| `sophie_germain_mod6_eq_5` | Sophie Germain primes `p ≥ 5` satisfy `p ≡ 5 (mod 6)` |
+| `primeGap_even` | Ordinary gaps between odd primes are even |
+| `nthOrderGap_even_of_odd_primes` | nth-order finite differences are even for odd primes |
+
 ## Architecture
 
 ```
@@ -234,6 +308,7 @@ M4TH/
     Riemann_von_Mangoldt_in_Lean4.md                   (v2.0.0 paper, CC-BY 4.0)
     Mertens_PNT_in_Lean4.md                            (v3.0.0 paper, CC-BY 4.0)
     Argument_Principle_over_Critical_Box_in_Lean4.md   (v4.0.0 paper, CC-BY 4.0)
+    Four_Certified_Formalisations_in_Lean4.md          (v5.0.0 paper, CC-BY 4.0)
 
   BurgersBlowUp/          Gradient blow-up for the inviscid Burgers equation
     README.md, lakefile.toml, BurgersBlowUp.lean, BurgersBlowUp.svg
@@ -291,6 +366,27 @@ M4TH/
     README.md, lakefile.toml, DiscreteAbelChebyshev.lean, DiscreteAbelChebyshev.svg
     DiscreteAbelChebyshev/  (Basic, ChebyshevBridge)
     DiscreteAbelChebyshevLive/ (single-file live version + mathematical manual)
+
+  SU3Concrete/           Concrete su(3) from Gell-Mann matrices
+    README.md, lakefile.toml, SU3Concrete.lean, SU3Concrete.svg
+    SU3Concrete/           (GellMann, LieAlgebra, StructureConstants,
+                            Commutator, Representation)
+    SU3ConcreteLive/       (single-file live version + mathematical manual)
+
+  SU3Wilson/             SU(3) trace bound and Wilson action positivity
+    README.md, lakefile.toml, SU3Wilson.lean, SU3Wilson.svg
+    SU3Wilson/             (SU3, Wilson, Lattice4D)
+    SU3WilsonLive/         (single-file live version + mathematical manual)
+
+  CertifiedElliptic5077/ Certified LMFDB curve 5077a1
+    README.md, lakefile.toml, CertifiedElliptic5077.lean, CertifiedElliptic5077.svg
+    CertifiedElliptic5077/ (Basic, IntegralModel, FiniteFieldCounts, Entry5077a1)
+    CertifiedElliptic5077Live/ (single-file live version + mathematical manual)
+
+  PrimeGapsSophie/       Sophie Germain primes and higher-order gap parity
+    README.md, lakefile.toml, PrimeGapsSophie.lean, PrimeGapsSophie.svg
+    PrimeGapsSophie/       (SophieGermain, PrimeGap, HigherOrder)
+    PrimeGapsSophieLive/   (single-file live version + mathematical manual)
 ```
 
 ## Live versions
@@ -312,6 +408,9 @@ Each package includes a `*Live/` subfolder with:
 - `M4THDocs/Argument_Principle_over_Critical_Box_in_Lean4.md` (v4.0.0) --
   argument principle over the critical box, asymptotic contour synthesis,
   discrete Abel-Chebyshev bridge.
+- `M4THDocs/Four_Certified_Formalisations_in_Lean4.md` (v5.0.0) --
+  concrete su(3) and SU(3) Wilson action, certified elliptic curve 5077a1,
+  Sophie Germain prime-gap parity.
 
 ## Related work
 
@@ -343,7 +442,7 @@ If you use this work in academic research, please cite:
   orcid     = {0009-0001-5993-4057},
   doi       = {10.5281/zenodo.21635317},
   year      = {2026},
-  version   = {v4.0.0},
+  version   = {v5.0.0},
   url       = {https://github.com/Alektronnik/M4TH}
 }
 ```

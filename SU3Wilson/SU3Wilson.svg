@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1800.000000 1400.000000" width="1800.000000" height="1400.000000">
+  <defs>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#0f766e"/>
+    </marker>
+    <marker id="arrow-blue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#1f5fd1"/>
+    </marker>
+  </defs>
+  <rect x="0.000000" y="0.000000" width="1800.000000" height="1400.000000" fill="#fbfaf7" stroke="none" stroke-width="0.000000"/>
+  <text x="900.000000" y="66.000000" font-size="54" fill="#1f2933" text-anchor="middle" font-family="DejaVu Serif, Georgia, serif">SU3Wilson</text>
+  <text x="900.000000" y="100.000000" font-size="24" fill="#475569" text-anchor="middle" font-family="DejaVu Serif, Georgia, serif">by Alektronnik</text>
+  <text x="900.000000" y="202.000000" font-size="32" fill="#475569" text-anchor="middle" font-family="DejaVu Serif, Georgia, serif">SU(3) trace bound, Wilson plaquette terms, and nonnegative lattice action</text>
+  <line x1="480.000000" y1="990.000000" x2="1240.000000" y2="990.000000" stroke="#d1d5db" stroke-width="0.900000" fill="none" stroke-dasharray="5 9"/>
+  <line x1="480.000000" y1="990.000000" x2="480.000000" y2="230.000000" stroke="#d1d5db" stroke-width="0.900000" fill="none" stroke-dasharray="5 9"/>
+  <line x1="480.000000" y1="800.000000" x2="1240.000000" y2="800.000000" stroke="#d1d5db" stroke-width="0.900000" fill="none" stroke-dasharray="5 9"/>
+  <line x1="670.000000" y1="990.000000" x2="670.000000" y2="230.000000" stroke="#d1d5db" stroke-width="0.900000" fill="none" stroke-dasharray="5 9"/>
+  <line x1="480.000000" y1="610.000000" x2="1240.000000" y2="610.000000" stroke="#d1d5db" stroke-width="0.900000" fill="none" stroke-dasharray="5 9"/>
+  <line x1="860.000000" y1="990.000000" x2="860.000000" y2="230.000000" stroke="#d1d5db" stroke-width="0.900000" fill="none" stroke-dasharray="5 9"/>
+  <line x1="480.000000" y1="420.000000" x2="1240.000000" y2="420.000000" stroke="#d1d5db" stroke-width="0.900000" fill="none" stroke-dasharray="5 9"/>
+  <line x1="1050.000000" y1="990.000000" x2="1050.000000" y2="230.000000" stroke="#d1d5db" stroke-width="0.900000" fill="none" stroke-dasharray="5 9"/>
+  <rect x="670.000000" y="420.000000" width="380.000000" height="380.000000" fill="#eef7f2" stroke="#1f2933" stroke-width="2.400000" opacity="0.750000"/>
+  <line x1="670.000000" y1="800.000000" x2="1050.000000" y2="800.000000" stroke="#0f766e" stroke-width="5.000000" fill="none" marker-end="url(#arrow-green)"/>
+  <line x1="1050.000000" y1="800.000000" x2="1050.000000" y2="420.000000" stroke="#1f5fd1" stroke-width="5.000000" fill="none" marker-end="url(#arrow-blue)"/>
+  <line x1="1050.000000" y1="420.000000" x2="670.000000" y2="420.000000" stroke="#0f766e" stroke-width="5.000000" fill="none" marker-end="url(#arrow-green)"/>
+  <line x1="670.000000" y1="420.000000" x2="670.000000" y2="800.000000" stroke="#1f5fd1" stroke-width="5.000000" fill="none" marker-end="url(#arrow-blue)"/>
+  <circle cx="670.000000" cy="800.000000" r="10.000000" fill="#1f2933" stroke="#ffffff" stroke-width="2.000000"/>
+  <circle cx="1050.000000" cy="800.000000" r="10.000000" fill="#1f2933" stroke="#ffffff" stroke-width="2.000000"/>
+  <circle cx="670.000000" cy="420.000000" r="10.000000" fill="#1f2933" stroke="#ffffff" stroke-width="2.000000"/>
+  <circle cx="1050.000000" cy="420.000000" r="10.000000" fill="#1f2933" stroke="#ffffff" stroke-width="2.000000"/>
+  <text x="860.000000" y="845.000000" font-size="24" fill="#0f766e" text-anchor="middle" font-family="DejaVu Serif, Georgia, serif">Uμ(x)</text>
+  <text x="1112.000000" y="618.000000" font-size="24" fill="#1f5fd1" text-anchor="start" font-family="DejaVu Serif, Georgia, serif">Uν(x+μ)</text>
+  <text x="860.000000" y="386.000000" font-size="24" fill="#0f766e" text-anchor="middle" font-family="DejaVu Serif, Georgia, serif">Uμ(x+ν)⁻¹</text>
+  <text x="608.000000" y="618.000000" font-size="24" fill="#1f5fd1" text-anchor="end" font-family="DejaVu Serif, Georgia, serif">Uν(x)⁻¹</text>
+  <path d="M 806 575 A 54 32 0 0 0 860 607" fill="none" stroke="#0f766e" stroke-width="2.500000" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M 860 607 A 54 32 0 0 0 914 575" fill="none" stroke="#0f766e" stroke-width="2.500000" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M 914 575 A 54 32 0 0 0 860 543" fill="none" stroke="#0f766e" stroke-width="2.500000" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M 860 543 A 54 32 0 0 0 806 575" fill="none" stroke="#0f766e" stroke-width="2.500000" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M 906 583 L 914 569 L 922 583" fill="none" stroke="#0f766e" stroke-width="2.500000" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="860.000000" y="686.000000" font-size="29" fill="#1f2933" text-anchor="middle" font-family="DejaVu Serif, Georgia, serif">plaquette4D</text>
+  <rect x="118.000000" y="315.000000" width="360.000000" height="118.000000" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.350000" opacity="0.960000"/>
+  <text x="140.000000" y="349.000000" font-size="19" fill="#1f2933" text-anchor="start" font-family="DejaVu Serif, Georgia, serif">SU(3) trace bound</text>
+  <text x="140.000000" y="381.000000" font-size="19" fill="#b91c1c" text-anchor="start" font-family="DejaVu Serif, Georgia, serif">-1 ≤ Re Tr(U)/3 ≤ 1</text>
+  <text x="140.000000" y="411.000000" font-size="18" fill="#475569" text-anchor="start" font-family="DejaVu Serif, Georgia, serif">su3_trace_re_bound</text>
+  <rect x="1322.000000" y="315.000000" width="360.000000" height="118.000000" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.350000" opacity="0.960000"/>
+  <text x="1344.000000" y="349.000000" font-size="19" fill="#1f2933" text-anchor="start" font-family="DejaVu Serif, Georgia, serif">Wilson positivity</text>
+  <text x="1344.000000" y="381.000000" font-size="19" fill="#0f766e" text-anchor="start" font-family="DejaVu Serif, Georgia, serif">0 ≤ 1 - Re Tr(P)/3 ≤ 2</text>
+  <text x="1344.000000" y="411.000000" font-size="18" fill="#475569" text-anchor="start" font-family="DejaVu Serif, Georgia, serif">WilsonAction4D_nonneg</text>
+  <rect x="540.000000" y="1095.000000" width="720.000000" height="90.000000" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.350000" opacity="0.960000"/>
+  <text x="900.000000" y="1131.000000" font-size="21" fill="#1f2933" text-anchor="middle" font-family="DejaVu Serif, Georgia, serif">Pμν(x) = Uμ(x) Uν(x+μ) Uμ(x+ν)⁻¹ Uν(x)⁻¹</text>
+  <text x="900.000000" y="1159.000000" font-size="18" fill="#475569" text-anchor="middle" font-family="DejaVu Serif, Georgia, serif">constructive plaquettes, no global plaquette assumptions</text>
+  <text x="900.000000" y="1348.000000" font-size="22" fill="#475569" text-anchor="middle" font-family="DejaVu Serif, Georgia, serif">Illustration of formal objects in SU3Wilson: SU3, plaquette4D, wilsonTerm4D, WilsonAction4D_nonneg.</text>
+</svg>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1800.000000 1400.000000" width="1800.000000" height="1400.000000">
+  <defs>
+    <marker id="arrow-root" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#0f766e"/>
+    </marker>
+  </defs>
+  <rect x="0.000000" y="0.000000" width="1800.000000" height="1400.000000" fill="#fbfaf7" stroke="none" stroke-width="0.000000"/>
+  <text x="900.000000" y="66.000000" font-size="54" fill="#1f2933" text-anchor="middle" font-family="DejaVu Serif, Georgia, serif">SU3Concrete</text>
+  <text x="900.000000" y="100.000000" font-size="24" fill="#475569" text-anchor="middle" font-family="DejaVu Serif, Georgia, serif">by Alektronnik</text>
+  <text x="900.000000" y="202.000000" font-size="32" fill="#475569" text-anchor="middle" font-family="DejaVu Serif, Georgia, serif">Concrete su(3), Gell-Mann generators, structure constants, and Casimirs</text>
+  <circle cx="900.000000" cy="690.000000" r="405.000000" fill="#f0fdf4" stroke="none" stroke-width="0.000000"/>
+  <line x1="504.000000" y1="690.000000" x2="1296.000000" y2="690.000000" stroke="#1f2933" stroke-width="2.000000" fill="none"/>
+  <line x1="900.000000" y1="1086.000000" x2="900.000000" y2="294.000000" stroke="#1f2933" stroke-width="2.000000" fill="none"/>
+  <text x="1289.400000" y="698.000000" font-size="27" fill="#1f2933" text-anchor="start" font-family="DejaVu Serif, Georgia, serif">T₃</text>
+  <text x="875.000000" y="307.200000" font-size="27" fill="#1f2933" text-anchor="end" font-family="DejaVu Serif, Georgia, serif">T₈</text>
+  <text x="900.000000" y="738.000000" font-size="24" fill="#475569" text-anchor="middle" font-family="DejaVu Serif, Georgia, serif">Cartan plane</text>
+  <line x1="900.000000" y1="690.000000" x2="1230.000000" y2="690.000000" stroke="#0f766e" stroke-width="3.500000" fill="none" marker-end="url(#arrow-root)"/>
+  <line x1="900.000000" y1="690.000000" x2="1065.000000" y2="404.220000" stroke="#0f766e" stroke-width="3.500000" fill="none" marker-end="url(#arrow-root)"/>
+  <line x1="900.000000" y1="690.000000" x2="735.000000" y2="404.220000" stroke="#0f766e" stroke-width="3.500000" fill="none" marker-end="url(#arrow-root)"/>
+  <line x1="900.000000" y1="690.000000" x2="570.000000" y2="690.000000" stroke="#0f766e" stroke-width="3.500000" fill="none" marker-end="url(#arrow-root)"/>
+  <line x1="900.000000" y1="690.000000" x2="735.000000" y2="975.780000" stroke="#0f766e" stroke-width="3.500000" fill="none" marker-end="url(#arrow-root)"/>
+  <line x1="900.000000" y1="690.000000" x2="1065.000000" y2="975.780000" stroke="#0f766e" stroke-width="3.500000" fill="none" marker-end="url(#arrow-root)"/>
+  <text x="1255.000000" y="698.000000" font-size="24" fill="#0f766e" text-anchor="start" font-family="DejaVu Serif, Georgia, serif">I₊</text>
+  <text x="545.000000" y="698.000000" font-size="24" fill="#0f766e" text-anchor="end" font-family="DejaVu Serif, Georgia, serif">I₋</text>
+  <text x="1087.000000" y="386.220000" font-size="24" fill="#0f766e" text-anchor="start" font-family="DejaVu Serif, Georgia, serif">V₊</text>
+  <text x="707.000000" y="388.220000" font-size="24" fill="#0f766e" text-anchor="end" font-family="DejaVu Serif, Georgia, serif">U₊</text>
+  <text x="709.000000" y="1003.780000" font-size="24" fill="#0f766e" text-anchor="end" font-family="DejaVu Serif, Georgia, serif">V₋</text>
+  <text x="1095.000000" y="1003.780000" font-size="24" fill="#0f766e" text-anchor="start" font-family="DejaVu Serif, Georgia, serif">U₋</text>
+  <circle cx="900.000000" cy="690.000000" r="8.000000" fill="#1f2933" stroke="#ffffff" stroke-width="2.000000"/>
+  <rect x="145.000000" y="295.000000" width="455.000000" height="154.000000" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.500000" opacity="0.960000"/>
+  <text x="171.000000" y="335.000000" font-size="21" fill="#1f2933" text-anchor="start" font-family="DejaVu Serif, Georgia, serif">anti-Hermitian generators</text>
+  <text x="171.000000" y="371.000000" font-size="23" fill="#b91c1c" text-anchor="start" font-family="DejaVu Serif, Georgia, serif">Tᵃ = i λₐ</text>
+  <text x="171.000000" y="407.000000" font-size="21" fill="#475569" text-anchor="start" font-family="DejaVu Serif, Georgia, serif">[Tᵃ,Tᵇ] = -2 f^{abc} Tᶜ</text>
+  <rect x="1200.000000" y="295.000000" width="455.000000" height="154.000000" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.500000" opacity="0.960000"/>
+  <text x="1226.000000" y="335.000000" font-size="21" fill="#1f2933" text-anchor="start" font-family="DejaVu Serif, Georgia, serif">certified invariants</text>
+  <text x="1226.000000" y="371.000000" font-size="22" fill="#0f766e" text-anchor="start" font-family="DejaVu Serif, Georgia, serif">κ(Tᵃ,Tᵇ) = -3 δᵃᵇ</text>
+  <text x="1226.000000" y="407.000000" font-size="21" fill="#475569" text-anchor="start" font-family="DejaVu Serif, Georgia, serif">∑ₐ TᵃTᵃ = -(16/3) I₃</text>
+  <rect x="615.000000" y="1088.000000" width="570.000000" height="92.000000" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.500000" opacity="0.960000"/>
+  <text x="900.000000" y="1126.000000" font-size="22" fill="#1f2933" text-anchor="middle" font-family="DejaVu Serif, Georgia, serif">structureConstant_jacobi</text>
+  <text x="900.000000" y="1156.000000" font-size="20" fill="#475569" text-anchor="middle" font-family="DejaVu Serif, Georgia, serif">finite certificate over Fin 8</text>
+  <text x="900.000000" y="1348.000000" font-size="22" fill="#475569" text-anchor="middle" font-family="DejaVu Serif, Georgia, serif">Illustration of formal objects in SU3Concrete: gellMannGenerator, structureConstant, adjointCasimir, killingFormBasis, fundamentalCasimir.</text>
+</svg>

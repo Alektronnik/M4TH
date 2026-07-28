@@ -2,6 +2,43 @@
 
 All notable changes to the M4TH formalisation packages.
 
+## [5.0.0] -- 2026-07-29
+
+### Added
+- `SU3Concrete` package: concrete su(3) from Gell-Mann matrices (70 theorems)
+  - `GellMann.lean`: anti-Hermitian generators `Tᵃ = iλₐ`
+  - `LieAlgebra.lean`: matrix commutator Lie algebra, trace-zero conditions
+  - `StructureConstants.lean`: explicit `f^{abc}`, antisymmetry, Jacobi identity
+  - `Commutator.lean`: generator commutator matrix identities
+  - `Representation.lean`: adjoint Casimir `= -3·I₈`, Killing form `κ = -3δ`, fundamental Casimir `= -(16/3)·I₃`
+- `SU3Wilson` package: SU(3) trace bound and Wilson action positivity (23 theorems)
+  - `SU3.lean`: concrete SU(3) group, normalised trace bound `-1 ≤ Re(tr U)/3 ≤ 1`
+  - `Wilson.lean`: plaquette terms in `[0,2]`, Wilson action nonnegative
+  - `Lattice4D.lean`: constructive 4D lattice, `WilsonAction4D_nonneg`
+- `CertifiedElliptic5077` package: certified LMFDB curve 5077a1 (52 theorems)
+  - `Basic.lean`: short Weierstrass layer, coordinate transforms
+  - `IntegralModel.lean`: discriminant `Δ = 5077`, integral-to-short change
+  - `FiniteFieldCounts.lean`: `N₂ = 5`, `N₃ = 7`, `N₅ = 10` (kernel `decide`)
+  - `Entry5077a1.lean`: explicit rational points, certified doublings
+- `PrimeGapsSophie` package: Sophie Germain primes and higher-order gap parity (9 theorems)
+  - `SophieGermain.lean`: `p ≡ 2 (mod 3)`, `p ≡ 5 (mod 6)` for Sophie Germain primes
+  - `PrimeGap.lean`: ordinary prime gaps are even
+  - `HigherOrder.lean`: nth-order finite differences are even for odd primes
+- Paper `Four_Certified_Formalisations_in_Lean4.md` in `M4THDocs/`
+- Native Lean-generated SVG cover figures for all 4 new packages
+- All generators aligned: `esc body`, paths, `lean-toolchain`, `lake-manifest.json`
+
+### Changed
+- README, CHANGELOG, CITATION updated for 15 packages across 5 releases
+- `PrimeGapsSophie`: `textAt`/`line` now accept `extra` param, `arrowMarker` added
+- All 4 new packages: output paths corrected from `T-ORIK4/Math` to `M4TH`
+- Live MANUAL files: T-ORIK4 paths corrected to M4TH
+
+### Verification
+- Zero `axiom`, zero `sorry` across all 15 packages (47 source modules)
+- Every headline theorem: `[propext, Classical.choice, Quot.sound]`
+- All 15 SVGs valid XML, generated from Lean code
+
 ## [4.0.0] -- 2026-07-28
 
 ### Added

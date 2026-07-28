@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1800.000000 1400.000000" width="1800.000000" height="1400.000000">
+  <rect x="0.000000" y="0.000000" width="1800.000000" height="1400.000000" fill="#fbfaf7" stroke="none" stroke-width="0.000000"/>
+  <text x="900.000000" y="66.000000" font-size="52" fill="#1f2933" text-anchor="middle" font-family="DejaVu Serif, Georgia, serif">CertifiedElliptic5077</text>
+  <text x="900.000000" y="100.000000" font-size="24" fill="#475569" text-anchor="middle" font-family="DejaVu Serif, Georgia, serif">by Alektronnik</text>
+  <text x="900.000000" y="202.000000" font-size="31" fill="#475569" text-anchor="middle" font-family="DejaVu Serif, Georgia, serif">Certified 5077a1 data: models, discriminant, local counts, and rational points</text>
+  <rect x="220.000000" y="305.000000" width="940.000000" height="740.000000" fill="#eef7f2" stroke="#1f2933" stroke-width="2.200000" opacity="0.550000"/>
+  <line x1="272.222222" y1="305.000000" x2="272.222222" y2="1045.000000" stroke="#d1d5db" stroke-width="0.650000" fill="none" stroke-dasharray="4 7"/>
+  <line x1="481.111111" y1="305.000000" x2="481.111111" y2="1045.000000" stroke="#d1d5db" stroke-width="0.650000" fill="none" stroke-dasharray="4 7"/>
+  <line x1="690.000000" y1="305.000000" x2="690.000000" y2="1045.000000" stroke="#d1d5db" stroke-width="0.650000" fill="none" stroke-dasharray="4 7"/>
+  <line x1="898.888889" y1="305.000000" x2="898.888889" y2="1045.000000" stroke="#d1d5db" stroke-width="0.650000" fill="none" stroke-dasharray="4 7"/>
+  <line x1="1107.777778" y1="305.000000" x2="1107.777778" y2="1045.000000" stroke="#d1d5db" stroke-width="0.650000" fill="none" stroke-dasharray="4 7"/>
+  <line x1="220.000000" y1="952.500000" x2="1160.000000" y2="952.500000" stroke="#d1d5db" stroke-width="0.650000" fill="none" stroke-dasharray="4 7"/>
+  <line x1="220.000000" y1="813.750000" x2="1160.000000" y2="813.750000" stroke="#d1d5db" stroke-width="0.650000" fill="none" stroke-dasharray="4 7"/>
+  <line x1="220.000000" y1="675.000000" x2="1160.000000" y2="675.000000" stroke="#d1d5db" stroke-width="0.650000" fill="none" stroke-dasharray="4 7"/>
+  <line x1="220.000000" y1="536.250000" x2="1160.000000" y2="536.250000" stroke="#d1d5db" stroke-width="0.650000" fill="none" stroke-dasharray="4 7"/>
+  <line x1="220.000000" y1="397.500000" x2="1160.000000" y2="397.500000" stroke="#d1d5db" stroke-width="0.650000" fill="none" stroke-dasharray="4 7"/>
+  <line x1="220.000000" y1="675.000000" x2="1160.000000" y2="675.000000" stroke="#1f2933" stroke-width="1.800000" fill="none"/>
+  <line x1="690.000000" y1="305.000000" x2="690.000000" y2="1045.000000" stroke="#1f2933" stroke-width="1.800000" fill="none"/>
+  <text x="690.000000" y="1121.000000" font-size="30" fill="#1f2933" text-anchor="middle" font-family="DejaVu Serif, Georgia, serif">x</text>
+  <text x="144.000000" y="675.000000" font-size="30" fill="#1f2933" text-anchor="middle" font-family="DejaVu Serif, Georgia, serif" transform="rotate(-90 144.000000 675.000000)">Y</text>
+  <polyline points="375.367064,675.000000 376.666667,651.875000 418.444444,553.740316 460.222222,521.592172 502.000000,508.127826 543.777778,506.292071 585.555556,513.125000 627.333333,527.043383 669.111111,547.145714 690.000000,559.375000 710.888889,573.060976 752.666667,605.378765 794.444444,651.875000 801.318351,675.000000" stroke="#0f766e" stroke-width="4.200000" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <polyline points="375.367064,675.000000 376.666667,698.125000 418.444444,796.259684 460.222222,828.407828 502.000000,841.872174 543.777778,843.707929 585.555556,836.875000 627.333333,822.956617 669.111111,802.854286 690.000000,790.625000 710.888889,776.939024 752.666667,744.621235 794.444444,698.125000 801.318351,675.000000" stroke="#0f766e" stroke-width="4.200000" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <polyline points="893.314584,675.000000 898.888889,651.875000 919.777778,618.393330 940.666667,591.314325 982.444444,539.352589 1024.222222,486.461042 1066.000000,431.556234 1107.777778,374.375000 1139.111111,329.958258" stroke="#0f766e" stroke-width="4.200000" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <polyline points="893.314584,675.000000 898.888889,698.125000 919.777778,731.606670 940.666667,758.685675 982.444444,810.647411 1024.222222,863.538958 1066.000000,918.443766 1107.777778,975.625000 1139.111111,1020.041743" stroke="#0f766e" stroke-width="4.200000" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="794.444444" cy="651.875000" r="7.500000" fill="#b91c1c" stroke="#ffffff" stroke-width="1.700000"/>
+  <text x="812.444444" y="633.875000" font-size="22" fill="#b91c1c" text-anchor="start" font-family="DejaVu Serif, Georgia, serif">P₁</text>
+  <circle cx="898.888889" cy="651.875000" r="7.500000" fill="#b91c1c" stroke="#ffffff" stroke-width="1.700000"/>
+  <text x="916.888889" y="633.875000" font-size="22" fill="#b91c1c" text-anchor="start" font-family="DejaVu Serif, Georgia, serif">P₂</text>
+  <circle cx="376.666667" cy="651.875000" r="7.500000" fill="#b91c1c" stroke="#ffffff" stroke-width="1.700000"/>
+  <text x="356.666667" y="637.875000" font-size="22" fill="#b91c1c" text-anchor="end" font-family="DejaVu Serif, Georgia, serif">P₋₃</text>
+  <circle cx="690.000000" cy="559.375000" r="7.500000" fill="#1f5fd1" stroke="#ffffff" stroke-width="1.700000"/>
+  <text x="708.000000" y="541.375000" font-size="22" fill="#1f5fd1" text-anchor="start" font-family="DejaVu Serif, Georgia, serif">P₃</text>
+  <text x="423.666667" y="478.437500" font-size="25" fill="#0f766e" text-anchor="start" font-family="DejaVu Serif, Georgia, serif">Y² = x³ - 7x + 25/4</text>
+  <rect x="1210.000000" y="330.000000" width="425.000000" height="150.000000" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.450000" opacity="0.960000"/>
+  <text x="1234.000000" y="368.000000" font-size="20" fill="#1f2933" text-anchor="start" font-family="DejaVu Serif, Georgia, serif">integral model</text>
+  <text x="1234.000000" y="402.000000" font-size="21" fill="#475569" text-anchor="start" font-family="DejaVu Serif, Georgia, serif">y² + y = x³ - 7x + 6</text>
+  <text x="1234.000000" y="438.000000" font-size="22" fill="#1f5fd1" text-anchor="start" font-family="DejaVu Serif, Georgia, serif">Y = y + 1/2</text>
+  <rect x="1210.000000" y="525.000000" width="425.000000" height="150.000000" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.450000" opacity="0.960000"/>
+  <text x="1234.000000" y="563.000000" font-size="20" fill="#1f2933" text-anchor="start" font-family="DejaVu Serif, Georgia, serif">certified invariants</text>
+  <text x="1234.000000" y="597.000000" font-size="24" fill="#b91c1c" text-anchor="start" font-family="DejaVu Serif, Georgia, serif">Δ = 5077</text>
+  <text x="1234.000000" y="633.000000" font-size="19" fill="#475569" text-anchor="start" font-family="DejaVu Serif, Georgia, serif">shortDiscriminant_E5077</text>
+  <rect x="1210.000000" y="720.000000" width="425.000000" height="160.000000" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.450000" opacity="0.960000"/>
+  <text x="1234.000000" y="758.000000" font-size="20" fill="#1f2933" text-anchor="start" font-family="DejaVu Serif, Georgia, serif">finite local counts</text>
+  <text x="1234.000000" y="794.000000" font-size="21" fill="#0f766e" text-anchor="start" font-family="DejaVu Serif, Georgia, serif">N₂ = 5,  N₃ = 7,  N₅ = 10</text>
+  <text x="1234.000000" y="832.000000" font-size="19" fill="#475569" text-anchor="start" font-family="DejaVu Serif, Georgia, serif">a₂ = -2, a₃ = -3, a₅ = -4</text>
+  <text x="900.000000" y="1348.000000" font-size="22" fill="#475569" text-anchor="middle" font-family="DejaVu Serif, Georgia, serif">Illustration of formal objects in CertifiedElliptic5077: E5077, E5077Integral, N_p, delta_E5077_integral, certified point doubles.</text>
+</svg>

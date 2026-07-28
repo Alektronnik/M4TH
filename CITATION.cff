@@ -2,8 +2,8 @@ cff-version: 1.2.0
 message: "If you use this formalisation in your research, please cite it as follows."
 title: "M4TH: Formalised PDE and Analytic Number Theory in Lean 4"
 doi: 10.5281/zenodo.21635317
-version: 4.0.0
-date-released: 2026-07-28
+version: 5.0.0
+date-released: 2026-07-29
 authors:
   - family-names: Izquierdo Perez
     given-names: Bezalel
@@ -12,8 +12,9 @@ authors:
 repository-code: "https://github.com/Alektronnik/M4TH"
 url: "https://github.com/Alektronnik/M4TH"
 abstract: >
-  Self-contained formalisation in Lean 4 over Mathlib of elementary PDE theory
-  and analytic number theory. Eleven independent packages across four releases:
+  Self-contained formalisation in Lean 4 over Mathlib of elementary PDE theory,
+  analytic number theory, gauge theory, lattice field theory, and arithmetic
+  geometry. Fifteen independent packages across five releases:
   v1.0.0 -- PDE (ConservationLaws, BurgersBlowUp, KdV).
   v2.0.0 -- Riemann-von Mangoldt (DirichletEta, ZetaZeroCounting, XiLogResidue,
   XiLogDeriv).
@@ -22,6 +23,9 @@ abstract: >
   v4.0.0 -- Argument principle over the critical box, asymptotic contour
   synthesis, discrete Abel-Chebyshev bridge (XiArgumentPrinciple,
   XiAsymptoticFrontier, DiscreteAbelChebyshev).
+  v5.0.0 -- Concrete su(3), SU(3) Wilson positivity, certified elliptic curve
+  5077a1, Sophie Germain prime-gap parity (SU3Concrete, SU3Wilson,
+  CertifiedElliptic5077, PrimeGapsSophie).
   Zero axioms, zero sorry.
   Every headline theorem carries the clean axiom certificate [propext,
   Classical.choice, Quot.sound].
@@ -51,5 +55,11 @@ keywords:
   - Abel summation
   - Chebyshev bounds
   - prime number theorem
+  - Lie algebras
+  - Gell-Mann matrices
+  - lattice gauge theory
+  - Wilson action
+  - elliptic curves
+  - Sophie Germain primes
 license: Apache-2.0
 type: software
