@@ -59,8 +59,9 @@ $$
 >
 > ```lean
 > theorem RiemannLogResidue.entireXi_logDeriv_residue_eq_multiplicity
->     (z : ℂ) (hz : entireXi z = 0) :
->     residue (logDeriv entireXi) z = analyticOrderAt entireXi z
+>     (s : ℂ) (hs : entireXi s = 0) :
+>     Filter.Tendsto (fun w => (w - s) * entireXiLogDeriv w)
+>       (𝓝[≠] s) (𝓝 (entireXiZeroMultiplicity s))
 > ```
 
 ---
@@ -82,8 +83,9 @@ $$
 >
 > ```lean
 > theorem RiemannLogResidue.entireXi_divisor_finset_eq_zerosUpToImFinset
->     (T : ℝ) (hSafe : IsSafeHeight T) :
->     (entireXi.divisor (entireXi_meromorphicOn_criticalBox T)).support =
+>     (T : ℝ) (hSafe : IsSafeHeight T)
+>     (hne : entireXi_ne_zero_on_box_boundary T) :
+>     (divisor_support_criticalBox_finite T).toFinset =
 >       zerosUpToImFinset T
 > ```
 

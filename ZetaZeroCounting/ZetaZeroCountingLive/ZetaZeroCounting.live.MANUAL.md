@@ -57,8 +57,8 @@ formula; that is the conditional frontier addressed by v4.0.0 packages.
 > **In Lean:**
 >
 > ```lean
-> noncomputable def Riemann.zeroCountingFun (T : ℝ) : ℕ
-> noncomputable def Riemann.distinctZeroCount (T : ℝ) : ℕ
+> noncomputable def Riemann.zeroCountingFun (T : ℝ) : ℝ
+> noncomputable def Riemann.distinctZeroCount (T : ℝ) : ℝ
 > ```
 
 `zeroCountingFun` counts with multiplicities; `distinctZeroCount` counts
@@ -85,8 +85,8 @@ distinct zeros.
 >
 > ```lean
 > theorem Riemann.exists_safe_height_above
->     (T : ℝ) (ε : ℝ) (hε : 0 < ε) :
->     ∃ T' ∈ Set.Ioc T (T + ε), IsSafeHeight T'
+>     (hT : 0 < T) :
+>     ∃ T', T ≤ T' ∧ IsSafeHeight T'
 > ```
 
 ---

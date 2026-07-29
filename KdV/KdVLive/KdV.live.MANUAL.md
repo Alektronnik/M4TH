@@ -58,8 +58,9 @@ profile, and the compact-support conservation laws for mass and energy.
 > theorem KdV.travellingWave_reduction
 >     {T : ℝ} {u : ℝ → ℝ → ℝ} (sol : IsSolution T u)
 >     (c : ℝ) (tw : TravellingWave c)
->     (h_eq : ∀ t x, u t x = tw.profile (x - c * t)) :
->     ∀ x, -c * deriv tw.profile x +
+>     (h_eq : ∀ t x, u t x = tw.profile (x - c * t))
+>     {t : ℝ} (ht : t ∈ Set.Ico 0 T) (x : ℝ) :
+>     -c * deriv tw.profile x +
 >       tw.profile x * deriv tw.profile x +
 >       deriv (deriv (deriv tw.profile)) x = 0
 > ```
@@ -123,8 +124,9 @@ profile, and the compact-support conservation laws for mass and energy.
 >
 > ```lean
 > theorem KdV.ConservedSolution.massRate_conserved
->     (u : ConservedSolution) (t : ℝ) :
->     HasDerivAt (fun τ => ∫ x, u τ x) 0 t
+>     (sol : ConservedSolution T u)
+>     {t : ℝ} (ht : t ∈ Set.Ico 0 T) :
+>     ∫ x, KdV.ut u t x = 0
 > ```
 
 > **Theorem 4. Energy conservation.**
@@ -137,8 +139,9 @@ profile, and the compact-support conservation laws for mass and energy.
 >
 > ```lean
 > theorem KdV.ConservedSolution.energyRate_conserved
->     (u : ConservedSolution) (t : ℝ) :
->     HasDerivAt (fun τ => ∫ x, (u τ x)^2) 0 t
+>     (sol : ConservedSolution T u)
+>     {t : ℝ} (ht : t ∈ Set.Ico 0 T) :
+>     ∫ x, u t x * KdV.ut u t x = 0
 > ```
 
 ---

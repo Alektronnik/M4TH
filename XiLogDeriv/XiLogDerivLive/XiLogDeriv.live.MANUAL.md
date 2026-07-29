@@ -62,7 +62,7 @@ digamma function away from its poles.
 >
 > ```lean
 > theorem RiemannLogDeriv.gammaRFactorLogDeriv_eq_neg_half_log_pi_add_half_digamma
->     (s : ℂ) (hs : s / 2 ∉ Set.range (fun n : ℤ => (n : ℂ))) :
+>     (s : ℂ) (hγ : Complex.Gammaℝ s ≠ 0) :
 >     gammaRFactorLogDeriv s =
 >       -((Real.log Real.pi) / 2) + (1/2) * digamma (s/2)
 > ```
@@ -87,9 +87,10 @@ digamma function away from its poles.
 >
 > ```lean
 > theorem RiemannLogDeriv.entireXiLogDeriv_expansion_of_ne_zero_ne_one
->     {s : ℂ} (hs_poly : s ≠ 0 ∧ s ≠ 1)
->     (hs_gamma : s / 2 ∉ Set.range (fun n : ℤ => (n : ℂ))) :
->     entireXiLogDeriv s = ...
+>     {s : ℂ} (_hξ : entireXi s ≠ 0)
+>     (hΛ : completedRiemannZeta s ≠ 0) :
+>     entireXiLogDeriv s =
+>       1/s + 1/(s-1) + completedRiemannZetaLogDeriv s
 > ```
 
 ---

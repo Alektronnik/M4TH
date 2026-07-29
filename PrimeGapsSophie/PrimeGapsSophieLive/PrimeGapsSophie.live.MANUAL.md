@@ -42,7 +42,7 @@ for the alternating sum of binomial coefficients.
 >
 > ```lean
 > theorem PrimeGapsSophie.sophie_germain_mod3_eq_2
->     {p : ℕ} (hp : IsSophieGermainPrime p) (hp3 : 3 < p) :
+>     {p : ℕ} (hp : IsSophieGermainPrime p) (hp5 : p ≥ 5) :
 >     p % 3 = 2
 > ```
 
@@ -93,7 +93,7 @@ for the alternating sum of binomial coefficients.
 > **In Lean:**
 >
 > ```lean
-> def PrimeGapsSophie.nthOrderGap (N : ℕ) (p : ℕ → ℕ) (k : ℕ) : ℤ :=
+> def PrimeGapsSophie.nthOrderGap (N : ℕ) (p : ℕ → ℤ) : ℤ :=
 >   ∑ i ∈ range (N + 1),
 >     (-1 : ℤ) ^ i * ((Nat.choose N i : ℤ) * (p (k + N - i) : ℤ))
 > ```
@@ -130,8 +130,8 @@ for the alternating sum of binomial coefficients.
 > theorem PrimeGapsSophie.nthOrderGap_even_of_odd_primes
 >     (N : ℕ) (hN : N > 0) (p : ℕ → ℕ)
 >     (h_prime : ∀ i, i ≤ N → Nat.Prime (p i))
->     (h_odd : ∀ i, i ≤ N → 2 < p i) :
->     Even (nthOrderGap N p 0)
+>     (h_gt_2 : ∀ i, i ≤ N → 2 < p i) :
+>     ∃ k : ℤ, nthOrderGap N (fun i => (p i : ℤ)) = 2 * k
 > ```
 
 ---
