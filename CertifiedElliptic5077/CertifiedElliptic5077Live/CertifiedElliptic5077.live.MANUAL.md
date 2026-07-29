@@ -619,8 +619,5 @@ cd CertifiedElliptic5077 && lake build
 
 The package build command is:
 
-```text
-lake build CertifiedElliptic5077
-```
 
 Both checks are intended to be rerun before publication or Zulip discussion.

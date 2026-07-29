@@ -464,21 +464,14 @@ structure.
 
 ## VIII. Axiom Certificate
 
-This development contains no package-local axioms and no `sorry`.
-
-The intended certificate commands are:
-
-```lean
-import BurgersBlowUp
-
+```text
+printf 'import BurgersBlowUp
 #print axioms Burgers.linear_ode_uniqueness
 #print axioms Burgers.riccati_ode_solution
 #print axioms Burgers.gradient_eq_neg_one_div
-#print axioms Burgers.not_isRegularSolution_initialRamp
+#print axioms Burgers.not_isRegularSolution_initialRamp' \
+  | lake env lean --stdin
 ```
-
-The expected terminal output contains only the standard foundational axioms used
-by Mathlib:
 
 ```text
 'Burgers.linear_ode_uniqueness' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -487,11 +480,9 @@ by Mathlib:
 'Burgers.not_isRegularSolution_initialRamp' depends on axioms: [propext, Classical.choice, Quot.sound]
 ```
 
-Any additional package-local axiom would be a defect.
-
 ---
 
-## X. Source Architecture
+## IX. Source Architecture
 
 For web inspection and study, use:
 

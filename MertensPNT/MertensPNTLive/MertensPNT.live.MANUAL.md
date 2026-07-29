@@ -748,8 +748,5 @@ cd MertensPNT && lake build
 
 The package build command is:
 
-```text
-lake build MertensPNT
-```
 
 Both checks are intended to be rerun before publication or Zulip discussion.

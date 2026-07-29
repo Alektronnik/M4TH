@@ -557,8 +557,5 @@ cd SU3Wilson && lake build
 
 The package build command is:
 
-```text
-lake build SU3Wilson
-```
 
 Both checks are intended to be rerun before publication or Zulip discussion.

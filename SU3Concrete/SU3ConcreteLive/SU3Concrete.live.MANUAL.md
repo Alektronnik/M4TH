@@ -684,8 +684,5 @@ cd SU3Concrete && lake build
 
 The package build command is:
 
-```text
-lake build SU3Concrete
-```
 
 Both checks are intended to be rerun before publication or Zulip discussion.

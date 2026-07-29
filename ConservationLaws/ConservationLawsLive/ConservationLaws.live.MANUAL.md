@@ -641,21 +641,14 @@ compression satisfies Lax and has the admissible entropy sign.
 
 ## X. Axiom Certificate
 
-This development contains no package-local axioms and no `sorry`.
-
-The intended certificate commands are:
-
-```lean
-import ConservationLaws
-
+```text
+printf 'import ConservationLaws
 #print axioms ConservationLaw.hasShockIntegralReduction
 #print axioms ConservationLaw.isWeakSolution_shockProfile_of_rankineHugoniot
 #print axioms ConservationLaw.laxEntropy_iff_compression
-#print axioms ConservationLaw.expansion_midpoint_is_weak_but_not_entropic
+#print axioms ConservationLaw.expansion_midpoint_is_weak_but_not_entropic' \
+  | lake env lean --stdin
 ```
-
-The expected terminal output contains only the standard foundational axioms used
-by Mathlib:
 
 ```text
 'ConservationLaw.hasShockIntegralReduction' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -664,11 +657,9 @@ by Mathlib:
 'ConservationLaw.expansion_midpoint_is_weak_but_not_entropic' depends on axioms: [propext, Classical.choice, Quot.sound]
 ```
 
-Any additional package-local axiom would be a defect.
-
 ---
 
-## X. Source Architecture
+## XI. Source Architecture
 
 For web inspection and study, use:
 
