@@ -157,7 +157,7 @@ printf 'import PrimeGapsSophie
 ' | lake env lean --stdin
 ```
 
-Expected: `[propext, Classical.choice, Quot.sound]`
+'PrimeGapsSophie.sophie_germain_mod6_eq_5' depends on axioms: [propext, Classical.choice, Quot.sound]
 
 ---
 

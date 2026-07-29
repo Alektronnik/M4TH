@@ -113,7 +113,7 @@ printf 'import XiLogResidue
 ' | lake env lean --stdin
 ```
 
-Expected: `[propext, Classical.choice, Quot.sound]`
+'RiemannLogResidue.entireXi_logDeriv_residue_eq_multiplicity' depends on axioms: [propext, Classical.choice, Quot.sound]
 
 ---
 

@@ -639,7 +639,7 @@ compression satisfies Lax and has the admissible entropy sign.
 
 ---
 
-## X. Logical Certificate
+## X. Axiom Certificate
 
 This development contains no package-local axioms and no `sorry`.
 

@@ -462,7 +462,7 @@ structure.
 
 ---
 
-## VIII. Logical Certificate
+## VIII. Axiom Certificate
 
 This development contains no package-local axioms and no `sorry`.
 

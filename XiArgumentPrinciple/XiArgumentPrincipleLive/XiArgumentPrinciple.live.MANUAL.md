@@ -201,7 +201,7 @@ printf 'import XiArgumentPrinciple
 ' | lake env lean --stdin
 ```
 
-Expected: `[propext, Classical.choice, Quot.sound]`
+'RiemannArgumentPrinciple.entireXiContourIntegral_eq_rectangleIntegral' depends on axioms: [propext, Classical.choice, Quot.sound]
 
 ---
 

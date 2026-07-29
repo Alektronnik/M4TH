@@ -139,7 +139,7 @@ printf 'import ZetaZeroCounting
 ' | lake env lean --stdin
 ```
 
-Expected: `[propext, Classical.choice, Quot.sound]`
+'Riemann.zerosUpToIm_finite' depends on axioms: [propext, Classical.choice, Quot.sound]
 
 ---
 

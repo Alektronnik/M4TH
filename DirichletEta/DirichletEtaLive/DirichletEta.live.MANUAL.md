@@ -183,7 +183,7 @@ printf 'import DirichletEta
 ' | lake env lean --stdin
 ```
 
-Expected: `[propext, Classical.choice, Quot.sound]`
+'DirichletEta.eta_eq_zeta_of_re_gt_one' depends on axioms: [propext, Classical.choice, Quot.sound]
 
 ---
 

@@ -204,7 +204,7 @@ printf 'import XiAsymptoticFrontier
 ' | lake env lean --stdin
 ```
 
-Expected: `[propext, Classical.choice, Quot.sound]`
+'RiemannAsymptoticFrontier.riemann_von_mangoldt_from_contour_frontier' depends on axioms: [propext, Classical.choice, Quot.sound]
 
 ---
 

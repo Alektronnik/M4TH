@@ -116,7 +116,7 @@ printf 'import XiLogDeriv
 ' | lake env lean --stdin
 ```
 
-Expected: `[propext, Classical.choice, Quot.sound]`
+'RiemannLogDeriv.logDeriv_entireXiPolynomialFactor_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
 
 ---
 

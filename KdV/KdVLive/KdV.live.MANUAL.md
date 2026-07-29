@@ -165,7 +165,7 @@ printf 'import KdV
 ' | lake env lean --stdin
 ```
 
-Expected: `[propext, Classical.choice, Quot.sound]`
+'KdV.soliton_satisfies_kdv' depends on axioms: [propext, Classical.choice, Quot.sound]
 
 ---
 

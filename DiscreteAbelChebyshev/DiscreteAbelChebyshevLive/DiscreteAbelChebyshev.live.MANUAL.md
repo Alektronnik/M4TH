@@ -166,7 +166,7 @@ printf 'import DiscreteAbelChebyshev
 ' | lake env lean --stdin
 ```
 
-Expected: `[propext, Classical.choice, Quot.sound]`
+'DiscreteAbelChebyshev.abel_summation' depends on axioms: [propext, Classical.choice, Quot.sound]
 
 ---
 
