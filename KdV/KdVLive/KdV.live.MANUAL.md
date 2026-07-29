@@ -32,41 +32,38 @@ u(t,x) = 3c \operatorname{sech}^2\Bigl(\frac{\sqrt{c}}{2}(x - ct)\Bigr),
 \qquad c > 0.
 $$
 
-The package proves three facts: the travelling-wave reduction, the exact
-hyperbolic soliton profile, and the compact-support conservation laws for
-mass and energy.
+The package proves the travelling-wave reduction, the exact hyperbolic soliton
+profile, and the compact-support conservation laws for mass and energy.
 
 ---
 
 ## II. Travelling-Wave Reduction
 
-> **Definition 1. Travelling-wave ansatz.**
->
-> $$
-> u(t,x) = f(x - ct).
-> $$
+> **Definition 1. Travelling-wave structure.**
 >
 > **In Lean:**
 >
 > ```lean
-> noncomputable def KdV.travellingWave (c : ℝ) (f : ℝ → ℝ) (t x : ℝ) : ℝ :=
->   f (x - c * t)
+> structure KdV.TravellingWave (c : ℝ) where
+>   profile : ℝ → ℝ
+>   h_contdiff : ContDiff ℝ 3 profile
 > ```
 
 > **Theorem 1. Travelling-wave reduction.**
 >
-> Substituting the ansatz into KdV reduces it to the stationary ODE
->
-> $$
-> -c f' + f f' + f''' = 0.
-> $$
+> Substituting a travelling wave \(f(x - ct)\) into KdV reduces it to the
+> stationary ODE \(-c f' + f f' + f''' = 0\).
 >
 > **In Lean:**
 >
 > ```lean
-> theorem KdV.travellingWave_reduction (c : ℝ) (f : ℝ → ℝ)
->     (hf : ContDiff ℝ 3 f) (t x : ℝ) :
->     (travellingWave c f) satisfies the KdV ODE iff ...
+> theorem KdV.travellingWave_reduction
+>     {T : ℝ} {u : ℝ → ℝ → ℝ} (sol : IsSolution T u)
+>     (c : ℝ) (tw : TravellingWave c)
+>     (h_eq : ∀ t x, u t x = tw.profile (x - c * t)) :
+>     ∀ x, -c * deriv tw.profile x +
+>       tw.profile x * deriv tw.profile x +
+>       deriv (deriv (deriv tw.profile)) x = 0
 > ```
 
 ---
@@ -83,29 +80,27 @@ mass and energy.
 >
 > ```lean
 > noncomputable def KdV.solitonProfile (c : ℝ) (x : ℝ) : ℝ :=
->   3 * c * (Real.sech ((Real.sqrt c / 2) * x)) ^ 2
+>   3 * c * (sech ((Real.sqrt c / 2) * x)) ^ 2
 > ```
 
 > **Lemma 1. Hyperbolic-function calculus.**
 >
-> The hyperbolic identities needed for the verification: derivatives of
-> \(\operatorname{sech}\), \(\operatorname{tanh}\), and the algebraic
-> relations between them.
+> The package uses a local `sech` with the standard identities.
 >
 > **In Lean:**
 >
 > ```lean
-> lemma KdV.sech_deriv (x : ℝ) : deriv Real.sech x = -Real.sech x * Real.tanh x
-> lemma KdV.sech_sq_add_tanh_sq (x : ℝ) : Real.sech x ^ 2 + Real.tanh x ^ 2 = 1
+> lemma KdV.hasDerivAt_sech (x : ℝ) :
+>     HasDerivAt sech (-sech x * Real.tanh x) x
+>
+> lemma KdV.sech_sq_eq_one_sub_tanh_sq (x : ℝ) :
+>     sech x ^ 2 = 1 - Real.tanh x ^ 2
 > ```
 
 > **Theorem 2. Soliton satisfies the ODE.**
 >
 > For all \(c > 0\), the profile \(\phi_c\) satisfies
->
-> $$
-> -c \phi_c' + \phi_c \phi_c' + \phi_c''' = 0.
-> $$
+> \(-c \phi_c' + \phi_c \phi_c' + \phi_c''' = 0\).
 >
 > **In Lean:**
 >
@@ -119,16 +114,6 @@ mass and energy.
 ---
 
 ## IV. Conservation Laws
-
-> **Definition 3. Conserved quantities for compactly supported solutions.**
->
-> **In Lean:**
->
-> ```lean
-> structure KdV.ConservedSolution (u : ℝ → ℝ → ℝ) where
->   satisfies_kdv : ∀ t x, ...
->   compact_support : ∀ t, HasCompactSupport (u t)
-> ```
 
 > **Theorem 3. Mass conservation.**
 >
@@ -166,8 +151,8 @@ mass and energy.
 Basic -> Hyperbolic -> Soliton -> ConservationLaws
 ```
 
-- `Basic` -- KdV operator, travelling-wave ansatz
-- `Hyperbolic` -- derivatives of sech/tanh, algebraic identities
+- `Basic` -- KdV operator, travelling-wave structure, reduction
+- `Hyperbolic` -- derivatives of local `sech`, algebraic identities
 - `Soliton` -- exact profile, ODE satisfaction
 - `ConservationLaws` -- compact support, mass/energy integrals
 

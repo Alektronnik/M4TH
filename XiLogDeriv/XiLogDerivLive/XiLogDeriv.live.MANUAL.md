@@ -19,40 +19,16 @@ Lean file is the certificate.
 
 ## I. The Mathematical Problem
 
-The Riemann Xi function is defined as
-
-$$
-\Xi(s) = \tfrac{1}{2} s (s-1) \pi^{-s/2} \Gamma(\tfrac{s}{2}) \zeta(s).
-$$
-
-Its logarithmic derivative decomposes into three summands:
-
-$$
-\frac{\Xi'}{\Xi}(s) = P(s) + G(s) + Z(s)
-$$
-
-where \(P\) is the polynomial factor, \(G\) is the gamma factor, and \(Z\) is
-the zeta factor.  The package proves the closed-form expansion of each summand
-and establishes the continuity of the digamma function away from its poles.
+The Riemann Xi function decomposes as \(\Xi(s) = \tfrac{1}{2} s (s-1) \pi^{-s/2} \Gamma(s/2) \zeta(s)\).
+Its logarithmic derivative splits into three summands: polynomial, gamma, and zeta.
+The package proves the closed-form expansion and establishes the continuity of the
+digamma function away from its poles.
 
 ---
 
 ## II. The Polynomial Factor
 
-> **Definition 1. Entire Xi polynomial factor.**
->
-> **In Lean:**
->
-> ```lean
-> noncomputable def RiemannLogDeriv.entireXiPolynomialFactor (s : ℂ) : ℂ :=
->   s * (s - 1) * completedRiemannZeta₀ s + 1
-> ```
-
 > **Theorem 1. Log-derivative of the polynomial factor.**
->
-> $$
-> \frac{P'}{P}(s) = \frac{1}{s} + \frac{1}{s-1}.
-> $$
 >
 > **In Lean:**
 >
@@ -66,20 +42,18 @@ and establishes the continuity of the digamma function away from its poles.
 
 ## III. The Gamma Factor and Digamma Identity
 
-> **Definition 2. Real gamma factor.**
+> **Definition 1. Real gamma factor.**
 >
-> $$
-> \Gamma_{\mathbb{R}}(s) = \pi^{-s/2} \Gamma(s/2).
-> $$
+> The gamma factor uses Mathlib's `Complex.Gammaℝ`.
 >
 > **In Lean:**
 >
 > ```lean
-> noncomputable def RiemannLogDeriv.gammaRFactor (s : ℂ) : ℂ :=
->   (Real.pi : ℂ) ^ (-s / 2) * Complex.Gamma (s / 2)
+> noncomputable def RiemannLogDeriv.gammaRFactorLogDeriv (s : ℂ) : ℂ :=
+>   logDeriv (fun z => Complex.Gammaℝ z) s
 > ```
 
-> **Theorem 2. Digamma identity for the real gamma factor.**
+> **Theorem 2. Digamma identity.**
 >
 > $$
 > \frac{\Gamma_{\mathbb{R}}'}{\Gamma_{\mathbb{R}}}(s) =
@@ -91,25 +65,18 @@ and establishes the continuity of the digamma function away from its poles.
 > ```lean
 > theorem RiemannLogDeriv.gammaRFactorLogDeriv_eq_neg_half_log_pi_add_half_digamma
 >     (s : ℂ) (hs : s / 2 ∉ Set.range (fun n : ℤ => (n : ℂ))) :
->     logDeriv gammaRFactor s = -((Real.log Real.pi) / 2) + (1/2) * digamma (s/2)
+>     gammaRFactorLogDeriv s =
+>       -((Real.log Real.pi) / 2) + (1/2) * digamma (s/2)
 > ```
 
-> **Lemma 1. Gamma factor non-vanishing and differentiability.**
+> **Lemma 1. Continuity of digamma.**
 >
 > **In Lean:**
 >
 > ```lean
-> lemma RiemannLogDeriv.gammaRFactor_ne_zero (s : ℂ)
->     (hs : s / 2 ∉ Set.range (fun n : ℤ => (n : ℂ))) : gammaRFactor s ≠ 0
-> ```
-
-> **Lemma 2. Continuity of digamma away from poles.**
->
-> **In Lean:**
->
-> ```lean
-> lemma RiemannLogDeriv.digamma_continuousOn_complement_poles :
->     ContinuousOn digamma {s | s ∉ Set.range (fun n : ℤ => (n : ℂ))}
+> lemma RiemannLogDeriv.digamma_continuousOn_of_forall_im_ne_zero
+>     {S : Set ℂ} (hS : ∀ z ∈ S, z.im ≠ 0) :
+>     ContinuousOn digamma S
 > ```
 
 ---
@@ -121,8 +88,9 @@ and establishes the continuity of the digamma function away from its poles.
 > **In Lean:**
 >
 > ```lean
-> theorem RiemannLogDeriv.entireXiLogDeriv_expansion (s : ℂ)
->     (hs_poly : s ≠ 0 ∧ s ≠ 1) (hs_gamma : ...) :
+> theorem RiemannLogDeriv.entireXiLogDeriv_expansion_of_ne_zero_ne_one
+>     {s : ℂ} (hs_poly : s ≠ 0 ∧ s ≠ 1)
+>     (hs_gamma : s / 2 ∉ Set.range (fun n : ℤ => (n : ℂ))) :
 >     entireXiLogDeriv s = ...
 > ```
 

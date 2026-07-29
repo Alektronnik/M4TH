@@ -1,8 +1,8 @@
 # DirichletEta
 
 **A single-file live presentation of the Dirichlet eta function, its
-zeta-product identity, and the non-vanishing of zeta on the real interval
-(0,1), formalised in Lean 4 over Mathlib.**
+zeta-product identity, and the conditional non-vanishing of zeta on
+the real interval (0,1), formalised in Lean 4 over Mathlib.**
 
 - Author: Bezalel Izquierdo Perez
 - ORCID: https://orcid.org/0009-0001-5993-4057
@@ -22,7 +22,7 @@ Lean file is the certificate.
 The Dirichlet eta function is the alternating zeta series
 
 $$
-\eta(s) = \sum_{n=1}^{\infty} \frac{(-1)^{n-1}}{n^{s}}, \qquad \Re(s) > 0.
+\eta(s) = \sum_{n=0}^{\infty} \frac{(-1)^n}{(n+1)^{s}}, \qquad \Re(s) > 0.
 $$
 
 It is related to the Riemann zeta function by the elementary identity
@@ -31,26 +31,27 @@ $$
 \eta(s) = (1 - 2^{1-s})\,\zeta(s), \qquad \Re(s) > 1.
 $$
 
-The package proves this identity and uses the positivity of the real alternating
-series to establish
-
-$$
-\zeta(x) \neq 0 \quad\text{for all}\quad x \in (0,1).
-$$
+The package proves this identity unconditionally.  The non-vanishing of
+\(\zeta(x)\) for \(x \in (0,1)\) is **conditional** on the typed frontier
+`RiemannZetaAlternatingLimitIdentity`, which states that the real alternating
+limit equals the zeta-product formula.
 
 The logical flow is:
 
 ```text
-etaTerm n s = (-1)^(n-1) / n^s
+etaTerm n s = (-1)^n / (n+1)^s
     |
-    v   even-odd split for Re(s) > 1
-eta(s) = odd_block - even_block
+    v
+dirichletEtaSeries s = sum_{n>=0} etaTerm n s
     |
-    v   even block = 2^(1-s) * zeta(s)
-eta(s) = (1 - 2^(1-s)) * zeta(s)
+    v   (even-odd split for Re(s) > 1)
+eta_zeta_odd_even_split
     |
-    v   for x in (0,1): eta(x) > 0, (1-2^(1-x)) != 0
-zeta(x) != 0
+    v   (unconditional)
+eta_eq_zeta_of_re_gt_one: eta(s) = (1 - 2^(1-s)) * zeta(s)
+    |
+    v   (conditional on RiemannZetaAlternatingLimitIdentity)
+zeta_real_open_interval_nonvanishing_from_eta
 ```
 
 ---
@@ -60,25 +61,27 @@ zeta(x) != 0
 > **Definition 1. Eta term.**
 >
 > $$
-> \eta_n(s) = \frac{(-1)^{n-1}}{n^s}.
+> \eta_n(s) = \frac{(-1)^n}{(n+1)^s}.
 > $$
 >
 > **In Lean:**
 >
 > ```lean
 > noncomputable def DirichletEta.etaTerm (n : ℕ) (s : ℂ) : ℂ :=
->   (-1 : ℂ) ^ (n - 1) / (n : ℂ) ^ s
+>   (-1 : ℂ) ^ n / (n + 1 : ℂ) ^ s
 > ```
 
-> **Definition 2. Dirichlet eta series and partial sums.**
+> **Definition 2. Dirichlet eta series.**
+>
+> $$
+> \eta(s) = \sum_{n=0}^{\infty} \eta_n(s).
+> $$
 >
 > **In Lean:**
 >
 > ```lean
 > noncomputable def DirichletEta.dirichletEtaSeries (s : ℂ) : ℂ :=
->   ∑' n : ℕ, etaTerm (n + 1) s
->
-> noncomputable def DirichletEta.dirichletEta (s : ℂ) : ℂ
+>   ∑' n, etaTerm n s
 > ```
 
 > **Lemma 1. Absolute convergence for Re(s) > 1.**
@@ -95,22 +98,12 @@ zeta(x) != 0
 
 ## III. The Zeta-Product Identity
 
-> **Lemma 2. Even-odd split.**
+> **Theorem 1. The eta-zeta identity (unconditional).**
 >
-> **In Lean:**
->
-> ```lean
-> lemma DirichletEta.eta_zeta_odd_even_split
->     {s : ℂ} (hs : 1 < s.re) :
->     dirichletEtaSeries s =
->       (∑' n : ℕ, 1 / ((2 * (n : ℂ) + 1) ^ s)) -
->       (∑' n : ℕ, 1 / ((2 * ((n : ℂ) + 1)) ^ s))
-> ```
-
-> **Theorem 1. The eta-zeta identity.**
+> For \(\Re(s) > 1\),
 >
 > $$
-> \eta(s) = (1 - 2^{1-s})\,\zeta(s), \qquad \Re(s) > 1.
+> \eta(s) = (1 - 2^{1-s})\,\zeta(s).
 > $$
 >
 > **In Lean:**
@@ -123,30 +116,51 @@ zeta(x) != 0
 
 ---
 
-## IV. Non-Vanishing on (0,1)
+## IV. Conditional Non-Vanishing on (0,1)
 
-> **Lemma 3. Real alternating limit is positive.**
+> **Definition 3. Typed frontier.**
+>
+> The identity connecting the real alternating limit to the zeta product.
+> This is the single conditional hypothesis of the package.
 >
 > **In Lean:**
 >
 > ```lean
-> lemma DirichletEta.alternating_zeta_real_pos
->     (x : ℝ) (hx0 : 0 < x) (hx1 : x < 1) : 0 < dirichletEta (x : ℂ)
+> def DirichletEta.RiemannZetaAlternatingLimitIdentity : Prop :=
+>   ∀ (x : ℝ), 0 < x → x ≠ 1 → ∀ l : ℝ,
+>     Tendsto (fun n => ∑ i ∈ range n, (-1 : ℝ) ^ i / (i + 1 : ℝ) ^ x)
+>       atTop (𝓝 l) →
+>     riemannZeta x * (1 - (2 : ℂ) ^ (1 - (x : ℂ))) = l
 > ```
 
-> **Theorem 2. Riemann zeta non-vanishing on the open unit interval.**
+> **Lemma 2. Positivity of the real alternating limit.**
 >
-> $$
-> \zeta(x) \neq 0 \quad\text{for all}\quad x \in (0,1).
-> $$
+> For every real \(x > 0\), the alternating series converges to a positive limit.
+>
+> **In Lean:**
+>
+> ```lean
+> lemma DirichletEta.alternating_zeta_real_pos (x : ℝ) (hx0 : 0 < x) :
+>     ∃ l, Tendsto
+>       (fun n => ∑ i ∈ range n, (-1 : ℝ) ^ i / (i + 1 : ℝ) ^ x)
+>       atTop (𝓝 l) ∧ 0 < l
+> ```
+
+> **Theorem 2. Conditional non-vanishing on the open unit interval.**
+>
+> Under the typed frontier, \(\zeta(x) \neq 0\) for all \(x \in (0,1)\).
 >
 > **In Lean:**
 >
 > ```lean
 > theorem DirichletEta.zeta_real_open_interval_nonvanishing_from_eta
->     (x : ℝ) (hx0 : 0 < x) (hx1 : x < 1) :
->     riemannZeta (x : ℂ) ≠ 0
+>     (hη : RiemannZetaAlternatingLimitIdentity) :
+>     ∀ x : ℝ, 0 < x → x < 1 → riemannZeta x ≠ 0
 > ```
+
+The package does **not** claim an unconditional non-vanishing theorem.
+The hypothesis `RiemannZetaAlternatingLimitIdentity` is the explicit
+analytic frontier.
 
 ---
 
@@ -156,9 +170,9 @@ zeta(x) != 0
 Basic -> Analytic -> Nonvanishing
 ```
 
-- `Basic` -- series definitions, even-odd split, eta-zeta identity
-- `Analytic` -- differentiability, analytic continuation, uniform convergence
-- `Nonvanishing` -- positivity, non-vanishing on (0,1)
+- `Basic` -- series definitions, even-odd split, eta-zeta identity (unconditional)
+- `Analytic` -- differentiability, uniform convergence
+- `Nonvanishing` -- positivity, conditional non-vanishing on (0,1)
 
 ---
 

@@ -20,14 +20,10 @@ Lean file is the certificate.
 ## I. The Mathematical Problem
 
 A Sophie Germain prime is a prime \(p\) such that \(2p+1\) is also prime.
-These primes satisfy strong congruence conditions and are connected to the
-parity theory of prime gaps.
-
-The ordinary gap between consecutive primes \(p_{n+1} - p_n\) is always even
-for \(n \ge 1\) (all primes beyond 2 are odd).  This package extends that
-observation: all finite differences of arbitrary positive order over odd
-primes are even.  The proof uses the combinatorial identity for the nth-order
-forward difference.
+All primes beyond 2 are odd, so ordinary gaps \(p_{n+1} - p_n\) are even for
+\(n \ge 1\).  This package extends the parity observation to finite differences
+of arbitrary positive order over odd primes, using the combinatorial identity
+for the alternating sum of binomial coefficients.
 
 ---
 
@@ -43,8 +39,6 @@ forward difference.
 > ```
 
 > **Theorem 1. Modulo 3 exclusion.**
->
-> If \(p > 3\) is a Sophie Germain prime, then \(p \equiv 2 \pmod{3}\).
 >
 > **In Lean:**
 >
@@ -66,22 +60,11 @@ forward difference.
 >     p % 6 = 5
 > ```
 
-> **Lemma 1. Prime index exclusion.**
->
-> **In Lean:**
->
-> ```lean
-> theorem PrimeGapsSophie.prime_index_mod3_exclusion
->     (n : ℕ) (hn : 2 ≤ n) : ...
-> ```
-
 ---
 
 ## III. Ordinary Prime-Gap Parity
 
 > **Definition 2. Prime gap.**
->
-> $$g_n = p_{n+1} - p_n.$$
 >
 > **In Lean:**
 >
@@ -91,8 +74,6 @@ forward difference.
 > ```
 
 > **Theorem 3. Ordinary prime gaps are even.**
->
-> For \(n \ge 1\), the gap between consecutive primes is even.
 >
 > **In Lean:**
 >
@@ -115,33 +96,35 @@ forward difference.
 >
 > ```lean
 > def PrimeGapsSophie.nthOrderGap (N : ℕ) (p : ℕ → ℕ) (k : ℕ) : ℤ :=
->   ∑ i ∈ range (N + 1), (-1 : ℤ) ^ i * ((Nat.choose N i : ℤ) * (p (k + N - i) : ℤ))
+>   ∑ i ∈ range (N + 1),
+>     (-1 : ℤ) ^ i * ((Nat.choose N i : ℤ) * (p (k + N - i) : ℤ))
 > ```
 
-> **Theorem 4. Second-order gap even for odd primes.**
+> **Lemma 1. Binomial alternating sum identity.**
+>
+> $$
+> \sum_{i=0}^{N} (-1)^i \binom{N}{i} = 0, \qquad N > 0.
+> $$
 >
 > **In Lean:**
 >
 > ```lean
-> theorem PrimeGapsSophie.secondOrderGap_even_of_odd_primes
->     (p0 p1 p2 : ℕ) (hp0 : Nat.Prime p0) (hp1 : Nat.Prime p1)
->     (hp2 : Nat.Prime p2) (hp0_odd : 2 < p0) (hp1_odd : 2 < p1)
->     (hp2_odd : 2 < p2) : Even (secondOrderGap p0 p1 p2)
+> lemma PrimeGapsSophie.sum_alternate_choose_eq_zero
+>     (N : ℕ) (hN : N > 0) :
+>     ∑ i ∈ range (N + 1), (-1 : ℤ) ^ i * (Nat.choose N i : ℤ) = 0
 > ```
 
-> **Theorem 5. Third and fourth order gaps are even.**
+> **Theorem 4. Second, third, and fourth order gaps are even.**
 >
 > **In Lean:**
 >
 > ```lean
+> theorem PrimeGapsSophie.secondOrderGap_even_of_odd_primes ...
 > theorem PrimeGapsSophie.thirdOrderGap_even_of_odd_primes ...
 > theorem PrimeGapsSophie.fourthOrderGap_even_of_odd_primes ...
 > ```
 
-> **Theorem 6. Nth-order gap even for odd primes.**
->
-> For any positive order \(N\), the nth-order finite difference of odd
-> primes is even.
+> **Theorem 5. Nth-order gap even for odd primes.**
 >
 > **In Lean:**
 >
@@ -151,19 +134,6 @@ forward difference.
 >     (h_prime : ∀ i, i ≤ N → Nat.Prime (p i))
 >     (h_odd : ∀ i, i ≤ N → 2 < p i) :
 >     Even (nthOrderGap N p 0)
-> ```
-
-> **Lemma 2. Binomial alternating sum identity.**
->
-> $$
-> \sum_{i=0}^{N} (-1)^i \binom{N}{i} = 0, \qquad N > 0.
-> $$
->
-> **In Lean:**
->
-> ```lean
-> lemma PrimeGapsSophie.alternating_binomial_sum_zero (N : ℕ) (hN : N > 0) :
->     ∑ i ∈ range (N + 1), (-1 : ℤ) ^ i * (Nat.choose N i : ℤ) = 0
 > ```
 
 ---

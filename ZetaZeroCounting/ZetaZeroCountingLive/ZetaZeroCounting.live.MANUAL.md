@@ -19,36 +19,28 @@ Lean file is the certificate.
 
 ## I. The Mathematical Problem
 
-The Riemann-von Mangoldt formula counts the nontrivial zeros of the zeta function
-up to height \(T\):
+The Riemann-von Mangoldt formula counts the nontrivial zeros up to height \(T\):
 
 $$
-N(T) = \#\{\rho = \beta + i\gamma : \zeta(\rho) = 0,\; 0 < \beta < 1,\; 0 < \gamma \le T\}.
+N(T) = \#\{\rho : \zeta(\rho) = 0,\; 0 < \Re(\rho) < 1,\; 0 < \Im(\rho) \le T\}.
 $$
 
-The package builds the zero-counting infrastructure: the finite set of zeros,
-the density of safe heights, and the asymptotic main term
-\(\frac{T}{2\pi}(\log\frac{T}{2\pi} - 1)\).  It does not prove the counting
-formula; that is the conditional frontier addressed by the v4.0.0 packages.
+The package builds the infrastructure: the finite set of zeros, the density of
+safe heights, and the asymptotic main term.  It does **not** prove the counting
+formula; that is the conditional frontier addressed by v4.0.0 packages.
 
 ---
 
-## II. The Xi Function and Nontrivial Zeros
+## II. Nontrivial Zeros and Counting
 
-> **Definition 1. Nontrivial zeros.**
+> **Definition 1. Nontrivial zeros and zeros up to height T.**
 >
 > **In Lean:**
 >
 > ```lean
 > def Riemann.nontrivialZeros : Set ℂ :=
->   {s : ℂ | riemannZeta s = 0 ∧ 0 < s.re ∧ s.re < 1}
-> ```
-
-> **Definition 2. Zeros up to height T.**
+>   {s | riemannZeta s = 0 ∧ 0 < s.re ∧ s.re < 1}
 >
-> **In Lean:**
->
-> ```lean
 > def Riemann.zerosUpToIm (T : ℝ) : Set ℂ :=
 >   {s | s ∈ nontrivialZeros ∧ 0 < s.im ∧ s.im ≤ T}
 > ```
@@ -62,22 +54,23 @@ formula; that is the conditional frontier addressed by the v4.0.0 packages.
 >     Set.Finite (zerosUpToIm T)
 > ```
 
-> **Definition 3. Zero-counting function N(T).**
+> **Definition 2. Counting functions.**
 >
 > **In Lean:**
 >
 > ```lean
-> noncomputable def Riemann.zeroCountingWithMultiplicity (T : ℝ) : ℕ
+> noncomputable def Riemann.zeroCountingFun (T : ℝ) : ℕ
+> noncomputable def Riemann.distinctZeroCount (T : ℝ) : ℕ
 > ```
+
+`zeroCountingFun` counts with multiplicities; `distinctZeroCount` counts
+distinct zeros.
 
 ---
 
 ## III. Safe Heights
 
-> **Definition 4. Safe height predicate.**
->
-> A height \(T\) is safe if no nontrivial zero lies on the top edge
-> \(\Im(s) = T\).
+> **Definition 3. Safe height predicate.**
 >
 > **In Lean:**
 >
@@ -93,25 +86,16 @@ formula; that is the conditional frontier addressed by the v4.0.0 packages.
 > **In Lean:**
 >
 > ```lean
-> theorem Riemann.exists_safe_height_above (T : ℝ) (ε : ℝ) (hε : 0 < ε) :
+> theorem Riemann.exists_safe_height_above
+>     (T : ℝ) (ε : ℝ) (hε : 0 < ε) :
 >     ∃ T' ∈ Set.Ioc T (T + ε), IsSafeHeight T'
-> ```
-
-> **Lemma 1. Multiplicity is well-defined at safe heights.**
->
-> **In Lean:**
->
-> ```lean
-> lemma Riemann.zeroCountingWithMultiplicity_eq_card_at_safe_height
->     (T : ℝ) (hT : IsSafeHeight T) :
->     zeroCountingWithMultiplicity T = ...
 > ```
 
 ---
 
 ## IV. The Von Mangoldt Main Term
 
-> **Definition 5. Classical von Mangoldt main term.**
+> **Definition 4. Classical von Mangoldt main term.**
 >
 > $$
 > N(T) \sim \frac{T}{2\pi}\Bigl(\log\frac{T}{2\pi} - 1\Bigr).

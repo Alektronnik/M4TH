@@ -19,31 +19,21 @@ Lean file is the certificate.
 
 ## I. The Mathematical Problem
 
-For a meromorphic function \(f\), the logarithmic derivative \(f'/f\) has a
-simple pole at each zero or pole of \(f\), and the residue at a zero equals the
-multiplicity of that zero.  The package proves this theorem for the entire
-Xi variant and builds the dictionary between the analytic multiplicity and
-Mathlib's `MeromorphicOn.divisor`.
+For a meromorphic function \(f\), the residue of \(f'/f\) at a zero equals the
+multiplicity of that zero.  The package proves this for the entire Xi variant
+and builds the dictionary with Mathlib's `MeromorphicOn.divisor`.
 
-The core identity is:
+The core identity:
 
 $$
 \operatorname{Res}_{s = \rho}\frac{\Xi'}{\Xi}(s) = \operatorname{mult}_{\rho}(\Xi).
 $$
-
-This connects the complex-analytic residue calculus to the finite-set divisor
-formalism, enabling the zero-counting apparatus of the Riemann-von Mangoldt
-series.
 
 ---
 
 ## II. Xi Function and Critical Box
 
 > **Definition 1. Entire Xi variant.**
->
-> $$
-> \Xi(s) = s(s-1)\Xi_0(s) + 1
-> $$
 >
 > **In Lean:**
 >
@@ -67,9 +57,6 @@ series.
 
 > **Theorem 1. Residue equals multiplicity.**
 >
-> At each zero \(z\) of \(\Xi\), the residue of \(\Xi'/\Xi\) at \(z\) equals
-> the analytic order of \(\Xi\) at \(z\) (i.e., the multiplicity of the zero).
->
 > **In Lean:**
 >
 > ```lean
@@ -78,7 +65,11 @@ series.
 >     residue (logDeriv entireXi) z = analyticOrderAt entireXi z
 > ```
 
-> **Lemma 1. Xi is meromorphic on the critical box.**
+---
+
+## IV. Divisor Dictionary
+
+> **Definition 3. Xi meromorphic on the critical box.**
 >
 > **In Lean:**
 >
@@ -87,33 +78,15 @@ series.
 >     MeromorphicOn entireXi (criticalBox T)
 > ```
 
----
-
-## IV. Divisor Dictionary
-
-> **Definition 3. Divisor of Xi.**
->
-> The finite formal sum of zeros with multiplicities, expressed as a
-> `MeromorphicOn.divisor`.
->
-> **In Lean:**
->
-> ```lean
-> noncomputable def RiemannLogResidue.entireXi_divisor (T : ℝ) :
->     MeromorphicOn.divisor ℂ
-> ```
-
 > **Theorem 2. Divisor support equals the zero set.**
->
-> The support of the divisor coincides with the explicit finite set of
-> nontrivial zeros counted up to height \(T\).
 >
 > **In Lean:**
 >
 > ```lean
 > theorem RiemannLogResidue.entireXi_divisor_finset_eq_zerosUpToImFinset
->     (T : ℝ) (hT : IsSafeHeight T) :
->     (entireXi_divisor T).support = zerosUpToImFinset T
+>     (T : ℝ) (hSafe : IsSafeHeight T) :
+>     (entireXi.divisor (entireXi_meromorphicOn_criticalBox T)).support =
+>       zerosUpToImFinset T
 > ```
 
 This is the concrete instance of the "Theorem on Logarithmic Differentials"
