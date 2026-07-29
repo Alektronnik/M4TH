@@ -18,6 +18,15 @@ Dirichlet eta, its zeta-product identity in `Re s > 1`, analytic product API,
 and the typed real frontier for non-vanishing of `ζ` on `(0, 1)`.
 -/
 
+/-!
+## Native SVG cover
+
+The following auxiliary namespace generates the package cover figure directly
+from Lean.  The code is intentionally separate from the mathematical namespace:
+it illustrates the main objects certified in this package, but it does not
+add mathematical assumptions or alter the API of the formal package.
+-/
+
 namespace DirichletEtaGraph
 
 def width : Float := 1800.0
@@ -26,14 +35,16 @@ def height : Float := 1180.0
 def localOutputPath : System.FilePath := "DirichletEta.svg"
 
 def repositoryOutputDir : System.FilePath :=
-  "/Users/bezalelizquierdoperez/DEV/LEAN4/M4TH/DirichletEta"
+  "DirichletEta"
 
 def repositoryOutputPath : System.FilePath :=
-  repositoryOutputDir / "DirichletEta.svg"
+  "DirichletEta/DirichletEta.svg"
 
 def defaultOutputPath : IO System.FilePath := do
-  let cwd ← IO.currentDir
-  if cwd == repositoryOutputDir then pure localOutputPath else pure repositoryOutputPath
+  if (← repositoryOutputDir.pathExists) then
+    pure repositoryOutputPath
+  else
+    pure localOutputPath
 
 def fstr (x : Float) : String := x.toString
 def esc (s : String) : String := s.replace "&" "&amp;" |>.replace "<" "&lt;" |>.replace ">" "&gt;"

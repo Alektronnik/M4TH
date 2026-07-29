@@ -16,6 +16,15 @@ public import DiscreteAbelChebyshev.ChebyshevBridge
 Discrete Abel summation and a typed Chebyshev-to-prime-counting bridge.
 -/
 
+/-!
+## Native SVG cover
+
+The following auxiliary namespace generates the package cover figure directly
+from Lean.  The code is intentionally separate from the mathematical namespace:
+it illustrates the main objects certified in this package, but it does not
+add mathematical assumptions or alter the API of the formal package.
+-/
+
 namespace DiscreteAbelChebyshevGraph
 
 def width : Float := 1800.0
@@ -24,14 +33,16 @@ def height : Float := 1180.0
 def localOutputPath : System.FilePath := "DiscreteAbelChebyshev.svg"
 
 def repositoryOutputDir : System.FilePath :=
-  "/Users/bezalelizquierdoperez/DEV/LEAN4/M4TH/DiscreteAbelChebyshev"
+  "DiscreteAbelChebyshev"
 
 def repositoryOutputPath : System.FilePath :=
-  repositoryOutputDir / "DiscreteAbelChebyshev.svg"
+  "DiscreteAbelChebyshev/DiscreteAbelChebyshev.svg"
 
 def defaultOutputPath : IO System.FilePath := do
-  let cwd ← IO.currentDir
-  if cwd == repositoryOutputDir then pure localOutputPath else pure repositoryOutputPath
+  if (← repositoryOutputDir.pathExists) then
+    pure repositoryOutputPath
+  else
+    pure localOutputPath
 
 def fstr (x : Float) : String := x.toString
 def esc (s : String) : String := s.replace "&" "&amp;" |>.replace "<" "&lt;" |>.replace ">" "&gt;"

@@ -15,7 +15,7 @@ public import KdV.ConservationLaws
 /-!
 # KdV: exact soliton and conservation laws
 
-This is the root module for the standalone KdV package.
+This is the root module for the KdV package.
 
 It migrates the fully proved `KdV` namespace into Mathlib contribution style:
 English names and docstrings, a small module dependency graph, and a clear split
@@ -85,10 +85,10 @@ def localOutputPath : System.FilePath :=
   "KdV.svg"
 
 def repositoryOutputDir : System.FilePath :=
-  "M4TH/KdV"
+  "KdV"
 
 def repositoryOutputPath : System.FilePath :=
-  "M4TH/KdV/KdV.svg"
+  "KdV/KdV.svg"
 
 def defaultOutputPath : IO System.FilePath := do
   if (← repositoryOutputDir.pathExists) then

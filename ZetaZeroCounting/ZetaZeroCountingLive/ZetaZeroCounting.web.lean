@@ -401,13 +401,13 @@ lemma mem_criticalBoxInterior_iff {T s} :
 lemma criticalBoxInterior_subset_criticalBox {T : ℝ} :
     criticalBoxInterior T ⊆ criticalBox T := by
   intro s hs
-  simp only [criticalBox, criticalBoxInterior, Set.mem_setOf_eq] at hs ⊢
+  simp only [criticalBox, criticalBoxInterior, Set.mem_ofPred_eq] at hs ⊢
   exact ⟨hs.1.le, hs.2.1.le, hs.2.2.1.le, hs.2.2.2.le⟩
 
 lemma criticalBox_eq_Icc_reProdIm (T : ℝ) :
     criticalBox T = Set.Icc (0 : ℝ) (1 : ℝ) ×ℂ Set.Icc (0 : ℝ) T := by
   ext s
-  simp only [criticalBox, mem_reProdIm, Set.mem_Icc, Set.mem_setOf_eq, and_assoc]
+  simp only [criticalBox, mem_reProdIm, Set.mem_Icc, Set.mem_ofPred_eq, and_assoc]
 
 /-- The critical box is compact: continuous image of a product of two real
 compact intervals. -/
@@ -420,7 +420,7 @@ lemma isCompact_criticalBox (T : ℝ) : IsCompact (criticalBox T) := by
     isCompact_Icc.prod isCompact_Icc
   have h_eq : f '' (Set.Icc (0 : ℝ) (1 : ℝ) ×ˢ Set.Icc (0 : ℝ) T) = criticalBox T := by
     ext s
-    simp only [criticalBox, Set.mem_image, Set.mem_prod, Set.mem_Icc, Set.mem_setOf_eq]
+    simp only [criticalBox, Set.mem_image, Set.mem_prod, Set.mem_Icc, Set.mem_ofPred_eq]
     constructor
     · rintro ⟨⟨x, y⟩, ⟨⟨hx0, hx1⟩, ⟨hy0, hy1⟩⟩, rfl⟩
       simp only [f, add_re, ofReal_re, mul_re, ofReal_im, I_re, I_im, sub_zero,
@@ -470,7 +470,7 @@ theorem zerosUpToIm_finite (T : ℝ) : (zerosUpToIm T).Finite := by
   have h_subset : zerosUpToIm T ⊆ criticalBox T ∩ riemannZetaZeros := by
     intro s hs
     constructor
-    · simp only [criticalBox, zerosUpToIm, Set.mem_setOf_eq] at hs ⊢
+    · simp only [criticalBox, zerosUpToIm, Set.mem_ofPred_eq] at hs ⊢
       have h_band := hs.1.2
       exact ⟨by linarith [h_band.1], by linarith [h_band.2], by linarith [hs.2.1], hs.2.2⟩
     · exact nontrivialZeros_subset_riemannZetaZeros hs.1
@@ -494,7 +494,7 @@ lemma isDiscrete_entireXiZeros : IsDiscrete entireXiZeros := by
     (analyticOnNhd_univ_iff_differentiable).2 differentiable_entireXi
   have h_codisc : (entireXi ⁻¹' {0})ᶜ ∈ Filter.codiscrete ℂ :=
     h_analytic.preimage_zero_mem_codiscrete (x := 0) entireXi_ne_zero_at_zero
-  simpa [entireXiZeros, Set.preimage, Set.mem_setOf_eq] using (mem_codiscrete'.mp h_codisc).2
+  simpa [entireXiZeros, Set.preimage, Set.mem_ofPred_eq] using (mem_codiscrete'.mp h_codisc).2
 
 /-- `entireXi` is not eventually constant at a zero: eventual constancy would
 force `entireXi ≡ 0`, contradicting `entireXi 0 ≠ 0`. -/
@@ -524,7 +524,7 @@ lemma analyticOrderNatAt_entireXi_ge_one {s : ℂ} (hs : entireXi s = 0) :
     intro h0
     have hA := analyticAt_entireXi s
     have hord := hA.analyticOrderAt_ne_zero.mpr hs
-    rw [← Nat.cast_analyticOrderNatAt htop, h0, ENat.coe_zero] at hord
+    rw [← Nat.cast_analyticOrderNatAt htop, h0, ENat.natCast_zero] at hord
     simp at hord
   omega
 
@@ -689,7 +689,7 @@ box. -/
 theorem zerosUpToIm_subset_criticalBoxInterior {T : ℝ} (hSafe : IsSafeHeight T) :
     zerosUpToIm T ⊆ criticalBoxInterior T := by
   intro s hs
-  simp only [criticalBoxInterior, zerosUpToIm, nontrivialZeros, Set.mem_setOf_eq] at hs ⊢
+  simp only [criticalBoxInterior, zerosUpToIm, nontrivialZeros, Set.mem_ofPred_eq] at hs ⊢
   rcases hs with ⟨⟨hzeta, hre₁, hre₂⟩, himpos, himle⟩
   have hz : s ∈ nontrivialZeros := ⟨hzeta, hre₁, hre₂⟩
   refine ⟨hre₁, hre₂, himpos, lt_of_le_of_ne himle (hSafe s hz)⟩

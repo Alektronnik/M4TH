@@ -15,7 +15,7 @@ public import CertifiedElliptic5077.Entry5077a1
 /-!
 # Certified elliptic curve entry 5077a1
 
-This is the root module for the standalone `CertifiedElliptic5077` package.  It
+This is the root module for the `CertifiedElliptic5077` package.  It
 packages a reusable short-Weierstrass computational layer together with the
 explicit LMFDB/Cremona entry 5077a1, its integral model, its short model,
 finite local point counts, and selected certified rational points.
@@ -78,10 +78,10 @@ def localOutputPath : System.FilePath :=
   "CertifiedElliptic5077.svg"
 
 def repositoryOutputDir : System.FilePath :=
-  "M4TH/CertifiedElliptic5077"
+  "CertifiedElliptic5077"
 
 def repositoryOutputPath : System.FilePath :=
-  "M4TH/CertifiedElliptic5077/CertifiedElliptic5077.svg"
+  "CertifiedElliptic5077/CertifiedElliptic5077.svg"
 
 def defaultOutputPath : IO System.FilePath := do
   if (← repositoryOutputDir.pathExists) then

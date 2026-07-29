@@ -6,7 +6,7 @@ Authors: Bezalel Izquierdo Pérez
 module
 
 public import Mathlib.Data.Nat.Prime.Nth
-public import Mathlib.Tactic
+import Mathlib.Tactic
 
 /-!
 # Sophie Germain primes

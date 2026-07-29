@@ -57,7 +57,7 @@ opened in this order, each self-contained and useful on its own.
 
 This package is intentionally **self-contained**: it depends only on Mathlib.
 The four lemmas of `Calculus.lean` coincide, statement for statement, with the
-helpers in `ConservationLaws/TestFunction.lean` of the sibling package (the
+helpers in `ConservationLaws/ConservationLaws/TestFunction.lean` of the sibling package (the
 corresponding helpers of the conservation-laws development).  At
 Mathlib-contribution time they are submitted **once**, as a single shared PR on
 which both PR series depend; the duplication exists only at the package level,
@@ -65,10 +65,18 @@ never upstream.
 
 ## Build
 
+This package is part of the **M4TH monorepo**.  Build the whole monorepo from
+the root:
+
+```bash
+cd ..
+lake build
 ```
-lake update
-lake exe cache get
-lake build BurgersBlowUp
+
+Or build this package independently from its own directory:
+
+```bash
+lake build
 ```
 
 ## Axiom certificate

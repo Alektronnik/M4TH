@@ -20,7 +20,7 @@ public import Mathlib.MeasureTheory.Measure.Lebesgue.Basic
 public import Mathlib.MeasureTheory.Measure.Prod
 public import Mathlib.Topology.Algebra.Support
 public import Mathlib.Tactic.SetNotationForOrder
-import Mathlib.Tactic
+public import Mathlib.Tactic
 public import Mathlib.MeasureTheory.Integral.IntervalIntegral.FundThmCalculus
 public import Mathlib.Topology.Homeomorph.Defs
 public import Mathlib.MeasureTheory.Group.Measure

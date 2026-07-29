@@ -5,7 +5,8 @@ Authors: Bezalel Izquierdo Pérez
 -/
 module
 
-public import Mathlib.Tactic
+import Mathlib.Tactic
+public import Mathlib.Tactic.SetNotationForOrder
 public import Mathlib.Algebra.BigOperators.Ring.Finset
 public import Mathlib.Analysis.SpecialFunctions.Exp
 public import Mathlib.Analysis.SpecialFunctions.Log.Basic

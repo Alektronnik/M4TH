@@ -10,7 +10,7 @@ public import Mathlib.Analysis.Calculus.Deriv.MeanValue
 public import Mathlib.Analysis.SpecialFunctions.Log.Basic
 public import Mathlib.Analysis.SpecialFunctions.Log.Deriv
 public import Mathlib.NumberTheory.PrimeCounting
-public import Mathlib.Tactic
+import Mathlib.Tactic
 
 /-!
 # Discrete Abel summation

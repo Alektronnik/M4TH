@@ -21,7 +21,7 @@ public import Mathlib.MeasureTheory.Integral.Bochner.Basic
 public import Mathlib.MeasureTheory.Integral.IntegralEqImproper
 public import Mathlib.Topology.Algebra.Support
 public import Mathlib.Tactic.SetNotationForOrder
-import Mathlib.Tactic
+public import Mathlib.Tactic
 
 /-!
 # KdV live file
@@ -41,7 +41,7 @@ open MeasureTheory
 namespace KdV
 
 /-!
-## Source: `KdV/Basic.lean`
+## Source file: `KdV/Basic.lean`
 -/
 
 set_option maxHeartbeats 600000
@@ -110,7 +110,7 @@ theorem travellingWave_reduction {T : ℝ} {u : ℝ → ℝ → ℝ} (sol : IsSo
   exact h_pde
 
 /-!
-## Source: `KdV/Hyperbolic.lean`
+## Source file: `KdV/Hyperbolic.lean`
 -/
 
 /-- The hyperbolic secant, `sech x = 1 / cosh x`. -/
@@ -211,7 +211,7 @@ lemma hasDerivAt_sech_sq_mul (k x : ℝ) :
   exact h2
 
 /-!
-## Source: `KdV/Soliton.lean`
+## Source file: `KdV/Soliton.lean`
 -/
 
 set_option maxHeartbeats 600000
@@ -351,7 +351,7 @@ theorem soliton_satisfies_kdv (c : ℝ) (hc : 0 < c) (ξ : ℝ) :
   exact soliton_ode_check c k hk_sq ξ
 
 /-!
-## Source: `KdV/ConservationLaws.lean`
+## Source file: `KdV/ConservationLaws.lean`
 -/
 
 open MeasureTheory

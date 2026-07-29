@@ -83,10 +83,18 @@ package level and is resolved at Mathlib-PR time by a single shared PR.
 
 ## Build
 
+This package is part of the **M4TH monorepo**.  Build the whole monorepo from
+the root:
+
+```bash
+cd ..
+lake build
 ```
-lake update
-lake exe cache get
-lake build ZetaZeroCounting
+
+Or build this package independently from its own directory:
+
+```bash
+lake build
 ```
 
 ## Axiom certificate

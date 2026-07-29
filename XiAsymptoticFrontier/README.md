@@ -53,10 +53,18 @@ M4TH/XiAsymptoticFrontier/
 
 ## Build
 
-From the package directory:
+This package is part of the **M4TH monorepo**.  Build the whole monorepo from
+the root:
 
-```text
-lake build XiAsymptoticFrontier
+```bash
+cd ..
+lake build
+```
+
+Or build this package independently from its own directory:
+
+```bash
+lake build
 ```
 
 ## Certificate

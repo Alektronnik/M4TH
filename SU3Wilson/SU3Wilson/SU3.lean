@@ -10,7 +10,7 @@ public import Mathlib.Data.Matrix.Basic
 public import Mathlib.LinearAlgebra.Matrix.ConjTranspose
 public import Mathlib.LinearAlgebra.Matrix.NonsingularInverse
 public import Mathlib.LinearAlgebra.Matrix.Trace
-public import Mathlib.Tactic
+import Mathlib.Tactic
 
 /-!
 # The concrete group `SU(3)` and its trace bound

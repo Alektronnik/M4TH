@@ -6,6 +6,8 @@ Authors: Bezalel Izquierdo Pérez
 module
 
 public import PrimeGapsSophie.SophieGermain
+public import Mathlib.Data.Nat.Prime.Nth
+public import Mathlib.Tactic
 
 /-!
 # Prime gaps

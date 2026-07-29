@@ -320,9 +320,9 @@ multiplication, `LieRing`, and `LieAlgebra ℝ` instances on `LieAlgebraSU3`.
 > theorem Physics.YangMills.structureConstant_jacobi
 >     (a b c d : Fin 8) :
 >     (∑ e : Fin 8,
->       structureConstant a b e * structureConstant e c d +
->       structureConstant b c e * structureConstant e a d +
->       structureConstant c a e * structureConstant e b d) = 0
+>       structureConstant a b e * structureConstant c d e +
+>       structureConstant b c e * structureConstant a d e +
+>       structureConstant c a e * structureConstant b d e) = 0
 > ```
 
 > **Theorem 10. The adjoint Casimir contraction.**
@@ -333,7 +333,7 @@ multiplication, `LieRing`, and `LieAlgebra ℝ` instances on `LieAlgebraSU3`.
 > theorem Physics.YangMills.structureConstant_casimir
 >     (c d : Fin 8) :
 >     (∑ a : Fin 8, ∑ b : Fin 8,
->       structureConstant a c b * structureConstant a d b) =
+>       structureConstant a b c * structureConstant a b d) =
 >       if c = d then 3 else 0
 > ```
 
@@ -391,8 +391,8 @@ multiplication, `LieRing`, and `LieAlgebra ℝ` instances on `LieAlgebraSU3`.
 > ```lean
 > theorem Physics.YangMills.gellMann_commutator
 >     (a b : Fin 8) :
->     gellMannCommutatorLie a b =
->       ⁅gellMannLieAlgebra a, gellMannLieAlgebra b⁆
+>     lieCommutator (gellMannLieAlgebra a) (gellMannLieAlgebra b) =
+>       gellMannCommutatorLie a b
 > ```
 
 > **Definition 16. Linear combination of Gell-Mann basis elements.**
@@ -467,10 +467,8 @@ multiplication, `LieRing`, and `LieAlgebra ℝ` instances on `LieAlgebraSU3`.
 > ```lean
 > theorem Physics.YangMills.adjoint_isLieHomomorphism
 >     (a b : Fin 8) :
->     adjointMatrix a * adjointMatrix b -
->       adjointMatrix b * adjointMatrix a =
->       ∑ c : Fin 8,
->         commutatorStructureCoeff a b c • adjointMatrix c
+>     -(∑ e : Fin 8, structureConstant a b e • adjointMatrix e) =
+>       adjointMatrix a * adjointMatrix b - adjointMatrix b * adjointMatrix a
 > ```
 
 > **Definition 18. The adjoint Casimir.**
@@ -489,7 +487,7 @@ multiplication, `LieRing`, and `LieAlgebra ℝ` instances on `LieAlgebraSU3`.
 >
 > ```lean
 > theorem Physics.YangMills.adjointCasimir_diagonal :
->     adjointCasimir = fun i j => if i = j then -3 else 0
+>     adjointCasimir = (-3) • (1 : Matrix (Fin 8) (Fin 8) ℝ)
 > ```
 
 > **Definition 19. The Killing form on the Gell-Mann basis.**
@@ -519,7 +517,7 @@ multiplication, `LieRing`, and `LieAlgebra ℝ` instances on `LieAlgebraSU3`.
 > ```lean
 > theorem Physics.YangMills.killingFormBasis_diagonal
 >     (a b : Fin 8) :
->     killingFormBasis a b = if a = b then -3 else 0
+>     killingFormBasis a b = -3 * (if a = b then (1 : ℝ) else 0)
 > ```
 
 ---
@@ -543,7 +541,8 @@ multiplication, `LieRing`, and `LieAlgebra ℝ` instances on `LieAlgebraSU3`.
 >
 > ```lean
 > theorem Physics.YangMills.cartanGenerators_commute :
->     gellMannCommutatorMatrix cartanIndex1 cartanIndex2 = 0
+>     ⁅gellMannLieAlgebra cartanIndex1, gellMannLieAlgebra cartanIndex2⁆ =
+>       (0 : LieAlgebraSU3)
 > ```
 
 > **Definition 21. The Cartan generator set.**
@@ -581,8 +580,7 @@ multiplication, `LieRing`, and `LieAlgebra ℝ` instances on `LieAlgebraSU3`.
 >
 > ```lean
 > theorem Physics.YangMills.fundamentalCasimir_diagonal :
->     fundamentalCasimir =
->       fun i j => if i = j then (-16 / 3 : ℂ) else 0
+>     fundamentalCasimir = (-(16/3 : ℂ)) • (1 : Matrix3x3)
 > ```
 
 > **Theorem 24. The trace of the fundamental Casimir.**

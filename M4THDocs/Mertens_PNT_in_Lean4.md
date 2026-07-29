@@ -1,5 +1,7 @@
 # Mertens' Theorems in Lean 4
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21646239.svg)](https://doi.org/10.5281/zenodo.21646239)
+
 ## Reciprocal-Prime Divergence, the Meissel–Mertens Constant, and the Conditional PNT+ Closure
 
 **Author.** Bezalel Izquierdo Pérez — ORCID [0009-0001-5993-4057](https://orcid.org/0009-0001-5993-4057)

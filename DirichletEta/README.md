@@ -67,10 +67,18 @@ M4TH/DirichletEta/
 
 ## Build
 
+This package is part of the **M4TH monorepo**.  Build the whole monorepo from
+the root:
+
+```bash
+cd ..
+lake build
 ```
-lake update
-lake exe cache get
-lake build DirichletEta
+
+Or build this package independently from its own directory:
+
+```bash
+lake build
 ```
 
 ## Certificate

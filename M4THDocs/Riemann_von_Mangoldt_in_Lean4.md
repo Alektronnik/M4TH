@@ -1,5 +1,5 @@
 # Riemann–von Mangoldt in Lean 4
-
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21643806.svg)](https://doi.org/10.5281/zenodo.21643806)
 ## Zero Counting, Logarithmic Residues, and the Dirichlet Eta Function
 
 **Author.** Bezalel Izquierdo Pérez — ORCID [0009-0001-5993-4057](https://orcid.org/0009-0001-5993-4057)

@@ -11,7 +11,7 @@ public import Mathlib.Analysis.SpecialFunctions.Log.Basic
 public import Mathlib.Analysis.SpecificLimits.Basic
 public import Mathlib.Analysis.SpecificLimits.Normed
 public import Mathlib.NumberTheory.LSeries.RiemannZeta
-public import Mathlib.Tactic
+import Mathlib.Tactic
 
 /-!
 # Basic asymptotic objects for the Xi contour frontier

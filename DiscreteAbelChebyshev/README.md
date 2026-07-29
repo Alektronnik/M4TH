@@ -56,10 +56,18 @@ M4TH/DiscreteAbelChebyshev/
 
 ## Build
 
-From the package directory:
+This package is part of the **M4TH monorepo**.  Build the whole monorepo from
+the root:
 
-```text
-lake build DiscreteAbelChebyshev
+```bash
+cd ..
+lake build
+```
+
+Or build this package independently from its own directory:
+
+```bash
+lake build
 ```
 
 ## Certificate

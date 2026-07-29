@@ -14,7 +14,7 @@ public import SU3Wilson.Lattice4D
 /-!
 # SU(3) Wilson plaquette positivity
 
-This is the root module for the standalone `SU3Wilson` package.  It packages
+This is the root module for the `SU3Wilson` package.  It packages
 the concrete group `SU(3)`, the normalized trace bound, finite lattice Wilson
 terms, and the constructive four-dimensional plaquette layer.
 
@@ -62,10 +62,10 @@ def localOutputPath : System.FilePath :=
   "SU3Wilson.svg"
 
 def repositoryOutputDir : System.FilePath :=
-  "M4TH/SU3Wilson"
+  "SU3Wilson"
 
 def repositoryOutputPath : System.FilePath :=
-  "M4TH/SU3Wilson/SU3Wilson.svg"
+  "SU3Wilson/SU3Wilson.svg"
 
 def defaultOutputPath : IO System.FilePath := do
   if (← repositoryOutputDir.pathExists) then

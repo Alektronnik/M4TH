@@ -7,7 +7,7 @@ module
 
 public import Mathlib.Data.Rat.Lemmas
 public import Mathlib.Analysis.SpecialFunctions.Log.Basic
-public import Mathlib.Tactic
+import Mathlib.Tactic
 
 /-!
 # A computational short-Weierstrass kit over `ℚ`
@@ -33,7 +33,7 @@ infinity, and explicit secant/tangent formulas.
 
 This package deliberately keeps a lightweight computational point type.  At
 Mathlib-contribution time, reusable lemmas should be ported to
-`WeierstrassCurve.Affine.Point`; the standalone package keeps explicit formulas
+`WeierstrassCurve.Affine.Point`; the package keeps explicit formulas
 because they are efficient for instance certificates.
 
 ## Tags

@@ -8,10 +8,16 @@ module
 public import Mathlib.Data.Complex.Basic
 public import Mathlib.Data.Matrix.Basic
 public import Mathlib.LinearAlgebra.Matrix.ConjTranspose
+public import Mathlib.LinearAlgebra.Complex.Module
 public import Mathlib.LinearAlgebra.Matrix.Notation
+public import Mathlib.LinearAlgebra.Matrix.Module
 public import Mathlib.LinearAlgebra.Matrix.Trace
 public import Mathlib.Analysis.Real.Sqrt
-public import Mathlib.Tactic
+public import Mathlib.Tactic.FinCases
+public import Mathlib.Tactic.Linarith
+public import Mathlib.Tactic.NoncommRing
+public import Mathlib.Tactic.NormNum
+public import Mathlib.Tactic.Ring
 public import Mathlib.Data.Matrix.Mul
 public import Mathlib.Algebra.Lie.Basic
 public import Mathlib.Algebra.BigOperators.Fin
@@ -763,9 +769,9 @@ noncomputable def gellMannCommutatorLie (a b : Fin 8) : LieAlgebraSU3 :=
   ⟨gellMannCommutatorMatrix a b, by
     rw [← generator_commutator_matrix a b]
     constructor
-    · simpa [lieCommutator_val, gellMannLieAlgebra, gellMannGenerator] using
+    · simpa [gellMannLieAlgebra, gellMannGenerator] using
         lieCommutator_antiHermitian (gellMannLieAlgebra a) (gellMannLieAlgebra b)
-    · simpa [lieCommutator_val, gellMannLieAlgebra, gellMannGenerator] using
+    · simpa [gellMannLieAlgebra, gellMannGenerator] using
         lieCommutator_trace_zero (gellMannLieAlgebra a) (gellMannLieAlgebra b)⟩
 
 theorem gellMannCommutatorLie_val (a b : Fin 8) :
@@ -775,8 +781,18 @@ theorem gellMann_commutator (a b : Fin 8) :
     lieCommutator (gellMannLieAlgebra a) (gellMannLieAlgebra b) =
       gellMannCommutatorLie a b := by
   apply Subtype.ext
-  simp [lieCommutator_val, gellMannCommutatorLie_val, gellMannLieAlgebra,
-    generator_commutator_matrix]
+  calc
+    (lieCommutator (gellMannLieAlgebra a) (gellMannLieAlgebra b)).val
+        = (gellMannLieAlgebra a).val * (gellMannLieAlgebra b).val -
+          (gellMannLieAlgebra b).val * (gellMannLieAlgebra a).val := by
+      rw [lieCommutator_val]
+    _ = gellMannGenerator a * gellMannGenerator b -
+        gellMannGenerator b * gellMannGenerator a := by
+      simp [gellMannLieAlgebra]
+    _ = gellMannCommutatorMatrix a b := by
+      rw [generator_commutator_matrix]
+    _ = (gellMannCommutatorLie a b).val := by
+      rw [gellMannCommutatorLie_val]
 
 /-- A linear combination of Gell-Mann generators. -/
 noncomputable def gellMannLieCombination (coeff : Fin 8 → ℝ) : LieAlgebraSU3 :=

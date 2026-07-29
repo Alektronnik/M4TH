@@ -16,7 +16,7 @@ public import SU3Concrete.Representation
 /-!
 # Concrete `su(3)`: Gell-Mann matrices, adjoint, Killing form and Casimirs
 
-This is the root module for the standalone `SU3Concrete` package.  It packages
+This is the root module for the `SU3Concrete` package.  It packages
 the concrete `su(3)` material around Gell-Mann matrices: the anti-Hermitian
 generators, the matrix commutator Lie algebra, explicit structure constants, the
 Gell-Mann commutator table, the adjoint representation, the Killing form, the
@@ -70,10 +70,10 @@ def localOutputPath : System.FilePath :=
   "SU3Concrete.svg"
 
 def repositoryOutputDir : System.FilePath :=
-  "M4TH/SU3Concrete"
+  "SU3Concrete"
 
 def repositoryOutputPath : System.FilePath :=
-  "M4TH/SU3Concrete/SU3Concrete.svg"
+  "SU3Concrete/SU3Concrete.svg"
 
 def defaultOutputPath : IO System.FilePath := do
   if (← repositoryOutputDir.pathExists) then
@@ -224,7 +224,7 @@ def rightPanel : String :=
   let y := 295.0
   rect x y 455.0 154.0 style.white "#cbd5e1" 1.5 (some 0.96) ++
   textAt (x + 26.0) (y + 40.0) "certified invariants" 21 style.axis "start" ++
-  textAt (x + 26.0) (y + 76.0) "κ(Tᵃ,Tᵇ) = -3 δᵃᵇ" 22 style.root "start" ++
+  textAt (x + 26.0) (y + 76.0) "κ(Tᵃ,Tᵇ) = -12 δᵃᵇ" 22 style.root "start" ++
   textAt (x + 26.0) (y + 112.0) "∑ₐ TᵃTᵃ = -(16/3) I₃" 21 style.muted "start"
 
 def bottomPanel : String :=

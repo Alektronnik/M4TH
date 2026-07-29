@@ -18,6 +18,15 @@ Residue of the logarithmic derivative of the entire Xi variant and its
 dictionary with `MeromorphicOn.divisor`.
 -/
 
+/-!
+## Native SVG cover
+
+The following auxiliary namespace generates the package cover figure directly
+from Lean.  The code is intentionally separate from the mathematical namespace:
+it illustrates the main objects certified in this package, but it does not
+add mathematical assumptions or alter the API of the formal package.
+-/
+
 namespace XiLogResidueGraph
 
 def width : Float := 1800.0
@@ -26,17 +35,16 @@ def height : Float := 1180.0
 def localOutputPath : System.FilePath := "XiLogResidue.svg"
 
 def repositoryOutputDir : System.FilePath :=
-  "/Users/bezalelizquierdoperez/DEV/LEAN4/M4TH/XiLogResidue"
+  "XiLogResidue"
 
 def repositoryOutputPath : System.FilePath :=
-  repositoryOutputDir / "XiLogResidue.svg"
+  "XiLogResidue/XiLogResidue.svg"
 
 def defaultOutputPath : IO System.FilePath := do
-  let cwd ← IO.currentDir
-  if cwd == repositoryOutputDir then
-    pure localOutputPath
-  else
+  if (← repositoryOutputDir.pathExists) then
     pure repositoryOutputPath
+  else
+    pure localOutputPath
 
 def fstr (x : Float) : String :=
   x.toString

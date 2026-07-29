@@ -2,6 +2,48 @@
 
 All notable changes to the M4TH formalisation packages.
 
+## [5.5.0] -- 2026-07-29
+
+### Added
+- `M4THProtocol.md` in `M4THDocs/`: complete protocol fusing T-ORIK4 package
+  standard and live-layer standard, adapted for the M4TH monorepo
+- `.web.lean` single-file variants for 5 packages requiring v4.33.0-rc1
+  compatibility: MertensPNT, PrimeGapsSophie, XiArgumentPrinciple,
+  XiLogResidue, ZetaZeroCounting
+- `.web.README.md` alongside each `.web.lean` documenting API name
+  changes and version-specific fixes
+- `M4TH.sh` web mode (`./M4TH.sh web [Pkg]`) for batch compilation of
+  `.web.lean` files
+
+### Changed
+- API names in `.web.lean` files updated for v4.33.0-rc1:
+  `Set.mem_setOf_eq` -> `Set.mem_ofPred_eq`,
+  `Nat.infinite_setOf_prime` -> `Nat.infinite_setOfPred_prime`,
+  `ENat.map_coe` -> `ENat.map_natCast`,
+  `Nat.cast_zero` -> `ENat.natCast_zero`
+- `MertensPNT.web.lean`: `dsimp` replaced by explicit `rfl` for
+  `natPrimesEquiv` (structure projection reduction changed in v4.33.0-rc1)
+- `M4TH.sh`: log simplified to single `M4TH.log`, overwritten each run,
+  no `logs/` directory
+- `M4TH.sh clean`: only removes `M4TH.log`
+- `.gitignore`: blinded to prevent Lake artifacts leaking into packages
+- SVG generators: `repositoryOutputDir` paths fixed from `M4TH/PackageName`
+  to `PackageName` (graphical SVG still uses package root)
+- `SU3Concrete/Representation.lean`: merged with T-ORIK4 version, direct
+  `structureConstant` usage instead of `commutatorStructureCoeff` wrapper
+- Per-package `lakefile.toml`: restored with `# PIN OBLIGATORIO` comment
+
+### Verification
+- Zero `sorry`, zero `axiom` across all 15 packages
+- Every headline theorem: `[propext, Classical.choice, Quot.sound]`
+- All 5 `.web.lean` files use v4.33.0-rc1 API names (compile on v4.33 web
+  environment; fail locally on v4.31.0 as expected)
+- `M4TH.sh live` passing (15/15), `M4TH.sh web` passing for web-enabled
+  packages on v4.33.0-rc1 environment
+- All 15 `.live.lean` aligned with source modules (SU3Concrete Representation
+  section regenerated, XiLogResidue/ZetaZeroCounting/MertensPNT tactics
+  restored to source)
+
 ## [5.0.0] -- 2026-07-29
 
 ### Added

@@ -1,5 +1,5 @@
 # Hyperbolic and Dispersive 1D PDE in Lean 4
-
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21635317.svg)](https://doi.org/10.5281/zenodo.21635317)
 ## Weak Solutions, Shock Waves, the Lax Entropy Condition, Gradient Blow-up and Solitons
 
 **Author.** Bezalel Izquierdo Pérez — ORCID [0009-0001-5993-4057](https://orcid.org/0009-0001-5993-4057)

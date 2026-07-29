@@ -3,11 +3,18 @@ lake-packages/
 .lake/
 build/
 lakefile.olean
-/lake-manifest.json
+lake-manifest.json
 *.olean
 *.ilean
 *.trace
 *.trace.timing
+M4TH.log
+
+# Bloquear artefactos Lake dentro de paquetes individuales
+# (solo el raiz M4TH/lean-toolchain debe versionarse)
+*/lean-toolchain
+*/.lake/
+*/lake-manifest.json
 
 # IDE
 .idea/

@@ -8,10 +8,19 @@ module
 public import Mathlib.Data.Complex.Basic
 public import Mathlib.Data.Matrix.Basic
 public import Mathlib.LinearAlgebra.Matrix.ConjTranspose
+public import Mathlib.LinearAlgebra.Complex.Module
 public import Mathlib.LinearAlgebra.Matrix.Notation
+public import Mathlib.LinearAlgebra.Matrix.Module
 public import Mathlib.LinearAlgebra.Matrix.Trace
 public import Mathlib.Analysis.Real.Sqrt
-public import Mathlib.Tactic
+public import Mathlib.Tactic.FinCases
+public import Mathlib.Tactic.Linarith
+public import Mathlib.Tactic.NoncommRing
+public import Mathlib.Tactic.NormNum
+public import Mathlib.Tactic.Ring
+public import Mathlib.Data.Matrix.Mul
+public import Mathlib.Algebra.Lie.Basic
+public import Mathlib.Algebra.BigOperators.Fin
 
 /-!
 # Concrete Gell-Mann generators for `su(3)`

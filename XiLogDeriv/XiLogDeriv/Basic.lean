@@ -9,14 +9,14 @@ public import Mathlib.Analysis.Calculus.LogDeriv
 public import Mathlib.Analysis.Analytic.Basic
 public import Mathlib.Analysis.SpecialFunctions.Log.Deriv
 public import Mathlib.NumberTheory.LSeries.RiemannZeta
-public import Mathlib.Tactic
+import Mathlib.Tactic
 
 /-!
 # Basic Xi and log-derivative infrastructure
 
 This file isolates the package-local definitions used to expand the logarithmic
 derivative of the entire Riemann Xi variant.  The namespace is deliberately
-package-specific so that this standalone package can coexist with the sibling
+package-specific so that this package can coexist with the sibling
 `ZetaZeroCounting` package in the same Lake workspace.
 -/
 

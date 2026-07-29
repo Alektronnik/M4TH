@@ -1,8 +1,8 @@
 cff-version: 1.2.0
 message: "If you use this formalisation in your research, please cite it as follows."
 title: "M4TH: Formalised PDE, Analytic Number Theory, Gauge Theory, Lattice Field Theory, and Arithmetic Geometry in Lean 4"
-doi: 10.5281/zenodo.21635317
-version: 5.0.0
+doi: 10.5281/zenodo.21646239
+version: 5.5.0
 date-released: 2026-07-29
 authors:
   - family-names: Izquierdo Perez
@@ -23,9 +23,9 @@ abstract: >
   v4.0.0 -- Argument principle over the critical box, asymptotic contour
   synthesis, discrete Abel-Chebyshev bridge (XiArgumentPrinciple,
   XiAsymptoticFrontier, DiscreteAbelChebyshev).
-  v5.0.0 -- Concrete su(3), SU(3) Wilson positivity, certified elliptic curve
-  5077a1, Sophie Germain prime-gap parity (SU3Concrete, SU3Wilson,
-  CertifiedElliptic5077, PrimeGapsSophie).
+  v5.5.0 -- M4TH protocol standardisation, web-layer compatibility with
+  Lean v4.33.0-rc1 (.web.lean single-file variants, .web.README.md
+  documentation), M4TH.sh unified validation script.
   Zero axioms, zero sorry.
   Every headline theorem carries the clean axiom certificate [propext,
   Classical.choice, Quot.sound].

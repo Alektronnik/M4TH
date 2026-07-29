@@ -71,10 +71,10 @@ def localOutputPath : System.FilePath :=
   "BurgersBlowUp.svg"
 
 def repositoryOutputDir : System.FilePath :=
-  "M4TH/BurgersBlowUp"
+  "BurgersBlowUp"
 
 def repositoryOutputPath : System.FilePath :=
-  "M4TH/BurgersBlowUp/BurgersBlowUp.svg"
+  "BurgersBlowUp/BurgersBlowUp.svg"
 
 def defaultOutputPath : IO System.FilePath := do
   if (← repositoryOutputDir.pathExists) then

@@ -47,7 +47,7 @@ noncomputable def entireXiCriticalBoxResidueSum (T : ℝ) : ℂ :=
 /-- External analytic bridge for the rectangular argument principle.
 
 In the monolithic research file these statements are supplied by the rectangular
-residue theorem infrastructure.  In this standalone package they are explicit
+residue theorem infrastructure.  In this package they are explicit
 hypotheses, not axioms.
 -/
 structure ArgumentPrincipleBridge (T : ℝ) : Prop where

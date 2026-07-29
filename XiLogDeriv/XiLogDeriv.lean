@@ -15,7 +15,7 @@ public import XiLogDeriv.Expansion
 /-!
 # XiLogDeriv
 
-This is the root module for the standalone `XiLogDeriv` package.  It packages
+This is the root module for the `XiLogDeriv` package.  It packages
 the logarithmic-derivative expansion of the entire Xi variant, the `Gammaℝ`
 digamma identity, and continuity wrappers for `Complex.digamma`.
 -/
@@ -53,10 +53,10 @@ def localOutputPath : System.FilePath :=
   "XiLogDeriv.svg"
 
 def repositoryOutputDir : System.FilePath :=
-  "M4TH/XiLogDeriv"
+  "XiLogDeriv"
 
 def repositoryOutputPath : System.FilePath :=
-  "M4TH/XiLogDeriv/XiLogDeriv.svg"
+  "XiLogDeriv/XiLogDeriv.svg"
 
 def defaultOutputPath : IO System.FilePath := do
   if (← repositoryOutputDir.pathExists) then
@@ -152,7 +152,7 @@ def footer : String :=
     22 style.muted
 
 def svg : String :=
-  "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 " ++ fstr width ++ " " ++ fstr height ++ "\">\n" ++
+  s!"<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 {fstr width} {fstr height}\" width=\"{fstr width}\" height=\"{fstr height}\">\n" ++
   rect 0.0 0.0 width height style.background style.background 0.0 ++
   arrowMarker ++
   title ++

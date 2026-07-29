@@ -54,11 +54,18 @@ theorem ErdosReciprocals.mertens_euler_closure_conditional
 
 ## Build
 
-```text
-# Mathlib is already pinned in lakefile.toml (rev fabf563a, Lean 4 v4.31.0).
-lake update
-lake exe cache get
-lake build MertensPNT
+This package is part of the **M4TH monorepo**.  Build the whole monorepo from
+the root:
+
+```bash
+cd ..
+lake build
+```
+
+Or build this package independently from its own directory:
+
+```bash
+lake build
 ```
 
 ## Axiom Certificate

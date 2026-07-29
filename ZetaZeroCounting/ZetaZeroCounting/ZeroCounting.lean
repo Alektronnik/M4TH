@@ -8,6 +8,7 @@ module
 public import Mathlib.Analysis.Analytic.Order
 public import Mathlib.Data.Set.Card
 public import Mathlib.NumberTheory.LSeries.ZetaZeros
+public import Mathlib.Tactic
 public import Mathlib.Topology.DiscreteSubset
 public import ZetaZeroCounting.Xi
 

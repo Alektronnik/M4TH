@@ -1,0 +1,68 @@
+name = "M4TH"
+
+# Mathlib revision pinned for reproducibility.
+# All sub-packages in this monorepo share this single dependency.
+[[require]]
+name = "mathlib"
+scope = "leanprover-community"
+rev = "fabf563a7c95a166b8d7b6efca11c8b4dc9d911f"
+
+[[lean_lib]]
+name = "BurgersBlowUp"
+srcDir = "BurgersBlowUp"
+
+[[lean_lib]]
+name = "CertifiedElliptic5077"
+srcDir = "CertifiedElliptic5077"
+
+[[lean_lib]]
+name = "ConservationLaws"
+srcDir = "ConservationLaws"
+
+[[lean_lib]]
+name = "DirichletEta"
+srcDir = "DirichletEta"
+
+[[lean_lib]]
+name = "DiscreteAbelChebyshev"
+srcDir = "DiscreteAbelChebyshev"
+
+[[lean_lib]]
+name = "KdV"
+srcDir = "KdV"
+
+[[lean_lib]]
+name = "MertensPNT"
+srcDir = "MertensPNT"
+
+[[lean_lib]]
+name = "PrimeGapsSophie"
+srcDir = "PrimeGapsSophie"
+
+[[lean_lib]]
+name = "SU3Concrete"
+srcDir = "SU3Concrete"
+
+[[lean_lib]]
+name = "SU3Wilson"
+srcDir = "SU3Wilson"
+
+[[lean_lib]]
+name = "XiArgumentPrinciple"
+srcDir = "XiArgumentPrinciple"
+
+[[lean_lib]]
+name = "XiAsymptoticFrontier"
+srcDir = "XiAsymptoticFrontier"
+
+[[lean_lib]]
+name = "XiLogDeriv"
+srcDir = "XiLogDeriv"
+
+[[lean_lib]]
+name = "XiLogResidue"
+srcDir = "XiLogResidue"
+
+[[lean_lib]]
+name = "ZetaZeroCounting"
+srcDir = "ZetaZeroCounting"

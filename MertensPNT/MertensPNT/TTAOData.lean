@@ -14,7 +14,7 @@ set_option maxHeartbeats 800000
 # Certified computational tables
 
 This file preserves the kernel-checked TTAO, wheel-sieve and segmented-sieve
-numerical certificates shipped with this standalone package.
+numerical certificates shipped with this package.
 -/
 
 /-! ### Certified finite tables -/

@@ -1,6 +1,6 @@
 # M4TH
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21635317.svg)](https://doi.org/10.5281/zenodo.21635317)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21646239.svg)](https://doi.org/10.5281/zenodo.21646239)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![Lean 4](https://img.shields.io/badge/Lean-4-green.svg)](https://leanprover.github.io/)
 [![Mathlib](https://img.shields.io/badge/Mathlib-pinned-orange.svg)](https://github.com/leanprover-community/mathlib4)
@@ -81,19 +81,18 @@ in any major proof assistant.
 
 ## Quick start
 
-Each package is an independent Lean 4 project. Choose one and build:
-
 ```bash
-cd ConservationLaws   # or BurgersBlowUp, KdV, DirichletEta,
-                      #    ZetaZeroCounting, XiLogResidue, XiLogDeriv,
-                      #    MertensPNT, XiArgumentPrinciple,
-                      #    XiAsymptoticFrontier, DiscreteAbelChebyshev,
-                      #    SU3Concrete, SU3Wilson,
-                      #    CertifiedElliptic5077, PrimeGapsSophie
+# Build and verify locally (Lean v4.31.0)
+./M4TH.sh live                 # compile all .live.lean (15/15)
+./M4TH.sh web <Pkg>            # compile .web.lean (v4.33.0-rc1, web env only)
 
-lake update
-lake exe cache get
-lake build
+# Or work on a single package
+./M4TH.sh build MertensPNT      # build one package
+./M4TH.sh live  MertensPNT      # compile .live.lean
+./M4TH.sh web   MertensPNT      # compile .web.lean (v4.33.0-rc1)
+
+# Or directly per package (from monorepo root)
+lake build MertensPNT
 ```
 
 ## Axiom certificate
@@ -303,100 +302,120 @@ M4TH/
   CONTRIBUTING.md
   CITATION.cff
   CHANGELOG.md
+  M4TH.sh                   Unified build / live / web validation script
 
   M4THDocs/
-    Hyperbolic_Dispersive_PDE_in_Lean4.md              (v1.0.0 paper, CC-BY 4.0)
-    Riemann_von_Mangoldt_in_Lean4.md                   (v2.0.0 paper, CC-BY 4.0)
-    Mertens_PNT_in_Lean4.md                            (v3.0.0 paper, CC-BY 4.0)
-    Argument_Principle_over_Critical_Box_in_Lean4.md   (v4.0.0 paper, CC-BY 4.0)
-    Four_Certified_Formalisations_in_Lean4.md          (v5.0.0 paper, CC-BY 4.0)
+    M4THProtocol.md                                     Package standard (normative)
+    Hyperbolic_Dispersive_PDE_in_Lean4.md                (v1.0.0 paper, CC-BY 4.0)
+    Riemann_von_Mangoldt_in_Lean4.md                     (v2.0.0 paper, CC-BY 4.0)
+    Mertens_PNT_in_Lean4.md                              (v3.0.0 paper, CC-BY 4.0)
+    Argument_Principle_over_Critical_Box_in_Lean4.md     (v4.0.0 paper, CC-BY 4.0)
+    Four_Certified_Formalisations_in_Lean4.md            (v5.0.0 paper, CC-BY 4.0)
 
   BurgersBlowUp/          Gradient blow-up for the inviscid Burgers equation
     README.md, lakefile.toml, BurgersBlowUp.lean, BurgersBlowUp.svg
     BurgersBlowUp/          (Calculus, ODE, Characteristics, BlowUp)
-    BurgersBlowUpLive/      (single-file live version + mathematical manual)
+    BurgersBlowUpLive/      (live + manual)
 
   ConservationLaws/       Weak solutions and shock theory
     README.md, lakefile.toml, ConservationLaws.lean, ConservationLaws.svg
     ConservationLaws/       (TestFunction, WeakSolution, Galilean,
                              ShockProfile, ShockReduction, Burgers)
-    ConservationLawsLive/   (single-file live version + mathematical manual)
+    ConservationLawsLive/   (live + manual)
 
-  DirichletEta/           Dirichlet eta function and non-vanishing of ζ on (0,1)
+  DirichletEta/           Dirichlet eta function and non-vanishing of zeta on (0,1)
     README.md, lakefile.toml, DirichletEta.lean, DirichletEta.svg
     DirichletEta/           (Basic, Analytic, Nonvanishing)
-    DirichletEtaLive/       (single-file live version + mathematical manual)
+    DirichletEtaLive/       (live + manual)
 
   KdV/                    Exact soliton and conservation laws
     README.md, lakefile.toml, KdV.lean, KdV.svg
     KdV/                    (Basic, Hyperbolic, Soliton, ConservationLaws)
-    KdVLive/                (single-file live version + mathematical manual)
+    KdVLive/                (live + manual)
 
   MertensPNT/             Meissel-Mertens constant and compensated convergence
     README.md, lakefile.toml, MertensPNT.lean, MertensPNT.svg
     MertensPNT/             (Basic, Connections, ErdosBlocks, MertensBridge,
                              MertensConstant, PNTFrontier, TTAOData)
-    MertensPNTLive/         (single-file live version + mathematical manual)
+    MertensPNTLive/         (live + manual + web + web.README)
 
-  XiLogDeriv/             Log-derivative expansion of Ξ and digamma identity
+  XiLogDeriv/             Log-derivative expansion of Xi and digamma identity
     README.md, lakefile.toml, XiLogDeriv.lean, XiLogDeriv.svg
     XiLogDeriv/             (Basic, GammaR, DigammaContinuity, Expansion)
-    XiLogDerivLive/         (single-file live version + mathematical manual)
+    XiLogDerivLive/         (live + manual)
 
   XiLogResidue/           Logarithmic residue = multiplicity; divisor dictionary
     README.md, lakefile.toml, XiLogResidue.lean, XiLogResidue.svg
     XiLogResidue/           (Basic, LocalResidue, Divisor)
-    XiLogResidueLive/       (single-file live version + mathematical manual)
+    XiLogResidueLive/       (live + manual + web + web.README)
 
   ZetaZeroCounting/       Riemann-von Mangoldt N(T), safe heights, main term
     README.md, lakefile.toml, ZetaZeroCounting.lean, ZetaZeroCounting.svg
     ZetaZeroCounting/       (Xi, ZeroCounting, SafeHeights, MainTerm)
-    ZetaZeroCountingLive/   (single-file live version + mathematical manual)
+    ZetaZeroCountingLive/   (live + manual + web + web.README)
 
   XiArgumentPrinciple/    Critical-box argument-principle chain
     README.md, lakefile.toml, XiArgumentPrinciple.lean, XiArgumentPrinciple.svg
     XiArgumentPrinciple/    (Basic, Contour, Counting)
-    XiArgumentPrincipleLive/ (single-file live version + mathematical manual)
+    XiArgumentPrincipleLive/ (live + manual + web + web.README)
 
   XiAsymptoticFrontier/   Typed analytic frontier for contour synthesis
     README.md, lakefile.toml, XiAsymptoticFrontier.lean, XiAsymptoticFrontier.svg
     XiAsymptoticFrontier/   (Basic, Frontier, Synthesis)
-    XiAsymptoticFrontierLive/ (single-file live version + mathematical manual)
+    XiAsymptoticFrontierLive/ (live + manual)
 
   DiscreteAbelChebyshev/  Discrete Abel summation and Chebyshev bridge
     README.md, lakefile.toml, DiscreteAbelChebyshev.lean, DiscreteAbelChebyshev.svg
     DiscreteAbelChebyshev/  (Basic, ChebyshevBridge)
-    DiscreteAbelChebyshevLive/ (single-file live version + mathematical manual)
+    DiscreteAbelChebyshevLive/ (live + manual)
 
   SU3Concrete/           Concrete su(3) from Gell-Mann matrices
     README.md, lakefile.toml, SU3Concrete.lean, SU3Concrete.svg
     SU3Concrete/           (GellMann, LieAlgebra, StructureConstants,
                             Commutator, Representation)
-    SU3ConcreteLive/       (single-file live version + mathematical manual)
+    SU3ConcreteLive/       (live + manual)
 
   SU3Wilson/             SU(3) trace bound and Wilson action positivity
     README.md, lakefile.toml, SU3Wilson.lean, SU3Wilson.svg
     SU3Wilson/             (SU3, Wilson, Lattice4D)
-    SU3WilsonLive/         (single-file live version + mathematical manual)
+    SU3WilsonLive/         (live + manual)
 
   CertifiedElliptic5077/ Certified LMFDB curve 5077a1
     README.md, lakefile.toml, CertifiedElliptic5077.lean, CertifiedElliptic5077.svg
     CertifiedElliptic5077/ (Basic, IntegralModel, FiniteFieldCounts, Entry5077a1)
-    CertifiedElliptic5077Live/ (single-file live version + mathematical manual)
+    CertifiedElliptic5077Live/ (live + manual)
 
   PrimeGapsSophie/       Sophie Germain primes and higher-order gap parity
     README.md, lakefile.toml, PrimeGapsSophie.lean, PrimeGapsSophie.svg
     PrimeGapsSophie/       (SophieGermain, PrimeGap, HigherOrder)
-    PrimeGapsSophieLive/   (single-file live version + mathematical manual)
+    PrimeGapsSophieLive/   (live + manual + web + web.README)
 ```
 
-## Live versions
+## Live and Web versions
 
 Each package includes a `*Live/` subfolder with:
 
-- `*.live.lean` -- a single self-contained file fusing all modules, for web
-  reading and independent verification.
-- `*.live.MANUAL.md` -- a mathematical exposition in theorem-style format.
+- `*.live.lean` -- bit-exact single-file fusion of all source modules, for
+  local certification (Lean v4.31.0).
+- `*.live.MANUAL.md` -- mathematical exposition in theorem-style format.
+
+Five packages also include a **web layer** for Lean v4.33.0-rc1 compatibility
+(verified compiling on live.lean-lang.org, zero messages):
+
+| Package | Web status |
+|---------|-----------|
+| `MertensPNT` | Compiles clean on v4.33.0-rc1 |
+| `PrimeGapsSophie` | Compiles clean on v4.33.0-rc1 |
+| `XiArgumentPrinciple` | Compiles clean on v4.33.0-rc1 |
+| `XiLogResidue` | Compiles clean on v4.33.0-rc1 |
+| `ZetaZeroCounting` | Compiles clean on v4.33.0-rc1 |
+
+- `*.web.lean` -- same content as `.live.lean` with API names updated for
+  v4.33.0-rc1 (`Set.mem_ofPred_eq`, `Nat.infinite_setOfPred_prime`, etc.).
+- `*.web.README.md` -- documents the exact API changes and version-specific
+  fixes for that package.
+
+See `M4THDocs/M4THProtocol.md` for the full standard.
 
 ## Papers
 
@@ -441,9 +460,9 @@ If you use this work in academic research, please cite:
   title     = {M4TH: Formalised PDE and Analytic Number Theory in {Lean} 4},
   author    = {Izquierdo P{\'{e}}rez, Bezalel},
   orcid     = {0009-0001-5993-4057},
-  doi       = {10.5281/zenodo.21635317},
+  doi       = {10.5281/zenodo.21646239},
   year      = {2026},
-  version   = {v5.0.0},
+  version   = {v5.5.0},
   url       = {https://github.com/Alektronnik/M4TH}
 }
 ```

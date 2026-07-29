@@ -6,7 +6,7 @@ Authors: Bezalel Izquierdo Pérez
 module
 
 public import Mathlib.NumberTheory.LSeries.RiemannZeta
-public import Mathlib.Tactic
+import Mathlib.Tactic
 
 /-!
 # Basic API for the Dirichlet eta function

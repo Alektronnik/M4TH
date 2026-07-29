@@ -740,13 +740,22 @@ conditional frontier.
 
 ## XIII. Verification
 
-The live file was checked with:
+From the M4TH monorepo root:
+
+```text
+cd .. && lake build
+```
+
+Or build the package independently from its own directory:
 
 ```text
 cd MertensPNT && lake build
 ```
 
-The package build command is:
+Run the live file directly with the Lean server:
 
+```text
+lake env lean MertensPNT/MertensPNTLive/MertensPNT.live.lean
+```
 
-Both checks are intended to be rerun before publication or Zulip discussion.
+All checks are intended to be rerun before publication or Zulip discussion.

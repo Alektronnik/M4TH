@@ -42,7 +42,7 @@ for the alternating sum of binomial coefficients.
 >
 > ```lean
 > theorem PrimeGapsSophie.sophie_germain_mod3_eq_2
->     {p : ℕ} (hp : IsSophieGermainPrime p) (hp5 : p ≥ 5) :
+>     (p : ℕ) (hSG : IsSophieGermainPrime p) (hp5 : p ≥ 5) :
 >     p % 3 = 2
 > ```
 
@@ -54,7 +54,7 @@ for the alternating sum of binomial coefficients.
 >
 > ```lean
 > theorem PrimeGapsSophie.sophie_germain_mod6_eq_5
->     {p : ℕ} (hp : IsSophieGermainPrime p) (hp5 : 5 ≤ p) :
+>     (p : ℕ) (hSG : IsSophieGermainPrime p) (hp5 : p ≥ 5) :
 >     p % 6 = 5
 > ```
 
@@ -67,8 +67,8 @@ for the alternating sum of binomial coefficients.
 > **In Lean:**
 >
 > ```lean
-> def PrimeGapsSophie.primeGap (n : ℕ) : ℕ :=
->   Nat.nth Nat.Prime (n + 1) - Nat.nth Nat.Prime n
+> noncomputable def PrimeGapsSophie.primeGap (n : ℕ) : ℕ :=
+>   nthPrime (n + 1) - nthPrime n
 > ```
 
 > **Theorem 3. Ordinary prime gaps are even.**
@@ -94,8 +94,7 @@ for the alternating sum of binomial coefficients.
 >
 > ```lean
 > def PrimeGapsSophie.nthOrderGap (N : ℕ) (p : ℕ → ℤ) : ℤ :=
->   ∑ i ∈ range (N + 1),
->     (-1 : ℤ) ^ i * ((Nat.choose N i : ℤ) * (p (k + N - i) : ℤ))
+>   ∑ k ∈ range (N + 1), (-1 : ℤ) ^ k * (Nat.choose N k : ℤ) * p (N - k)
 > ```
 
 > **Lemma 1. Binomial alternating sum identity.**
@@ -109,7 +108,7 @@ for the alternating sum of binomial coefficients.
 > ```lean
 > lemma PrimeGapsSophie.sum_alternate_choose_eq_zero
 >     (N : ℕ) (hN : N > 0) :
->     ∑ i ∈ range (N + 1), (-1 : ℤ) ^ i * (Nat.choose N i : ℤ) = 0
+>     ∑ k ∈ range (N + 1), (-1 : ℤ) ^ k * (Nat.choose N k : ℤ) = 0
 > ```
 
 > **Theorem 4. Second, third, and fourth order gaps are even.**
@@ -130,7 +129,7 @@ for the alternating sum of binomial coefficients.
 > theorem PrimeGapsSophie.nthOrderGap_even_of_odd_primes
 >     (N : ℕ) (hN : N > 0) (p : ℕ → ℕ)
 >     (h_prime : ∀ i, i ≤ N → Nat.Prime (p i))
->     (h_gt_2 : ∀ i, i ≤ N → 2 < p i) :
+>     (h_gt_2 : ∀ i, i ≤ N → p i > 2) :
 >     ∃ k : ℤ, nthOrderGap N (fun i => (p i : ℤ)) = 2 * k
 > ```
 

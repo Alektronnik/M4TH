@@ -71,10 +71,10 @@ def localOutputPath : System.FilePath :=
   "ConservationLaws.svg"
 
 def repositoryOutputDir : System.FilePath :=
-  "M4TH/ConservationLaws"
+  "ConservationLaws"
 
 def repositoryOutputPath : System.FilePath :=
-  "M4TH/ConservationLaws/ConservationLaws.svg"
+  "ConservationLaws/ConservationLaws.svg"
 
 def defaultOutputPath : IO System.FilePath := do
   if (← repositoryOutputDir.pathExists) then

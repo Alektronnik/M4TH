@@ -77,10 +77,10 @@ def localOutputPath : System.FilePath :=
   "ZetaZeroCounting.svg"
 
 def repositoryOutputDir : System.FilePath :=
-  "M4TH/ZetaZeroCounting"
+  "ZetaZeroCounting"
 
 def repositoryOutputPath : System.FilePath :=
-  "M4TH/ZetaZeroCounting/ZetaZeroCounting.svg"
+  "ZetaZeroCounting/ZetaZeroCounting.svg"
 
 def defaultOutputPath : IO System.FilePath := do
   if (← repositoryOutputDir.pathExists) then
