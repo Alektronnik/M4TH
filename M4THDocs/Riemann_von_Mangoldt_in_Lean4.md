@@ -144,15 +144,18 @@ The Dirichlet eta function is the alternating series
 which converges for `Re(s) > 0` and satisfies the fundamental identity
 
 ```lean
-theorem DirichletEta.eta_eq_zeta_factor (s : ℂ) (hs : 0 < s.re) :
-    riemannZeta s * (1 - 2 ^ (1 - s)) = dirichletEta s
+theorem DirichletEta.eta_eq_zeta_of_re_gt_one (s : ℂ) (hs : 1 < s.re) :
+    dirichletEtaSeries s = (1 - 2 ^ (1 - s)) * riemannZeta s
 ```
 
 Because the factor `(1 - 2^{1-s})` is never zero on the real segment `(0, 1)`,
-`ζ` inherits the non-vanishing of `η` there.
+`ζ` inherits the non-vanishing of `η` there, conditional on the typed frontier
+`RiemannZetaAlternatingLimitIdentity`.
 
 ```lean
-theorem DirichletEta.zeta_ne_zero_of_mem_Ioo {s : ℝ} (hs : s ∈ Set.Ioo 0 1) :
+theorem DirichletEta.zeta_real_open_interval_nonvanishing_from_eta
+    (hη : RiemannZetaAlternatingLimitIdentity) :
+    ∀ x : ℝ, 0 < x → x < 1 → riemannZeta x ≠ 0
     riemannZeta s ≠ 0
 ```
 
@@ -253,9 +256,11 @@ contribution to `Mathlib/Analysis/SpecialFunctions/Gamma`.
 
 ## 7. Formalisation notes
 
-**Generality of the setting.** The eta factorisation and the non-vanishing on
-`(0, 1)` are unconditional. The zero-counting package is also unconditional;
-all four packages are entirely independent of unproven hypotheses.
+**Generality of the setting.** The eta factorisation is unconditional.
+The non-vanishing of `ζ` on `(0, 1)` is conditional on the typed hypothesis
+`RiemannZetaAlternatingLimitIdentity` (see the DirichletEta README for details).
+The zero-counting package is unconditional; all four packages are entirely
+independent of unproven hypotheses except for this single conditional bridge.
 
 **Divisor dictionary and ProjectVD.** The `MeromorphicOn.divisor` formalism is
 already present in Mathlib. `XiLogResidue` proves compatibility theorems rather
@@ -311,10 +316,11 @@ package also includes a `Live` single-file study version. After a successful
 build the axiom certificate of each headline theorem may be reproduced with
 
 ```
-#print axioms DirichletEta.zeta_ne_zero_of_mem_Ioo
-#print axioms ZetaZeroCounting.zerosUpToIm_finite
-#print axioms XiLogResidue.entireXi_divisor_finset_eq_zerosUpToImFinset
-#print axioms XiLogDeriv.gammaRFactorLogDeriv_eq_neg_half_log_pi_add_half_digamma
+#print axioms DirichletEta.eta_eq_zeta_of_re_gt_one
+#print axioms DirichletEta.zeta_real_open_interval_nonvanishing_from_eta
+#print axioms ZetaZeroCounting.Riemann.zerosUpToIm_finite
+#print axioms XiLogResidue.RiemannLogResidue.entireXi_divisor_finset_eq_zerosUpToImFinset
+#print axioms XiLogDeriv.RiemannLogDeriv.gammaRFactorLogDeriv_eq_neg_half_log_pi_add_half_digamma
 ```
 
 each returning `[propext, Classical.choice, Quot.sound]`.

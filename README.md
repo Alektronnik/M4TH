@@ -3,7 +3,7 @@
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21635317.svg)](https://doi.org/10.5281/zenodo.21635317)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![Lean 4](https://img.shields.io/badge/Lean-4-green.svg)](https://leanprover.github.io/)
-[![Mathlib](https://img.shields.io/badge/Mathlib-latest-orange.svg)](https://github.com/leanprover-community/mathlib4)
+[![Mathlib](https://img.shields.io/badge/Mathlib-pinned-orange.svg)](https://github.com/leanprover-community/mathlib4)
 
 **Formalised PDE, analytic number theory, gauge theory, lattice field theory,
 and arithmetic geometry in Lean 4 -- weak solutions, shock waves, Lax entropy,
@@ -205,7 +205,7 @@ Each must report only `[propext, Classical.choice, Quot.sound]`.
 | Theorem | Statement |
 |---|---|
 | `eta_eq_zeta_of_re_gt_one` | `η(s) = (1-2^{1-s})ζ(s)` for `Re(s) > 1` |
-| `zeta_real_open_interval_nonvanishing_from_eta` | `ζ(x) ≠ 0` for all `x ∈ (0,1)` |
+| `zeta_real_open_interval_nonvanishing_from_eta` | `ζ(x) ≠ 0` for all `x ∈ (0,1)`, conditional on `RiemannZetaAlternatingLimitIdentity` |
 
 ### ZetaZeroCounting -- Riemann-von Mangoldt N(T)
 
