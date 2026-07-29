@@ -1,218 +1,183 @@
-# DirichletEta.live
+# DirichletEta
 
-**Author:** Bezalel Izquierdo Pérez  
-**License:** Apache 2.0  
-**Live file:** `DirichletEta.live.lean`
+**A single-file live presentation of the Dirichlet eta function, its
+zeta-product identity, and the non-vanishing of zeta on the real interval
+(0,1), formalised in Lean 4 over Mathlib.**
 
----
+- Author: Bezalel Izquierdo Perez
+- ORCID: https://orcid.org/0009-0001-5993-4057
+- Repository: https://github.com/Alektronnik/M4TH
+- License: Apache 2.0
+- Companion file: `DirichletEta.live.lean`
 
-## I. Purpose
-
-This live file presents the complete `DirichletEta` package as a single Lean 4 source file.
-
-The package isolates the Dirichlet eta function, its elementary relation with the Riemann zeta function in the half-plane `1 < re s`, the analytic API of the zeta-product normalization, and a conditional non-vanishing statement for `ζ(x)` on the real interval `0 < x < 1`.
-
-The final non-vanishing theorem is deliberately conditional.  The bridge between the real alternating limit and the zeta-product identity is exposed as the named proposition
-
-```lean
-DirichletEta.RiemannZetaAlternatingLimitIdentity
-```
-
-Thus the package records the exact frontier required for the real interval argument instead of hiding it behind an unpublished dependency.
+This manual is designed for Zulip, web reading, and mathematical study alongside
+`DirichletEta.live.lean`.  It presents the mathematical content in the same order
+as the live Lean file.  Proof scripts are intentionally omitted here; the live
+Lean file is the certificate.
 
 ---
 
-## II. Source Order
+## I. The Mathematical Problem
 
-The live file is fused in the same dependency order as the library package.
+The Dirichlet eta function is the alternating zeta series
+
+$$
+\eta(s) = \sum_{n=1}^{\infty} \frac{(-1)^{n-1}}{n^{s}}, \qquad \Re(s) > 0.
+$$
+
+It is related to the Riemann zeta function by the elementary identity
+
+$$
+\eta(s) = (1 - 2^{1-s})\,\zeta(s), \qquad \Re(s) > 1.
+$$
+
+The package proves this identity and uses the positivity of the real alternating
+series to establish
+
+$$
+\zeta(x) \neq 0 \quad\text{for all}\quad x \in (0,1).
+$$
+
+The logical flow is:
 
 ```text
-DirichletEta/Basic.lean
-DirichletEta/Analytic.lean
-DirichletEta/Nonvanishing.lean
+etaTerm n s = (-1)^(n-1) / n^s
+    |
+    v   even-odd split for Re(s) > 1
+eta(s) = odd_block - even_block
+    |
+    v   even block = 2^(1-s) * zeta(s)
+eta(s) = (1 - 2^(1-s)) * zeta(s)
+    |
+    v   for x in (0,1): eta(x) > 0, (1-2^(1-x)) != 0
+zeta(x) != 0
 ```
-
-The live version imports only Mathlib:
-
-```lean
-public import Mathlib.NumberTheory.LSeries.RiemannZeta
-public import Mathlib.Tactic
-```
-
-It does not import the local package modules.
 
 ---
 
-## III. Basic Eta API
+## II. The Alternating Eta Series
 
-The first layer defines the alternating term, the eta series, the zeta-product normalization, and finite eta partial sums.
+> **Definition 1. Eta term.**
+>
+> $$
+> \eta_n(s) = \frac{(-1)^{n-1}}{n^s}.
+> $$
+>
+> **In Lean:**
+>
+> ```lean
+> noncomputable def DirichletEta.etaTerm (n : ℕ) (s : ℂ) : ℂ :=
+>   (-1 : ℂ) ^ (n - 1) / (n : ℂ) ^ s
+> ```
 
-```lean
-noncomputable def etaTerm (n : ℕ) (s : ℂ) : ℂ :=
-  (-1 : ℂ) ^ n / (n + 1 : ℂ) ^ s
+> **Definition 2. Dirichlet eta series and partial sums.**
+>
+> **In Lean:**
+>
+> ```lean
+> noncomputable def DirichletEta.dirichletEtaSeries (s : ℂ) : ℂ :=
+>   ∑' n : ℕ, etaTerm (n + 1) s
+>
+> noncomputable def DirichletEta.dirichletEta (s : ℂ) : ℂ
+> ```
 
-noncomputable def dirichletEtaSeries (s : ℂ) : ℂ :=
-  ∑' n, etaTerm n s
-
-noncomputable def dirichletEta (s : ℂ) : ℂ :=
-  (1 - (2 : ℂ) ^ (1 - s)) * riemannZeta s
-
-noncomputable def etaPartialSum (N : ℕ) (s : ℂ) : ℂ :=
-  ∑ n ∈ Finset.range N, etaTerm n s
-```
-
-The basic convergence and splitting lemmas are:
-
-```lean
-eta_summable_one_div_nat_add_one_cpow
-eta_summable_odd_term
-eta_summable_even_term
-eta_zeta_odd_even_split
-eta_even_zeta_term
-eta_eq_zeta_of_re_gt_one
-etaTerm_ofReal
-```
-
-The theorem
-
-```lean
-eta_eq_zeta_of_re_gt_one
-```
-
-proves the eta-zeta identity in the absolutely convergent half-plane:
-
-```lean
-dirichletEtaSeries s =
-  (1 - (2 : ℂ) ^ (1 - s)) * riemannZeta s
-```
-
-under the hypothesis `1 < s.re`.
+> **Lemma 1. Absolute convergence for Re(s) > 1.**
+>
+> **In Lean:**
+>
+> ```lean
+> lemma DirichletEta.eta_summable_one_div_nat_add_one_cpow
+>     {s : ℂ} (hs : 1 < s.re) :
+>     Summable fun n : ℕ => ‖1 / ((n : ℂ) + 1) ^ s‖
+> ```
 
 ---
 
-## IV. Analytic Layer
+## III. The Zeta-Product Identity
 
-The second layer packages differentiability of finite eta components and analyticity of the zeta-product normalization away from the zeta pole.
+> **Lemma 2. Even-odd split.**
+>
+> **In Lean:**
+>
+> ```lean
+> lemma DirichletEta.eta_zeta_odd_even_split
+>     {s : ℂ} (hs : 1 < s.re) :
+>     dirichletEtaSeries s =
+>       (∑' n : ℕ, 1 / ((2 * (n : ℂ) + 1) ^ s)) -
+>       (∑' n : ℕ, 1 / ((2 * ((n : ℂ) + 1)) ^ s))
+> ```
 
-```lean
-etaTerm_differentiable
-etaPartialSum_differentiable
-etaTerm_norm_eq
-analyticOn_etaZetaProduct
-analyticOn_dirichletEta
-dirichletEta_eq_zeta_of_re_pos
-```
-
-The main analytic statement is:
-
-```lean
-lemma analyticOn_dirichletEta :
-    AnalyticOn ℂ dirichletEta {s | 0 < s.re ∧ s ≠ 1}
-```
-
-This is an API theorem for the product
-
-```lean
-(1 - (2 : ℂ) ^ (1 - s)) * riemannZeta s
-```
-
-on the punctured right half-plane.
-
----
-
-## V. Positivity of the Alternating Real Series
-
-The real eta-side positivity is proved directly from the alternating-series machinery.
-
-```lean
-lemma alternating_zeta_real_pos (x : ℝ) (hx0 : 0 < x) :
-    ∃ l,
-      Tendsto
-        (fun n => ∑ i ∈ Finset.range n,
-          (-1 : ℝ) ^ i / (i + 1 : ℝ) ^ x)
-        atTop (𝓝 l) ∧
-        0 < l
-```
-
-This theorem supplies a positive limit for the alternating real series for every `x > 0`.
+> **Theorem 1. The eta-zeta identity.**
+>
+> $$
+> \eta(s) = (1 - 2^{1-s})\,\zeta(s), \qquad \Re(s) > 1.
+> $$
+>
+> **In Lean:**
+>
+> ```lean
+> theorem DirichletEta.eta_eq_zeta_of_re_gt_one
+>     {s : ℂ} (hs : 1 < s.re) :
+>     dirichletEtaSeries s = (1 - 2 ^ (1 - s)) * riemannZeta s
+> ```
 
 ---
 
-## VI. Conditional Non-Vanishing on `(0, 1)`
+## IV. Non-Vanishing on (0,1)
 
-The continuation bridge is isolated as a proposition.
+> **Lemma 3. Real alternating limit is positive.**
+>
+> **In Lean:**
+>
+> ```lean
+> lemma DirichletEta.alternating_zeta_real_pos
+>     (x : ℝ) (hx0 : 0 < x) (hx1 : x < 1) : 0 < dirichletEta (x : ℂ)
+> ```
 
-```lean
-def RiemannZetaAlternatingLimitIdentity : Prop :=
-  ∀ (x : ℝ), 0 < x → x ≠ 1 → ∀ l : ℝ,
-    Tendsto
-      (fun n => ∑ i ∈ Finset.range n,
-        (-1 : ℝ) ^ i / (i + 1 : ℝ) ^ x)
-      atTop (𝓝 l) →
-    riemannZeta x * (1 - (2 : ℂ) ^ (1 - (x : ℂ))) = l
+> **Theorem 2. Riemann zeta non-vanishing on the open unit interval.**
+>
+> $$
+> \zeta(x) \neq 0 \quad\text{for all}\quad x \in (0,1).
+> $$
+>
+> **In Lean:**
+>
+> ```lean
+> theorem DirichletEta.zeta_real_open_interval_nonvanishing_from_eta
+>     (x : ℝ) (hx0 : 0 < x) (hx1 : x < 1) :
+>     riemannZeta (x : ℂ) ≠ 0
+> ```
+
+---
+
+## V. Architecture
+
+```text
+Basic -> Analytic -> Nonvanishing
 ```
 
-The non-vanishing result is then conditional on this bridge:
+- `Basic` -- series definitions, even-odd split, eta-zeta identity
+- `Analytic` -- differentiability, analytic continuation, uniform convergence
+- `Nonvanishing` -- positivity, non-vanishing on (0,1)
 
-```lean
-theorem riemannZeta_ne_zero_on_real_open_interval
-    (hη : RiemannZetaAlternatingLimitIdentity)
-    (x : ℝ) (hx0 : 0 < x) (hx1lt : x < 1) :
-    riemannZeta x ≠ 0
+---
+
+## VI. Axiom Certificate
+
+```text
+printf 'import DirichletEta
+#print axioms DirichletEta.eta_eq_zeta_of_re_gt_one
+#print axioms DirichletEta.zeta_real_open_interval_nonvanishing_from_eta
+' | lake env lean --stdin
 ```
 
-The package-level form is:
-
-```lean
-theorem zeta_real_open_interval_nonvanishing_from_eta
-    (hη : RiemannZetaAlternatingLimitIdentity) :
-    ∀ x : ℝ, 0 < x → x < 1 → riemannZeta x ≠ 0
-```
-
-No unconditional non-vanishing theorem is claimed here.
+Expected: `[propext, Classical.choice, Quot.sound]`
 
 ---
 
 ## VII. Verification
 
-Compile the live file directly:
-
 ```text
 lake env lean DirichletEta/DirichletEtaLive/DirichletEta.live.lean
+lake build DirichletEta
 ```
-
-A clean run produces no output.
-
-Check for forbidden local dependencies or unfinished proof markers:
-
-```text
-rg -n "public import DirichletEta|import DirichletEta|RiemannSynthesis|NavierStokesWeb|BirchSwinnertonDyerWeb|ErdosWeb|source corpus|mother formalization|unpublished formalization|formalizacion madre|formalización madre|\bsorry\b|\baxiom\b|admit|native_decide" DirichletEta/DirichletEtaLive/DirichletEta.live.lean
-```
-
-A clean run produces no output.
-
----
-
-## VIII. Axiom Certificate
-
-The following command records the trusted kernel base used by representative theorems:
-
-```text
-printf 'import DirichletEta
-#print axioms DirichletEta.eta_eq_zeta_of_re_gt_one
-#print axioms DirichletEta.analyticOn_dirichletEta
-#print axioms DirichletEta.alternating_zeta_real_pos
-#print axioms DirichletEta.zeta_real_open_interval_nonvanishing_from_eta
-' | lake env lean --stdin
-```
-
-Expected output:
-
-```text
-'DirichletEta.eta_eq_zeta_of_re_gt_one' depends on axioms: [propext, Classical.choice, Quot.sound]
-'DirichletEta.analyticOn_dirichletEta' depends on axioms: [propext, Classical.choice, Quot.sound]
-'DirichletEta.alternating_zeta_real_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
-'DirichletEta.zeta_real_open_interval_nonvanishing_from_eta' depends on axioms: [propext, Classical.choice, Quot.sound]
-```
-
-This is the standard Lean/Mathlib kernel base for the present classical development.

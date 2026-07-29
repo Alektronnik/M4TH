@@ -1,316 +1,215 @@
-# XiArgumentPrinciple.live
+# XiArgumentPrinciple
 
-**Author:** Bezalel Izquierdo Pérez  
-**License:** Apache 2.0  
-**Live file:** `XiArgumentPrinciple.live.lean`
+**A single-file live presentation of the critical-box argument-principle chain
+for the Riemann Xi variant, formalised in Lean 4 over Mathlib.**
 
----
+- Author: Bezalel Izquierdo Perez
+- ORCID: https://orcid.org/0009-0001-5993-4057
+- Repository: https://github.com/Alektronnik/M4TH
+- License: Apache 2.0
+- Companion file: `XiArgumentPrinciple.live.lean`
 
-## I. Purpose
-
-This live file is the single-file study version of the `XiArgumentPrinciple`
-package.
-
-It formalizes the critical-box contour framework for the entire Xi variant and
-packages the argument-principle step which turns a contour integral of
-`ξ'/ξ` into a multiplicity count of zeros.
-
-The central theorem is conditional on an explicit bridge:
-
-```lean
-RiemannArgumentPrinciple.ArgumentPrincipleBridge T
-```
-
-This bridge represents the rectangular argument-principle input.  It is a
-typed hypothesis, not a local trusted declaration.
+This manual is designed for Zulip, web reading, and mathematical study alongside
+`XiArgumentPrinciple.live.lean`.  It presents the mathematical content in the same order
+as the live Lean file.  Proof scripts are intentionally omitted here; the live
+Lean file is the certificate.
 
 ---
 
-## II. Source Order
+## I. The Mathematical Problem
 
-The live file is fused in dependency order:
+The argument principle relates the contour integral of the logarithmic derivative
+\(f'/f\) around a closed curve to the number of zeros of \(f\) inside.  For the
+Riemann Xi function, the contour is the boundary of the critical box
+\(\{0 \le \Re(s) \le 1,\; 0 \le \Im(s) \le T\}\).
+
+The package proves the unconditional contour/rectangle identity and packages the
+counting step as a theorem conditional on an explicit typed bridge.  The
+rectangular residue theorem is NOT proved; its content is exposed as the
+`ArgumentPrincipleBridge` structure.
+
+The logical flow is:
 
 ```text
-XiArgumentPrinciple/Basic.lean
-XiArgumentPrinciple/Contour.lean
-XiArgumentPrinciple/Counting.lean
-```
-
-The live file imports only Mathlib dependencies and does not import the local
-package modules.
-
----
-
-## III. Basic Infrastructure
-
-The first layer defines the open critical-strip zero set:
-
-```lean
-def nontrivialZeros : Set ℂ :=
-  {s : ℂ | riemannZeta s = 0 ∧ 0 < s.re ∧ s.re < 1}
-```
-
-Zeros up to height `T` are:
-
-```lean
-def zerosUpToIm (T : ℝ) : Set ℂ :=
-  {s : ℂ | s ∈ nontrivialZeros ∧ 0 < s.im ∧ s.im ≤ T}
-```
-
-The critical box is:
-
-```lean
-def criticalBox (T : ℝ) : Set ℂ :=
-  {s : ℂ | 0 ≤ s.re ∧ s.re ≤ 1 ∧ 0 ≤ s.im ∧ s.im ≤ T}
-```
-
-The safe-height condition excludes zeros from the top edge:
-
-```lean
-def IsSafeHeight (T : ℝ) : Prop :=
-  ∀ s ∈ criticalBoxTopEdge T, ¬ s ∈ nontrivialZeros
-```
-
-The package proves that zeros counted by `zerosUpToIm T` lie in the interior of
-the critical box when `T` is safe:
-
-```lean
-zerosUpToIm_subset_criticalBoxInterior
+entireXiLogDeriv
+    |
+    v   parametrised edges: bottom, right, top, left
+entireXiContourIntegral T
+    |
+    v   unconditional algebraic identity
+entireXiContourIntegral T = criticalBoxRectangleIntegral entireXiLogDeriv T
+    |
+    v   conditional on ArgumentPrincipleBridge
+contour_winding_equals_count_of_safe: contour integral = 2πi * N(T)
 ```
 
 ---
 
-## IV. Entire Xi and Multiplicity
+## II. Critical Box and Contour
 
-The entire Xi variant is:
+> **Definition 1. Entire Xi variant.**
+>
+> **In Lean:**
+>
+> ```lean
+> noncomputable def RiemannArgumentPrinciple.entireXi (s : ℂ) : ℂ :=
+>   s * (s - 1) * completedRiemannZeta₀ s + 1
+> ```
 
-```lean
-noncomputable def entireXi (s : ℂ) : ℂ :=
-  s * (s - 1) * completedRiemannZeta₀ s + 1
-```
+> **Definition 2. Critical box and safe heights.**
+>
+> **In Lean:**
+>
+> ```lean
+> def RiemannArgumentPrinciple.criticalBox (T : ℝ) : Set ℂ :=
+>   {s | 0 ≤ s.re ∧ s.re ≤ 1 ∧ 0 ≤ s.im ∧ s.im ≤ T}
+>
+> def RiemannArgumentPrinciple.IsSafeHeight (T : ℝ) : Prop :=
+>   -- no nontrivial zero lies on the top edge
+> ```
 
-The basic analytic API is:
+> **Definition 3. Four edge parametrisations.**
+>
+> Each edge is given an explicit parametrisation for the contour integral.
+>
+> **In Lean:**
+>
+> ```lean
+> noncomputable def RiemannArgumentPrinciple.criticalBoxBottomParam (t : ℝ) : ℂ := (t : ℂ)
+> noncomputable def RiemannArgumentPrinciple.criticalBoxRightParam (T t : ℝ) : ℂ := 1 + (t : ℂ) * I
+> noncomputable def RiemannArgumentPrinciple.criticalBoxTopParam (T t : ℝ) : ℂ := (t : ℂ) + (T : ℂ) * I
+> noncomputable def RiemannArgumentPrinciple.criticalBoxLeftParam (T t : ℝ) : ℂ := (t : ℂ) * I
+> ```
 
-```lean
-differentiable_entireXi
-continuous_entireXi
-analyticAt_entireXi
-```
-
-Inside the open critical strip, zeta zeros and `entireXi` zeros are related by:
-
-```lean
-completedRiemannZeta_zero_iff
-nontrivial_zero_implies_entireXi_zero
-entireXi_zero_implies_nontrivial
-```
-
-The finite zero set and multiplicity count are:
-
-```lean
-noncomputable def zerosUpToImFinset (T : ℝ) : Finset ℂ :=
-  (zerosUpToIm_finite T).toFinset
-
-noncomputable def entireXiZeroMultiplicity (s : ℂ) : ℕ :=
-  analyticOrderNatAt entireXi s
-
-noncomputable def zeroCountingWithMultiplicity (T : ℝ) : ℝ :=
-  Nat.cast ((zerosUpToImFinset T).sum entireXiZeroMultiplicity)
-```
-
----
-
-## V. Contour Parametrization
-
-The contour layer defines the four oriented edges of the critical box:
-
-```lean
-criticalBoxBottomParam
-criticalBoxRightParam
-criticalBoxTopParam
-criticalBoxLeftParam
-```
-
-The edge integrals use the logarithmic derivative of `entireXi`:
-
-```lean
-entireXiBottomEdgeIntegral
-entireXiRightEdgeIntegral
-entireXiTopEdgeIntegral
-entireXiLeftEdgeIntegral
-```
-
-The full boundary integral is:
-
-```lean
-noncomputable def entireXiContourIntegral (T : ℝ) : ℂ :=
-  entireXiBottomEdgeIntegral + entireXiRightEdgeIntegral T +
-    entireXiTopEdgeIntegral T + entireXiLeftEdgeIntegral T
-```
-
-The rectangular integral convention is:
-
-```lean
-noncomputable def criticalBoxRectangleIntegral (f : ℂ → ℂ) (T : ℝ) : ℂ :=
-  (∫ x in (0 : ℝ)..1, f (x : ℂ)) -
-    (∫ x in (0 : ℝ)..1, f ((x : ℂ) + (T : ℂ) * I)) +
-  (Complex.I • ∫ y in (0 : ℝ)..T, f (1 + (y : ℂ) * I)) -
-    (Complex.I • ∫ y in (0 : ℝ)..T, f ((y : ℂ) * I))
-```
-
-The package proves the equality between the edge-by-edge contour and the
-rectangular convention:
-
-```lean
-theorem entireXiContourIntegral_eq_rectangleIntegral (T : ℝ) :
-    entireXiContourIntegral T =
-      criticalBoxRectangleIntegral entireXiLogDeriv T
-```
+> **Definition 4. Oriented contour integral.**
+>
+> **In Lean:**
+>
+> ```lean
+> noncomputable def RiemannArgumentPrinciple.entireXiContourIntegral (T : ℝ) : ℂ :=
+>   entireXiBottomEdgeIntegral + entireXiRightEdgeIntegral T +
+>     entireXiTopEdgeIntegral T + entireXiLeftEdgeIntegral T
+> ```
 
 ---
 
-## VI. Cauchy Index and Bridge
+## III. Unconditional Theorem
 
-The counting layer defines the Cauchy kernel:
-
-```lean
-noncomputable def contourCauchyKernel (w : ℂ) (z : ℂ) : ℂ :=
-  1 / (z - w)
-```
-
-and its contour index integral:
-
-```lean
-noncomputable def contourCauchyIndexIntegral (w : ℂ) (T : ℝ) : ℂ :=
-  criticalBoxRectangleIntegral (contourCauchyKernel w) T
-```
-
-The typed winding statement is:
-
-```lean
-def ContourWindingIndexEq (T : ℝ) (w : ℂ) (k : ℤ) : Prop :=
-  contourCauchyIndexIntegral w T = (k : ℂ) * (2 * Real.pi * I)
-```
-
-The external analytic interface is:
-
-```lean
-structure ArgumentPrincipleBridge (T : ℝ) : Prop where
-  index_one :
-    ∀ {w : ℂ}, w ∈ criticalBoxInterior T →
-      contourCauchyIndexIntegral w T = 2 * Real.pi * I
-  index_zero :
-    ∀ {w : ℂ}, w ∉ criticalBox T →
-      contourCauchyIndexIntegral w T = 0
-  residue_sum :
-    entireXiContourIntegral T / (2 * Real.pi * I) =
-      entireXiCriticalBoxResidueSum T
-```
-
-This structure is the exact frontier of the package.  The live file does not
-claim to prove the rectangular residue theorem internally.
+> **Theorem 1. Contour equals rectangle.**
+>
+> The edge-by-edge contour integral equals the rectangular integral of the
+> same integrand.  This is unconditional and purely algebraic: it follows from
+> the explicit edge parametrisations and the change-of-variables formula.
+>
+> **In Lean:**
+>
+> ```lean
+> theorem RiemannArgumentPrinciple.entireXiContourIntegral_eq_rectangleIntegral
+>     (T : ℝ) :
+>     entireXiContourIntegral T =
+>       criticalBoxRectangleIntegral entireXiLogDeriv T
+> ```
 
 ---
 
-## VII. Counting Theorems
+## IV. The Typed Argument-Principle Bridge
 
-The package first packages the winding-index statement:
+> **Definition 5. Argument principle bridge.**
+>
+> The three analytic facts the classical proof would import from the
+> rectangular residue theorem are exposed as explicit `Prop` fields:
+>
+> **In Lean:**
+>
+> ```lean
+> structure RiemannArgumentPrinciple.ArgumentPrincipleBridge (T : ℝ) : Prop where
+>   index_one : ∀ {w : ℂ}, w ∈ criticalBoxInterior T →
+>     contourCauchyIndexIntegral w T = 2 * Real.pi * I
+>   index_zero : ∀ {w : ℂ}, w ∉ criticalBox T →
+>     contourCauchyIndexIntegral w T = 0
+>   residue_sum :
+>     entireXiContourIntegral T / (2 * Real.pi * I) =
+>       entireXiCriticalBoxResidueSum T
+> ```
 
-```lean
-theorem contour_winding_index_one_of_safe {T : ℝ}
-    (hT : 0 < T) (hSafe : IsSafeHeight T)
-    (hBridge : ArgumentPrincipleBridge T) :
-    ContourWindingIndexOne T
-```
+---
 
-Every zero counted by `zerosUpToIm T` has winding index `+1`:
+## V. Conditional Counting Theorems
 
-```lean
-theorem contour_winding_index_one_on_zerosUpToIm {T : ℝ}
-    (hSafe : IsSafeHeight T) (hBridge : ArgumentPrincipleBridge T) :
-    ∀ {s : ℂ}, s ∈ zerosUpToIm T → ContourWindingIndexEq T s 1
-```
+> **Theorem 2. Winding equals count.**
+>
+> Under the typed bridge, the contour integral equals \(2\pi i\) times the
+> multiplicity-counting function.
+>
+> **In Lean:**
+>
+> ```lean
+> theorem RiemannArgumentPrinciple.contour_winding_equals_count_of_safe
+>     {T : ℝ} (hT : 0 < T) (hSafe : IsSafeHeight T)
+>     (hBridge : ArgumentPrincipleBridge T) :
+>     ContourWindingEqualsCount T
+> ```
 
-The residue sum equals the multiplicity count under the bridge:
+> **Theorem 3. Winding index = +1 for interior zeros.**
+>
+> **In Lean:**
+>
+> ```lean
+> theorem RiemannArgumentPrinciple.contour_winding_index_one_of_safe
+>     {T : ℝ} (hT : 0 < T) (hSafe : IsSafeHeight T)
+>     (hBridge : ArgumentPrincipleBridge T) :
+>     ContourWindingIndexOne T
+> ```
 
-```lean
-theorem contour_residue_sum_equals_N_of_safe {T : ℝ}
-    (hT : 0 < T) (hSafe : IsSafeHeight T)
-    (hBridge : ArgumentPrincipleBridge T) :
-    ContourResidueSumEqualsN T
-```
+> **Theorem 4. Residue sum equals multiplicity count.**
+>
+> **In Lean:**
+>
+> ```lean
+> theorem RiemannArgumentPrinciple.contour_residue_sum_equals_N_of_safe
+>     {T : ℝ} (hT : 0 < T) (hSafe : IsSafeHeight T)
+>     (hBridge : ArgumentPrincipleBridge T) :
+>     ContourResidueSumEqualsN T
+> ```
 
-The main contour-counting theorem is:
+---
 
-```lean
-theorem contour_winding_equals_count_of_safe {T : ℝ}
-    (hT : 0 < T) (hSafe : IsSafeHeight T)
-    (hBridge : ArgumentPrincipleBridge T) :
-    ContourWindingEqualsCount T
-```
-
-It proves:
+## VI. Architecture
 
 ```text
-∮ ξ'/ξ = 2πi · zeroCountingWithMultiplicity(T)
+Basic -> Contour -> Counting
 ```
 
-in the typed form used by the package.
+- `Basic` -- entire Xi, critical box, nontrivial zeros, safe heights, multiplicity
+- `Contour` -- four edge parametrisations, contour/rectangle integral identity
+- `Counting` -- `ArgumentPrincipleBridge`, conditional winding = count theorems
 
-The eventual global form is:
+The mathematical spine:
 
-```lean
-theorem contour_winding_equals_count_forall
-    (h : ∀ T > 0, ∃ T' ≥ T,
-      IsSafeHeight T' ∧ ArgumentPrincipleBridge T') :
-    ContourWindingEqualsCountEventually
+```text
+entireXiContourIntegral T = sum of four edge integrals
+    = criticalBoxRectangleIntegral entireXiLogDeriv T   [unconditional]
+    = 2πi * zeroCountingWithMultiplicity T               [conditional on bridge]
 ```
+
+---
+
+## VII. Axiom Certificate
+
+```text
+printf 'import XiArgumentPrinciple
+#print axioms RiemannArgumentPrinciple.entireXiContourIntegral_eq_rectangleIntegral
+#print axioms RiemannArgumentPrinciple.contour_winding_equals_count_of_safe
+' | lake env lean --stdin
+```
+
+Expected: `[propext, Classical.choice, Quot.sound]`
 
 ---
 
 ## VIII. Verification
 
-Compile the live file directly:
-
 ```text
 lake env lean XiArgumentPrinciple/XiArgumentPrincipleLive/XiArgumentPrinciple.live.lean
+lake build XiArgumentPrinciple
 ```
-
-A clean run produces no output.
-
-Check for forbidden local dependencies or unfinished proof markers:
-
-```text
-rg -n "public import XiArgumentPrinciple|import XiArgumentPrinciple|RiemannSynthesis|NavierStokesWeb|BirchSwinnertonDyerWeb|ErdosWeb|source corpus|mother formalization|unpublished formalization|formalizacion madre|formalización madre|\bsorry\b|\baxiom\b|admit|native_decide" XiArgumentPrinciple/XiArgumentPrincipleLive/XiArgumentPrinciple.live.lean
-```
-
-A clean run produces no output.
-
----
-
-## IX. Axiom Certificate
-
-The following command records the trusted kernel base used by representative
-theorems:
-
-```text
-printf 'import XiArgumentPrinciple
-#print axioms RiemannArgumentPrinciple.entireXiContourIntegral_eq_rectangleIntegral
-#print axioms RiemannArgumentPrinciple.contour_winding_index_one_of_safe
-#print axioms RiemannArgumentPrinciple.contour_residue_sum_equals_N_of_safe
-#print axioms RiemannArgumentPrinciple.contour_winding_equals_count_of_safe
-#print axioms RiemannArgumentPrinciple.contour_winding_equals_count_forall
-' | lake env lean --stdin
-```
-
-Expected output:
-
-```text
-'RiemannArgumentPrinciple.entireXiContourIntegral_eq_rectangleIntegral' depends on axioms: [propext, Classical.choice, Quot.sound]
-'RiemannArgumentPrinciple.contour_winding_index_one_of_safe' depends on axioms: [propext, Classical.choice, Quot.sound]
-'RiemannArgumentPrinciple.contour_residue_sum_equals_N_of_safe' depends on axioms: [propext, Classical.choice, Quot.sound]
-'RiemannArgumentPrinciple.contour_winding_equals_count_of_safe' depends on axioms: [propext, Classical.choice, Quot.sound]
-'RiemannArgumentPrinciple.contour_winding_equals_count_forall' depends on axioms: [propext, Classical.choice, Quot.sound]
-```
-
-This is the standard Lean/Mathlib kernel base for this classical development.
