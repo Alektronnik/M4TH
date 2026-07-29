@@ -423,7 +423,7 @@ Each package includes a `*Live/` subfolder with:
 
 ## Requirements
 
-- Lean 4 (v4.31.0 or later)
+- Lean 4 (validated with v4.31.0)
 - Mathlib (pinned per package via `lakefile.toml` to `fabf563a`)
 - macOS / Linux / Windows
 

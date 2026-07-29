@@ -16,8 +16,10 @@ Mathlib, of the elementary analytic theory surrounding the Riemann zeta function
 and the von Mangoldt explicit formula. Four interlocking packages form a coherent
 chain from the alternating Dirichlet series to the digamma identity of the
 completed Riemann xi function. The development opens with the Dirichlet eta function `η(s) = (1 -
-2^{1-s}) ζ(s)` and its non-vanishing on the real segment `(0, 1)`, giving a safe
-entry point into the critical strip. The central package, `ZetaZeroCounting`,
+2^{1-s}) ζ(s)`, proved unconditionally, and its conditional non-vanishing on
+the real segment `(0, 1)` under the typed hypothesis
+`RiemannZetaAlternatingLimitIdentity`, giving a safe entry point into the
+critical strip. The central package, `ZetaZeroCounting`,
 builds the infrastructure for counting non-trivial zeros with multiplicity: the
 Riemann–von Mangoldt function `N(T)`, safe height enclosures, and the full
 von Mangoldt main term. Two sibling packages, `XiLogResidue` and `XiLogDeriv`,
@@ -58,9 +60,11 @@ phenomenon is exhibited in full.
 Four theorems organise the development.
 
 1. **Non-vanishing of ζ on (0, 1)** (Section 3). Via the Dirichlet eta function,
-   the alternating series provides an analytic continuation that is manifestly
-   non-zero on the real open unit interval. This is the ignition key: it gives a
-   verified foothold inside the critical strip with minimal investment.
+   the alternating series provides an analytic continuation. The non-vanishing
+   is conditional on `RiemannZetaAlternatingLimitIdentity`, which records the
+   exact relation between the real alternating limit and the zeta product.
+   This gives a verified foothold inside the critical strip with minimal
+   investment.
 
 2. **The Riemann–von Mangoldt count `N(T)`** (Section 4). For every safe height
    `T` we construct the exact zero-counting function with multiplicities,
@@ -318,9 +322,9 @@ build the axiom certificate of each headline theorem may be reproduced with
 ```
 #print axioms DirichletEta.eta_eq_zeta_of_re_gt_one
 #print axioms DirichletEta.zeta_real_open_interval_nonvanishing_from_eta
-#print axioms ZetaZeroCounting.Riemann.zerosUpToIm_finite
-#print axioms XiLogResidue.RiemannLogResidue.entireXi_divisor_finset_eq_zerosUpToImFinset
-#print axioms XiLogDeriv.RiemannLogDeriv.gammaRFactorLogDeriv_eq_neg_half_log_pi_add_half_digamma
+#print axioms Riemann.zerosUpToIm_finite
+#print axioms RiemannLogResidue.entireXi_divisor_finset_eq_zerosUpToImFinset
+#print axioms RiemannLogDeriv.gammaRFactorLogDeriv_eq_neg_half_log_pi_add_half_digamma
 ```
 
 each returning `[propext, Classical.choice, Quot.sound]`.

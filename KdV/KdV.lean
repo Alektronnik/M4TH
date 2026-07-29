@@ -85,10 +85,10 @@ def localOutputPath : System.FilePath :=
   "KdV.svg"
 
 def repositoryOutputDir : System.FilePath :=
-  "T-ORIK4/Math/KdV"
+  "M4TH/KdV"
 
 def repositoryOutputPath : System.FilePath :=
-  "T-ORIK4/Math/KdV/KdV.svg"
+  "M4TH/KdV/KdV.svg"
 
 def defaultOutputPath : IO System.FilePath := do
   if (← repositoryOutputDir.pathExists) then
