@@ -89,7 +89,7 @@ zeta_real_open_interval_nonvanishing_from_eta
 > ```lean
 > lemma DirichletEta.eta_summable_one_div_nat_add_one_cpow
 >     {s : ℂ} (hs : 1 < s.re) :
->     Summable fun n : ℕ => ‖1 / ((n : ℂ) + 1) ^ s‖
+>     Summable fun n : ℕ => 1 / ((n : ℂ) + 1) ^ s
 > ```
 
 ---

@@ -87,7 +87,8 @@ digamma function away from its poles.
 >
 > ```lean
 > theorem RiemannLogDeriv.entireXiLogDeriv_expansion_of_ne_zero_ne_one
->     {s : ℂ} (_hξ : entireXi s ≠ 0)
+>     {s : ℂ} (hs0 : s ≠ 0) (hs1 : s ≠ 1)
+>     (_hξ : entireXi s ≠ 0)
 >     (hΛ : completedRiemannZeta s ≠ 0) :
 >     entireXiLogDeriv s =
 >       1/s + 1/(s-1) + completedRiemannZetaLogDeriv s

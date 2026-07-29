@@ -77,7 +77,7 @@ for the alternating sum of binomial coefficients.
 >
 > ```lean
 > theorem PrimeGapsSophie.primeGap_even {n : ℕ} (hn : 1 ≤ n) :
->     Even (primeGap n)
+>     ∃ k : ℤ, (primeGap n : ℤ) = 2 * k
 > ```
 
 ---
