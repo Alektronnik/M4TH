@@ -24,7 +24,8 @@ Zero `sorry`, zero `axiom`. Every headline theorem:
 ## Packages
 
 Fifteen independent Lean 4 packages, each self-contained on top of Mathlib.
-One mathematical idea per package, fully proved.
+One mathematical idea per package. Every unconditional theorem is fully proved;
+conditional results carry explicit typed hypotheses (no package-local axioms).
 
 ### v1.0.0 -- Hyperbolic and dispersive PDE
 
@@ -38,7 +39,7 @@ One mathematical idea per package, fully proved.
 
 | Package | Theorem | Status |
 |---|---|---|
-| `DirichletEta` | `η(s) = (1-2^{1-s})ζ(s)` and non-vanishing of ζ on `(0,1)` | Proved |
+| `DirichletEta` | `η(s) = (1-2^{1-s})ζ(s)` (unconditional); non-vanishing of ζ on `(0,1)` conditional on `RiemannZetaAlternatingLimitIdentity` | Proved |
 | `ZetaZeroCounting` | `N(T)` with multiplicities, safe heights, von Mangoldt main term | Proved |
 | `XiLogResidue` | Logarithmic residue = multiplicity; dictionary with `MeromorphicOn.divisor` | Proved |
 | `XiLogDeriv` | Expansion of `Ξ'/Ξ`; digamma identity for `Γ_ℝ` | Proved |

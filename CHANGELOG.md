@@ -5,17 +5,17 @@ All notable changes to the M4TH formalisation packages.
 ## [5.0.0] -- 2026-07-29
 
 ### Added
-- `SU3Concrete` package: concrete su(3) from Gell-Mann matrices (70 theorems)
+- `SU3Concrete` package: concrete su(3) from Gell-Mann matrices (45 theorems)
   - `GellMann.lean`: anti-Hermitian generators `Tᵃ = iλₐ`
   - `LieAlgebra.lean`: matrix commutator Lie algebra, trace-zero conditions
   - `StructureConstants.lean`: explicit `f^{abc}`, antisymmetry, Jacobi identity
   - `Commutator.lean`: generator commutator matrix identities
   - `Representation.lean`: adjoint Casimir `= -3·I₈`, Killing form `κ = -3δ`, fundamental Casimir `= -(16/3)·I₃`
-- `SU3Wilson` package: SU(3) trace bound and Wilson action positivity (23 theorems)
+- `SU3Wilson` package: SU(3) trace bound and Wilson action positivity (18 theorems)
   - `SU3.lean`: concrete SU(3) group, normalised trace bound `-1 ≤ Re(tr U)/3 ≤ 1`
   - `Wilson.lean`: plaquette terms in `[0,2]`, Wilson action nonnegative
   - `Lattice4D.lean`: constructive 4D lattice, `WilsonAction4D_nonneg`
-- `CertifiedElliptic5077` package: certified LMFDB curve 5077a1 (52 theorems)
+- `CertifiedElliptic5077` package: certified LMFDB curve 5077a1 (27 theorems)
   - `Basic.lean`: short Weierstrass layer, coordinate transforms
   - `IntegralModel.lean`: discriminant `Δ = 5077`, integral-to-short change
   - `FiniteFieldCounts.lean`: `N₂ = 5`, `N₃ = 7`, `N₅ = 10` (kernel `decide`)
@@ -35,7 +35,7 @@ All notable changes to the M4TH formalisation packages.
 - Live MANUAL files: T-ORIK4 paths corrected to M4TH
 
 ### Verification
-- Zero `axiom`, zero `sorry` across all 15 packages (47 source modules)
+- Zero `axiom`, zero `sorry` across all 15 packages
 - Every headline theorem: `[propext, Classical.choice, Quot.sound]`
 - All 15 SVGs valid XML, generated from Lean code
 
