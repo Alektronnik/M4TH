@@ -491,7 +491,7 @@ Any additional package-local axiom would be a defect.
 
 ---
 
-## Source Architecture
+## X. Source Architecture
 
 For web inspection and study, use:
 
@@ -525,6 +525,5 @@ Reference paths:
 The live file and the modular package are checked with:
 
 ```text
-lake env lean BurgersBlowUp/BurgersBlowUpLive/BurgersBlowUp.live.lean
-lake build BurgersBlowUp
+cd BurgersBlowUp && lake build
 ```

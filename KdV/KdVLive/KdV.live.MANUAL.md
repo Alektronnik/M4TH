@@ -173,6 +173,5 @@ printf 'import KdV
 ## VII. Verification
 
 ```text
-lake env lean KdV/KdVLive/KdV.live.lean
-lake build KdV
+cd KdV && lake build
 ```

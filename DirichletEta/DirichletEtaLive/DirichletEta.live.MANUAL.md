@@ -191,6 +191,5 @@ printf 'import DirichletEta
 ## VII. Verification
 
 ```text
-lake env lean DirichletEta/DirichletEtaLive/DirichletEta.live.lean
-lake build DirichletEta
+cd DirichletEta && lake build
 ```

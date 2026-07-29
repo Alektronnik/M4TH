@@ -121,6 +121,5 @@ printf 'import XiLogResidue
 ## VII. Verification
 
 ```text
-lake env lean XiLogResidue/XiLogResidueLive/XiLogResidue.live.lean
-lake build XiLogResidue
+cd XiLogResidue && lake build
 ```

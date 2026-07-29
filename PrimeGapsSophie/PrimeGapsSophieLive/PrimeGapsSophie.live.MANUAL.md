@@ -165,6 +165,5 @@ printf 'import PrimeGapsSophie
 ## VII. Verification
 
 ```text
-lake env lean PrimeGapsSophie/PrimeGapsSophieLive/PrimeGapsSophie.live.lean
-lake build PrimeGapsSophie
+cd PrimeGapsSophie && lake build
 ```

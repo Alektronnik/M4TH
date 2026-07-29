@@ -693,7 +693,7 @@ MertensSecondTheorem -> partialProduct n * log n -> exp(-gamma)
 The representative certificate command is:
 
 ```text
-echo 'import MertensPNT
+printf 'import MertensPNT
 #print axioms ErdosReciprocals.mertens_product_convergence
 #print axioms ErdosReciprocals.tendsto_partialProduct_mul_exp_partialSum_add_gamma
 #print axioms ErdosReciprocals.mertens_second_theorem_iff_residual_vanishes
@@ -743,7 +743,7 @@ conditional frontier.
 The live file was checked with:
 
 ```text
-lake env lean M4TH/MertensPNT/MertensPNTLive/MertensPNT.live.lean
+cd MertensPNT && lake build
 ```
 
 The package build command is:

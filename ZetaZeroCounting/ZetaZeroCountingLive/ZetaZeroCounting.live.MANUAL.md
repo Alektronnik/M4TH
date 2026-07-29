@@ -147,6 +147,5 @@ printf 'import ZetaZeroCounting
 ## VII. Verification
 
 ```text
-lake env lean ZetaZeroCounting/ZetaZeroCountingLive/ZetaZeroCounting.live.lean
-lake build ZetaZeroCounting
+cd ZetaZeroCounting && lake build
 ```

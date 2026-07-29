@@ -502,7 +502,7 @@ U ∈ SU(3)
 The representative certificate command is:
 
 ```text
-echo 'import SU3Wilson
+printf 'import SU3Wilson
 #print axioms Physics.YangMills.su3_trace_re_bound
 #print axioms Physics.YangMills.wilsonTerm_nonneg
 #print axioms Physics.YangMills.WilsonAction_nonneg
@@ -552,7 +552,7 @@ beta >= 0 -> WilsonAction(beta, U) >= 0
 The live file was checked with:
 
 ```text
-lake env lean M4TH/SU3Wilson/SU3WilsonLive/SU3Wilson.live.lean
+cd SU3Wilson && lake build
 ```
 
 The package build command is:

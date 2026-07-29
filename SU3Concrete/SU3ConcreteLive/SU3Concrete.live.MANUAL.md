@@ -625,7 +625,7 @@ split into Mathlib contributions if reviewers request it.
 The representative certificate command is:
 
 ```text
-echo 'import SU3Concrete
+printf 'import SU3Concrete
 #print axioms Physics.YangMills.gellMannGenerator_antiHermitian
 #print axioms Physics.YangMills.generator_commutator_matrix
 #print axioms Physics.YangMills.structureConstant_jacobi
@@ -679,7 +679,7 @@ ad(Tᵃ)_{bc} = f^{abc}
 The live file was checked with:
 
 ```text
-lake env lean M4TH/SU3Concrete/SU3ConcreteLive/SU3Concrete.live.lean
+cd SU3Concrete && lake build
 ```
 
 The package build command is:

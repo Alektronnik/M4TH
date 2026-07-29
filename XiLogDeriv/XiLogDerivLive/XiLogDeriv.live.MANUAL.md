@@ -124,6 +124,5 @@ printf 'import XiLogDeriv
 ## VII. Verification
 
 ```text
-lake env lean XiLogDeriv/XiLogDerivLive/XiLogDeriv.live.lean
-lake build XiLogDeriv
+cd XiLogDeriv && lake build
 ```

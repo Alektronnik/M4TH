@@ -209,6 +209,5 @@ printf 'import XiArgumentPrinciple
 ## VIII. Verification
 
 ```text
-lake env lean XiArgumentPrinciple/XiArgumentPrincipleLive/XiArgumentPrinciple.live.lean
-lake build XiArgumentPrinciple
+cd XiArgumentPrinciple && lake build
 ```

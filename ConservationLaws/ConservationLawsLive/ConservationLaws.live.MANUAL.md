@@ -668,7 +668,7 @@ Any additional package-local axiom would be a defect.
 
 ---
 
-## Source Architecture
+## X. Source Architecture
 
 For web inspection and study, use:
 
@@ -704,6 +704,5 @@ Reference paths:
 The live file and the modular package are checked with:
 
 ```text
-lake env lean ConservationLaws/ConservationLawsLive/ConservationLaws.live.lean
-lake build ConservationLaws
+cd ConservationLaws && lake build
 ```

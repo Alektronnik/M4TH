@@ -562,7 +562,7 @@ P1, P2, Pm3, P3 lie on E5077
 The representative certificate command is:
 
 ```text
-echo 'import CertifiedElliptic5077
+printf 'import CertifiedElliptic5077
 #print axioms CertifiedEC.delta_E5077_integral
 #print axioms CertifiedEC.shortDiscriminant_E5077
 #print axioms CertifiedEC.N_two
@@ -614,7 +614,7 @@ does not claim an analytic BSD theorem.
 The live file was checked with:
 
 ```text
-lake env lean M4TH/CertifiedElliptic5077/CertifiedElliptic5077Live/CertifiedElliptic5077.live.lean
+cd CertifiedElliptic5077 && lake build
 ```
 
 The package build command is:

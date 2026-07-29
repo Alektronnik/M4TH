@@ -212,6 +212,5 @@ printf 'import XiAsymptoticFrontier
 ## VIII. Verification
 
 ```text
-lake env lean XiAsymptoticFrontier/XiAsymptoticFrontierLive/XiAsymptoticFrontier.live.lean
-lake build XiAsymptoticFrontier
+cd XiAsymptoticFrontier && lake build
 ```

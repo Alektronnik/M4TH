@@ -174,6 +174,5 @@ printf 'import DiscreteAbelChebyshev
 ## VII. Verification
 
 ```text
-lake env lean DiscreteAbelChebyshev/DiscreteAbelChebyshevLive/DiscreteAbelChebyshev.live.lean
-lake build DiscreteAbelChebyshev
+cd DiscreteAbelChebyshev && lake build
 ```
