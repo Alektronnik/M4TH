@@ -4,9 +4,9 @@
 theorem for the Riemann Xi function and the dictionary with
 `MeromorphicOn.divisor`, formalised in Lean 4 over Mathlib.**
 
-\*\*Author:\*\* Bezalel Izquierdo Pérez
-\*\*License:\*\* Apache 2.0
-\*\*Live file:\*\* `XiLogResidue.live.lean`
+**Author:** Bezalel Izquierdo Pérez
+**License:** Apache 2.0
+**Live file:** `XiLogResidue.live.lean`
 
 This manual is designed for Zulip, web reading, and mathematical study alongside
 `XiLogResidue.live.lean`.  It presents the mathematical content in the same order
@@ -114,6 +114,7 @@ printf 'import XiLogResidue
 ```
 
 'RiemannLogResidue.entireXi_logDeriv_residue_eq_multiplicity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiemannLogResidue.entireXi_divisor_finset_eq_zerosUpToImFinset' depends on axioms: [propext, Classical.choice, Quot.sound]
 
 ---
 

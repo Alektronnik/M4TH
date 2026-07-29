@@ -4,9 +4,9 @@
 reduction, and compact-support conservation laws, formalised in Lean 4 over
 Mathlib.**
 
-\*\*Author:\*\* Bezalel Izquierdo Pérez
-\*\*License:\*\* Apache 2.0
-\*\*Live file:\*\* `KdV.live.lean`
+**Author:** Bezalel Izquierdo Pérez
+**License:** Apache 2.0
+**Live file:** `KdV.live.lean`
 
 This manual is designed for Zulip, web reading, and mathematical study alongside
 `KdV.live.lean`.  It presents the mathematical content in the same order as the
@@ -166,6 +166,7 @@ printf 'import KdV
 ```
 
 'KdV.soliton_satisfies_kdv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'KdV.ConservedSolution.massRate_conserved' depends on axioms: [propext, Classical.choice, Quot.sound]
 
 ---
 

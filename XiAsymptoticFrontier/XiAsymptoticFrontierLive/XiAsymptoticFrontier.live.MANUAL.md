@@ -3,9 +3,9 @@
 **A single-file live presentation of the typed analytic frontier for the
 Riemann-von Mangoldt contour synthesis, formalised in Lean 4 over Mathlib.**
 
-\*\*Author:\*\* Bezalel Izquierdo Pérez
-\*\*License:\*\* Apache 2.0
-\*\*Live file:\*\* `XiAsymptoticFrontier.live.lean`
+**Author:** Bezalel Izquierdo Pérez
+**License:** Apache 2.0
+**Live file:** `XiAsymptoticFrontier.live.lean`
 
 This manual is designed for Zulip, web reading, and mathematical study alongside
 `XiAsymptoticFrontier.live.lean`.  It presents the mathematical content in the same order
@@ -205,6 +205,7 @@ printf 'import XiAsymptoticFrontier
 ```
 
 'RiemannAsymptoticFrontier.riemann_von_mangoldt_from_contour_frontier' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiemannAsymptoticFrontier.riemann_von_mangoldt_from_contour_bridge' depends on axioms: [propext, Classical.choice, Quot.sound]
 
 ---
 

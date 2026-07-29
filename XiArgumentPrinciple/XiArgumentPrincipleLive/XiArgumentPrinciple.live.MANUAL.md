@@ -3,9 +3,9 @@
 **A single-file live presentation of the critical-box argument-principle chain
 for the Riemann Xi variant, formalised in Lean 4 over Mathlib.**
 
-\*\*Author:\*\* Bezalel Izquierdo Pérez
-\*\*License:\*\* Apache 2.0
-\*\*Live file:\*\* `XiArgumentPrinciple.live.lean`
+**Author:** Bezalel Izquierdo Pérez
+**License:** Apache 2.0
+**Live file:** `XiArgumentPrinciple.live.lean`
 
 This manual is designed for Zulip, web reading, and mathematical study alongside
 `XiArgumentPrinciple.live.lean`.  It presents the mathematical content in the same order
@@ -202,6 +202,7 @@ printf 'import XiArgumentPrinciple
 ```
 
 'RiemannArgumentPrinciple.entireXiContourIntegral_eq_rectangleIntegral' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiemannArgumentPrinciple.contour_winding_equals_count_of_safe' depends on axioms: [propext, Classical.choice, Quot.sound]
 
 ---
 

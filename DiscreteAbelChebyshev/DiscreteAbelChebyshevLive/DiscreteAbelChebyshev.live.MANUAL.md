@@ -3,9 +3,9 @@
 **A single-file live presentation of discrete Abel summation and the typed
 Chebyshev-to-prime-counting bridge, formalised in Lean 4 over Mathlib.**
 
-\*\*Author:\*\* Bezalel Izquierdo Pérez
-\*\*License:\*\* Apache 2.0
-\*\*Live file:\*\* `DiscreteAbelChebyshev.live.lean`
+**Author:** Bezalel Izquierdo Pérez
+**License:** Apache 2.0
+**Live file:** `DiscreteAbelChebyshev.live.lean`
 
 This manual is designed for Zulip, web reading, and mathematical study alongside
 `DiscreteAbelChebyshev.live.lean`.  It presents the mathematical content in the same order
@@ -167,6 +167,7 @@ printf 'import DiscreteAbelChebyshev
 ```
 
 'DiscreteAbelChebyshev.abel_summation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DiscreteAbelChebyshev.chebyshev_implies_prime_error' depends on axioms: [propext, Classical.choice, Quot.sound]
 
 ---
 

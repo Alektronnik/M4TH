@@ -4,9 +4,9 @@
 entropy admissibility for one-dimensional scalar conservation laws, formalised
 in Lean 4 over Mathlib.**
 
-\*\*Author:\*\* Bezalel Izquierdo Pérez
-\*\*License:\*\* Apache 2.0
-\*\*Live file:\*\* `ConservationLaws.live.lean`
+**Author:** Bezalel Izquierdo Pérez
+**License:** Apache 2.0
+**Live file:** `ConservationLaws.live.lean`
 
 This manual is designed for Zulip, web reading, and mathematical study alongside
 `ConservationLaws.live.lean`.  It presents the mathematical content in a
@@ -668,7 +668,7 @@ Any additional package-local axiom would be a defect.
 
 ---
 
-## XI. Live File
+## Source Architecture
 
 For web inspection and study, use:
 

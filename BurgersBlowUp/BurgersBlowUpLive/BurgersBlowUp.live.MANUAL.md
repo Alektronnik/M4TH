@@ -3,9 +3,9 @@
 **A single-file live presentation of finite-time gradient blow-up for the
 inviscid Burgers equation, formalised in Lean 4 over Mathlib.**
 
-\*\*Author:\*\* Bezalel Izquierdo Pérez
-\*\*License:\*\* Apache 2.0
-\*\*Live file:\*\* `BurgersBlowUp.live.lean`
+**Author:** Bezalel Izquierdo Pérez
+**License:** Apache 2.0
+**Live file:** `BurgersBlowUp.live.lean`
 
 This manual is designed for Zulip, web reading, and mathematical study alongside
 `BurgersBlowUp.live.lean`.  It presents the mathematical content in a classical
@@ -491,7 +491,7 @@ Any additional package-local axiom would be a defect.
 
 ---
 
-## IX. Live File
+## Source Architecture
 
 For web inspection and study, use:
 

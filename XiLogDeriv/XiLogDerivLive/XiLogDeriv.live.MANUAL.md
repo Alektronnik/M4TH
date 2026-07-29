@@ -4,9 +4,9 @@
 Riemann Xi function and the digamma identity for the real gamma factor,
 formalised in Lean 4 over Mathlib.**
 
-\*\*Author:\*\* Bezalel Izquierdo Pérez
-\*\*License:\*\* Apache 2.0
-\*\*Live file:\*\* `XiLogDeriv.live.lean`
+**Author:** Bezalel Izquierdo Pérez
+**License:** Apache 2.0
+**Live file:** `XiLogDeriv.live.lean`
 
 This manual is designed for Zulip, web reading, and mathematical study alongside
 `XiLogDeriv.live.lean`.  It presents the mathematical content in the same order
@@ -117,6 +117,7 @@ printf 'import XiLogDeriv
 ```
 
 'RiemannLogDeriv.logDeriv_entireXiPolynomialFactor_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiemannLogDeriv.gammaRFactorLogDeriv_eq_neg_half_log_pi_add_half_digamma' depends on axioms: [propext, Classical.choice, Quot.sound]
 
 ---
 

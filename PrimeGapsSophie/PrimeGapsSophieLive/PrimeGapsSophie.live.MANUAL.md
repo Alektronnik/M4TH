@@ -4,9 +4,9 @@
 parity, and the parity of higher-order finite differences over the primes,
 formalised in Lean 4 over Mathlib.**
 
-\*\*Author:\*\* Bezalel Izquierdo Pérez
-\*\*License:\*\* Apache 2.0
-\*\*Live file:\*\* `PrimeGapsSophie.live.lean`
+**Author:** Bezalel Izquierdo Pérez
+**License:** Apache 2.0
+**Live file:** `PrimeGapsSophie.live.lean`
 
 This manual is designed for Zulip, web reading, and mathematical study alongside
 `PrimeGapsSophie.live.lean`.  It presents the mathematical content in the same order
@@ -158,6 +158,7 @@ printf 'import PrimeGapsSophie
 ```
 
 'PrimeGapsSophie.sophie_germain_mod6_eq_5' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PrimeGapsSophie.nthOrderGap_even_of_odd_primes' depends on axioms: [propext, Classical.choice, Quot.sound]
 
 ---
 

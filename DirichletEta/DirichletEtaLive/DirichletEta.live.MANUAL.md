@@ -4,9 +4,9 @@
 zeta-product identity, and the conditional non-vanishing of zeta on
 the real interval (0,1), formalised in Lean 4 over Mathlib.**
 
-\*\*Author:\*\* Bezalel Izquierdo Pérez
-\*\*License:\*\* Apache 2.0
-\*\*Live file:\*\* `DirichletEta.live.lean`
+**Author:** Bezalel Izquierdo Pérez
+**License:** Apache 2.0
+**Live file:** `DirichletEta.live.lean`
 
 This manual is designed for Zulip, web reading, and mathematical study alongside
 `DirichletEta.live.lean`.  It presents the mathematical content in the same order
@@ -184,6 +184,7 @@ printf 'import DirichletEta
 ```
 
 'DirichletEta.eta_eq_zeta_of_re_gt_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DirichletEta.zeta_real_open_interval_nonvanishing_from_eta' depends on axioms: [propext, Classical.choice, Quot.sound]
 
 ---
 

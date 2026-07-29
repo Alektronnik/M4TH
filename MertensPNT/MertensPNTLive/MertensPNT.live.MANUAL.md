@@ -4,9 +4,9 @@
 Euler products, certified finite data, and a conditional PNT+ frontier,
 formalised in Lean 4 over Mathlib.**
 
-\*\*Author:\*\* Bezalel Izquierdo Pérez
-\*\*License:\*\* Apache 2.0
-\*\*Live file:\*\* `MertensPNT.live.lean`
+**Author:** Bezalel Izquierdo Pérez
+**License:** Apache 2.0
+**Live file:** `MertensPNT.live.lean`
 
 This manual is designed for Zulip, web reading, and mathematical study alongside
 `MertensPNT.live.lean`.  It presents the mathematical content in the same order

@@ -4,9 +4,9 @@
 infrastructure: N(T) with multiplicities, safe heights, and the von Mangoldt
 main term, formalised in Lean 4 over Mathlib.**
 
-\*\*Author:\*\* Bezalel Izquierdo Pérez
-\*\*License:\*\* Apache 2.0
-\*\*Live file:\*\* `ZetaZeroCounting.live.lean`
+**Author:** Bezalel Izquierdo Pérez
+**License:** Apache 2.0
+**Live file:** `ZetaZeroCounting.live.lean`
 
 This manual is designed for Zulip, web reading, and mathematical study alongside
 `ZetaZeroCounting.live.lean`.  It presents the mathematical content in the same order
@@ -140,6 +140,7 @@ printf 'import ZetaZeroCounting
 ```
 
 'Riemann.zerosUpToIm_finite' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Riemann.exists_safe_height_above' depends on axioms: [propext, Classical.choice, Quot.sound]
 
 ---
 
