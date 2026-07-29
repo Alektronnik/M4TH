@@ -86,7 +86,7 @@ commutator table.  The commutator table is certified by finite case analysis;
 the structure-constant contractions are certified by kernel-checked finite
 integer computations.
 
-After fixing the Mathlib pin in `lakefile.toml`, run `lake build` and re-run the
+The Mathlib revision is already pinned for reproducibility.
 axiom certificate before any Zulip announcement or pull request.
 
 ## Review items

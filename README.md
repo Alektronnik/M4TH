@@ -154,20 +154,20 @@ cd SU3Concrete && echo 'import SU3Concrete
 cd SU3Wilson && echo 'import SU3Wilson
 #print axioms Physics.YangMills.su3_trace_re_bound' | lake env lean --stdin && cd ..
 
-echo 'import SU3Wilson
-#print axioms Physics.YangMills.WilsonAction4D_nonneg' | lake env lean --stdin
+cd SU3Wilson && echo 'import SU3Wilson
+#print axioms Physics.YangMills.WilsonAction4D_nonneg' | lake env lean --stdin && cd ..
 
-echo 'import CertifiedElliptic5077
-#print axioms CertifiedEC.shortDiscriminant_E5077' | lake env lean --stdin
+cd CertifiedElliptic5077 && echo 'import CertifiedElliptic5077
+#print axioms CertifiedEC.shortDiscriminant_E5077' | lake env lean --stdin && cd ..
 
-echo 'import CertifiedElliptic5077
-#print axioms CertifiedEC.P1_add_self' | lake env lean --stdin
+cd CertifiedElliptic5077 && echo 'import CertifiedElliptic5077
+#print axioms CertifiedEC.P1_add_self' | lake env lean --stdin && cd ..
 
-echo 'import PrimeGapsSophie
-#print axioms PrimeGapsSophie.sophie_germain_mod6_eq_5' | lake env lean --stdin
+cd PrimeGapsSophie && echo 'import PrimeGapsSophie
+#print axioms PrimeGapsSophie.sophie_germain_mod6_eq_5' | lake env lean --stdin && cd ..
 
-echo 'import PrimeGapsSophie
-#print axioms PrimeGapsSophie.nthOrderGap_even_of_odd_primes' | lake env lean --stdin
+cd PrimeGapsSophie && echo 'import PrimeGapsSophie
+#print axioms PrimeGapsSophie.nthOrderGap_even_of_odd_primes' | lake env lean --stdin && cd ..
 ```
 
 Each must report only `[propext, Classical.choice, Quot.sound]`.

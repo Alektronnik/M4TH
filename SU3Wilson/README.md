@@ -84,7 +84,7 @@ layout, English docstrings, per-file headers, explicit finite lattice data, and
 no imported private corpus modules.  `LatticeGaugeField` stores its link and
 plaquette functions, and the 4D layer constructs plaquettes from link variables.
 
-After fixing the Mathlib pin in `lakefile.toml`, run `lake build` and re-run the
+The Mathlib revision is already pinned for reproducibility.
 axiom certificate before Zulip discussion or a pull request.
 
 ## Review items

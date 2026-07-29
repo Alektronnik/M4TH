@@ -94,7 +94,7 @@ documentation, Mathlib naming conventions, per-file copyright headers and module
 docstrings, a standalone Lake package, and an explicit split between reusable
 hyperbolic-function calculus and KdV-specific PDE results.
 
-After fixing the Mathlib pin in `lakefile.toml`, run `lake build` and re-run the
+The Mathlib revision is already pinned for reproducibility.
 axiom certificate before Zulip discussion or a pull request.
 
 ## Review items (flagged for the PR conversation)

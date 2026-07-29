@@ -31,7 +31,7 @@ All notable changes to the M4TH formalisation packages.
 ### Changed
 - README, CHANGELOG, CITATION updated for 15 packages across 5 releases
 - `PrimeGapsSophie`: `textAt`/`line` now accept `extra` param, `arrowMarker` added
-- All 4 new packages: output paths corrected from `T-ORIK4/Math` to `M4TH`
+- All 4 new packages: output paths corrected from `M4TH` to `M4TH`
 - Live MANUAL files: T-ORIK4 paths corrected to M4TH
 
 ### Verification
