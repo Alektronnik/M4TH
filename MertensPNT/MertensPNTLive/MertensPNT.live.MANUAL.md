@@ -1,14 +1,12 @@
-# MertensPNT
+# MertensPNT.live
 
 **A single-file live presentation of Mertens reciprocal-prime infrastructure,
 Euler products, certified finite data, and a conditional PNT+ frontier,
 formalised in Lean 4 over Mathlib.**
 
-- Author: Bezalel Izquierdo Pérez
-- ORCID: https://orcid.org/0009-0001-5993-4057
-- Repository: https://github.com/Alektronnik/M4TH
-- License: Apache 2.0
-- Companion file: `MertensPNT.live.lean`
+\*\*Author:\*\* Bezalel Izquierdo Pérez
+\*\*License:\*\* Apache 2.0
+\*\*Live file:\*\* `MertensPNT.live.lean`
 
 This manual is designed for Zulip, web reading, and mathematical study alongside
 `MertensPNT.live.lean`.  It presents the mathematical content in the same order

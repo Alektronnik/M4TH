@@ -1,14 +1,12 @@
-# ZetaZeroCounting
+# ZetaZeroCounting.live
 
 **A single-file live presentation of the Riemann-von Mangoldt zero-counting
 infrastructure: N(T) with multiplicities, safe heights, and the von Mangoldt
 main term, formalised in Lean 4 over Mathlib.**
 
-- Author: Bezalel Izquierdo Perez
-- ORCID: https://orcid.org/0009-0001-5993-4057
-- Repository: https://github.com/Alektronnik/M4TH
-- License: Apache 2.0
-- Companion file: `ZetaZeroCounting.live.lean`
+\*\*Author:\*\* Bezalel Izquierdo Pérez
+\*\*License:\*\* Apache 2.0
+\*\*Live file:\*\* `ZetaZeroCounting.live.lean`
 
 This manual is designed for Zulip, web reading, and mathematical study alongside
 `ZetaZeroCounting.live.lean`.  It presents the mathematical content in the same order

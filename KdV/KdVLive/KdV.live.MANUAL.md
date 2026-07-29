@@ -1,14 +1,12 @@
-# KdV
+# KdV.live
 
 **A single-file live presentation of the exact KdV soliton, the travelling-wave
 reduction, and compact-support conservation laws, formalised in Lean 4 over
 Mathlib.**
 
-- Author: Bezalel Izquierdo Perez
-- ORCID: https://orcid.org/0009-0001-5993-4057
-- Repository: https://github.com/Alektronnik/M4TH
-- License: Apache 2.0
-- Companion file: `KdV.live.lean`
+\*\*Author:\*\* Bezalel Izquierdo Pérez
+\*\*License:\*\* Apache 2.0
+\*\*Live file:\*\* `KdV.live.lean`
 
 This manual is designed for Zulip, web reading, and mathematical study alongside
 `KdV.live.lean`.  It presents the mathematical content in the same order as the

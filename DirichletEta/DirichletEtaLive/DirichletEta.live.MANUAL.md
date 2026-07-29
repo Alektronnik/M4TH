@@ -1,14 +1,12 @@
-# DirichletEta
+# DirichletEta.live
 
 **A single-file live presentation of the Dirichlet eta function, its
 zeta-product identity, and the conditional non-vanishing of zeta on
 the real interval (0,1), formalised in Lean 4 over Mathlib.**
 
-- Author: Bezalel Izquierdo Perez
-- ORCID: https://orcid.org/0009-0001-5993-4057
-- Repository: https://github.com/Alektronnik/M4TH
-- License: Apache 2.0
-- Companion file: `DirichletEta.live.lean`
+\*\*Author:\*\* Bezalel Izquierdo Pérez
+\*\*License:\*\* Apache 2.0
+\*\*Live file:\*\* `DirichletEta.live.lean`
 
 This manual is designed for Zulip, web reading, and mathematical study alongside
 `DirichletEta.live.lean`.  It presents the mathematical content in the same order

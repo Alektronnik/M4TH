@@ -1,14 +1,12 @@
-# XiLogDeriv
+# XiLogDeriv.live
 
 **A single-file live presentation of the log-derivative expansion of the
 Riemann Xi function and the digamma identity for the real gamma factor,
 formalised in Lean 4 over Mathlib.**
 
-- Author: Bezalel Izquierdo Perez
-- ORCID: https://orcid.org/0009-0001-5993-4057
-- Repository: https://github.com/Alektronnik/M4TH
-- License: Apache 2.0
-- Companion file: `XiLogDeriv.live.lean`
+\*\*Author:\*\* Bezalel Izquierdo Pérez
+\*\*License:\*\* Apache 2.0
+\*\*Live file:\*\* `XiLogDeriv.live.lean`
 
 This manual is designed for Zulip, web reading, and mathematical study alongside
 `XiLogDeriv.live.lean`.  It presents the mathematical content in the same order

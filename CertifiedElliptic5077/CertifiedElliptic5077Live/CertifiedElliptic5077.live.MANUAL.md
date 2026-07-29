@@ -1,13 +1,11 @@
-# CertifiedElliptic5077
+# CertifiedElliptic5077.live
 
 **A single-file live presentation of certified algebraic data for the
 LMFDB/Cremona elliptic-curve entry 5077a1, formalised in Lean 4 over Mathlib.**
 
-- Author: Bezalel Izquierdo Pérez
-- ORCID: https://orcid.org/0009-0001-5993-4057
-- Repository: https://github.com/Alektronnik/M4TH
-- License: Apache 2.0
-- Companion file: `CertifiedElliptic5077.live.lean`
+\*\*Author:\*\* Bezalel Izquierdo Pérez
+\*\*License:\*\* Apache 2.0
+\*\*Live file:\*\* `CertifiedElliptic5077.live.lean`
 
 This manual is designed for Zulip, web reading, and mathematical study alongside
 `CertifiedElliptic5077.live.lean`.  It presents the mathematical content in the

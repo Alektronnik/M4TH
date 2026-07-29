@@ -1,13 +1,11 @@
-# SU3Wilson
+# SU3Wilson.live
 
 **A single-file live presentation of concrete \(SU(3)\), normalized trace
 bounds, and Wilson plaquette positivity, formalised in Lean 4 over Mathlib.**
 
-- Author: Bezalel Izquierdo Pérez
-- ORCID: https://orcid.org/0009-0001-5993-4057
-- Repository: https://github.com/Alektronnik/M4TH
-- License: Apache 2.0
-- Companion file: `SU3Wilson.live.lean`
+\*\*Author:\*\* Bezalel Izquierdo Pérez
+\*\*License:\*\* Apache 2.0
+\*\*Live file:\*\* `SU3Wilson.live.lean`
 
 This manual is designed for Zulip, web reading, and mathematical study alongside
 `SU3Wilson.live.lean`.  It presents the mathematical content in the same order
