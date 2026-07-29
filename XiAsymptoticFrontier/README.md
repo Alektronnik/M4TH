@@ -53,7 +53,7 @@ M4TH/XiAsymptoticFrontier/
 
 ## Build
 
-From the repository root:
+From the package directory:
 
 ```text
 lake build XiAsymptoticFrontier

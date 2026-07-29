@@ -15,7 +15,7 @@ certified elliptic curve 5077a1, and Sophie Germain prime-gap parity.
 Zero `sorry`, zero `axiom`. Every headline theorem:
 `[propext, Classical.choice, Quot.sound]`.**
 
-- Author: Bezalel Izquierdo Perez
+- Author: Bezalel Izquierdo Pérez
 - ORCID: [0009-0001-5993-4057](https://orcid.org/0009-0001-5993-4057)
 - License: Apache 2.0 (software), CC-BY 4.0 (documentation)
 
@@ -102,57 +102,57 @@ After a successful build, verify zero `sorry` and zero `axiom`:
 
 ```bash
 # v1.0.0
-echo 'import ConservationLaws
-#print axioms ConservationLaw.hasShockIntegralReduction' | lake env lean --stdin
+cd ConservationLaws && echo 'import ConservationLaws
+#print axioms ConservationLaw.hasShockIntegralReduction' | lake env lean --stdin && cd ..
 
-echo 'import BurgersBlowUp
-#print axioms Burgers.not_isRegularSolution_initialRamp' | lake env lean --stdin
+cd BurgersBlowUp && echo 'import BurgersBlowUp
+#print axioms Burgers.not_isRegularSolution_initialRamp' | lake env lean --stdin && cd ..
 
-echo 'import KdV
-#print axioms KdV.soliton_satisfies_kdv' | lake env lean --stdin
+cd KdV && echo 'import KdV
+#print axioms KdV.soliton_satisfies_kdv' | lake env lean --stdin && cd ..
 
 # v2.0.0
-echo 'import DirichletEta
-#print axioms DirichletEta.zeta_real_open_interval_nonvanishing_from_eta' | lake env lean --stdin
+cd DirichletEta && echo 'import DirichletEta
+#print axioms DirichletEta.zeta_real_open_interval_nonvanishing_from_eta' | lake env lean --stdin && cd ..
 
-echo 'import ZetaZeroCounting
-#print axioms Riemann.zerosUpToIm_finite' | lake env lean --stdin
+cd ZetaZeroCounting && echo 'import ZetaZeroCounting
+#print axioms Riemann.zerosUpToIm_finite' | lake env lean --stdin && cd ..
 
-echo 'import XiLogResidue
-#print axioms RiemannLogResidue.entireXi_divisor_finset_eq_zerosUpToImFinset' | lake env lean --stdin
+cd XiLogResidue && echo 'import XiLogResidue
+#print axioms RiemannLogResidue.entireXi_divisor_finset_eq_zerosUpToImFinset' | lake env lean --stdin && cd ..
 
-echo 'import XiLogDeriv
-#print axioms RiemannLogDeriv.gammaRFactorLogDeriv_eq_neg_half_log_pi_add_half_digamma' | lake env lean --stdin
+cd XiLogDeriv && echo 'import XiLogDeriv
+#print axioms RiemannLogDeriv.gammaRFactorLogDeriv_eq_neg_half_log_pi_add_half_digamma' | lake env lean --stdin && cd ..
 
 # v3.0.0
-echo 'import MertensPNT
-#print axioms ErdosReciprocals.mertens_product_convergence' | lake env lean --stdin
+cd MertensPNT && echo 'import MertensPNT
+#print axioms ErdosReciprocals.mertens_product_convergence' | lake env lean --stdin && cd ..
 
 # v4.0.0
-echo 'import XiArgumentPrinciple
-#print axioms RiemannArgumentPrinciple.entireXiContourIntegral_eq_rectangleIntegral' | lake env lean --stdin
+cd XiArgumentPrinciple && echo 'import XiArgumentPrinciple
+#print axioms RiemannArgumentPrinciple.entireXiContourIntegral_eq_rectangleIntegral' | lake env lean --stdin && cd ..
 
-echo 'import XiArgumentPrinciple
-#print axioms RiemannArgumentPrinciple.contour_winding_equals_count_of_safe' | lake env lean --stdin
+cd XiArgumentPrinciple && echo 'import XiArgumentPrinciple
+#print axioms RiemannArgumentPrinciple.contour_winding_equals_count_of_safe' | lake env lean --stdin && cd ..
 
-echo 'import XiAsymptoticFrontier
-#print axioms RiemannAsymptoticFrontier.riemann_von_mangoldt_from_contour_frontier' | lake env lean --stdin
+cd XiAsymptoticFrontier && echo 'import XiAsymptoticFrontier
+#print axioms RiemannAsymptoticFrontier.riemann_von_mangoldt_from_contour_frontier' | lake env lean --stdin && cd ..
 
-echo 'import DiscreteAbelChebyshev
-#print axioms DiscreteAbelChebyshev.abel_summation' | lake env lean --stdin
+cd DiscreteAbelChebyshev && echo 'import DiscreteAbelChebyshev
+#print axioms DiscreteAbelChebyshev.abel_summation' | lake env lean --stdin && cd ..
 
-echo 'import DiscreteAbelChebyshev
-#print axioms DiscreteAbelChebyshev.chebyshev_implies_prime_error' | lake env lean --stdin
+cd DiscreteAbelChebyshev && echo 'import DiscreteAbelChebyshev
+#print axioms DiscreteAbelChebyshev.chebyshev_implies_prime_error' | lake env lean --stdin && cd ..
 
 # v5.0.0
-echo 'import SU3Concrete
-#print axioms Physics.YangMills.structureConstant_jacobi' | lake env lean --stdin
+cd SU3Concrete && echo 'import SU3Concrete
+#print axioms Physics.YangMills.structureConstant_jacobi' | lake env lean --stdin && cd ..
 
-echo 'import SU3Concrete
-#print axioms Physics.YangMills.fundamentalCasimir_diagonal' | lake env lean --stdin
+cd SU3Concrete && echo 'import SU3Concrete
+#print axioms Physics.YangMills.fundamentalCasimir_diagonal' | lake env lean --stdin && cd ..
 
-echo 'import SU3Wilson
-#print axioms Physics.YangMills.su3_trace_re_bound' | lake env lean --stdin
+cd SU3Wilson && echo 'import SU3Wilson
+#print axioms Physics.YangMills.su3_trace_re_bound' | lake env lean --stdin && cd ..
 
 echo 'import SU3Wilson
 #print axioms Physics.YangMills.WilsonAction4D_nonneg' | lake env lean --stdin

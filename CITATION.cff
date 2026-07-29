@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 message: "If you use this formalisation in your research, please cite it as follows."
-title: "M4TH: Formalised PDE and Analytic Number Theory in Lean 4"
+title: "M4TH: Formalised PDE, Analytic Number Theory, Gauge Theory, Lattice Field Theory, and Arithmetic Geometry in Lean 4"
 doi: 10.5281/zenodo.21635317
 version: 5.0.0
 date-released: 2026-07-29

@@ -40,7 +40,7 @@ PrimeGapsSophie.nthOrderGap_even_of_odd_primes
 ## Structure
 
 ```text
-Math/PrimeGapsSophie/
+PrimeGapsSophie/
   README.md
   lakefile.toml
   PrimeGapsSophie.lean
@@ -59,7 +59,7 @@ Math/PrimeGapsSophie/
 
 ## Build
 
-From the repository root:
+From the package directory:
 
 ```text
 lake build PrimeGapsSophie
