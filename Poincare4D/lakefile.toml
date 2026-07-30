@@ -1,0 +1,11 @@
+name = "Poincare4D"
+defaultTargets = ["Poincare4D"]
+
+# Mathlib revision pinned for reproducibility.
+[[require]]
+name = "mathlib"
+scope = "leanprover-community"
+rev = "fabf563a7c95a166b8d7b6efca11c8b4dc9d911f"
+
+[[lean_lib]]
+name = "Poincare4D"

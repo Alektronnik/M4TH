@@ -2,6 +2,14 @@
 
 All notable changes to the M4TH formalisation packages.
 
+## [6.0.0] -- 2026-07-29
+
+### Added
+- `Poincare4D`: smooth surgery chains, coupled Ricci-gauge flow contracts,
+  and conditional smooth 4D Poincare theorem (2658-line live file, zero
+  `sorry`/`axiom`/`native_decide`).  Analytic PDE inputs are explicit typed
+  hypotheses; no package-local axioms.
+
 ## [5.5.0] -- 2026-07-29
 
 ### Added

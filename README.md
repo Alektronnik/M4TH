@@ -23,7 +23,7 @@ Zero `sorry`, zero `axiom`. Every headline theorem:
 
 ## Packages
 
-Fifteen independent Lean 4 packages, each self-contained on top of Mathlib.
+Sixteen independent Lean 4 packages, each self-contained on top of Mathlib.
 One mathematical idea per package. Every unconditional theorem is fully proved;
 conditional results carry explicit typed hypotheses (no package-local axioms).
 
@@ -67,6 +67,12 @@ conditional results carry explicit typed hypotheses (no package-local axioms).
 | `CertifiedElliptic5077` | Kernel-certified 5077a1: discriminant, local counts, rational points (27 theorems) | Proved |
 | `PrimeGapsSophie` | Sophie Germain congruences, nth-order prime-gap parity (9 theorems) | Proved |
 
+### v6.0.0 -- Smooth 4D Poincare conjecture (conditional)
+
+| Package | Theorem | Status |
+|---|---|---|
+| `Poincare4D` | Smooth surgery chains, coupled Ricci-gauge flow contracts, conditional smooth 4D Poincare theorem | Proved (conditional on typed PDE hypotheses) |
+
 To our knowledge this is the first formalisation of weak solutions of
 conservation laws, of Rankine-Hugoniot and Lax entropy conditions, of gradient
 blow-up for a nonlinear PDE, of the KdV soliton, of the Riemann-von Mangoldt
@@ -77,13 +83,15 @@ of the typed analytic-frontier synthesis for the asymptotic counting formula,
 of the concrete Gell-Mann realisation of su(3) with certified structure constants,
 of the SU(3) Wilson action positivity, of the kernel-certified LMFDB curve 5077a1,
 and of the parity of nth-order prime-gap finite differences,
+and of the smooth surgery-chain infrastructure for the conditional
+4D Poincare conjecture,
 in any major proof assistant.
 
 ## Quick start
 
 ```bash
 # Build and verify locally (Lean v4.31.0)
-./M4TH.sh live                 # compile all .live.lean (15/15)
+./M4TH.sh live                 # compile all .live.lean (16/16)
 ./M4TH.sh web <Pkg>            # compile .web.lean (v4.33.0-rc1, web env only)
 
 # Or work on a single package
@@ -311,6 +319,7 @@ M4TH/
     Mertens_PNT_in_Lean4.md                              (v3.0.0 paper, CC-BY 4.0)
     Argument_Principle_over_Critical_Box_in_Lean4.md     (v4.0.0 paper, CC-BY 4.0)
     Four_Certified_Formalisations_in_Lean4.md            (v5.0.0 paper, CC-BY 4.0)
+    Smooth_4D_Poincare_in_Lean4.md                      (v6.0.0 paper, CC-BY 4.0)
 
   BurgersBlowUp/          Gradient blow-up for the inviscid Burgers equation
     README.md, lakefile.toml, BurgersBlowUp.lean, BurgersBlowUp.svg
@@ -389,6 +398,11 @@ M4TH/
     README.md, lakefile.toml, PrimeGapsSophie.lean, PrimeGapsSophie.svg
     PrimeGapsSophie/       (SophieGermain, PrimeGap, HigherOrder)
     PrimeGapsSophieLive/   (live + manual + web + web.README)
+
+  Poincare4D/            Smooth surgery chains, coupled Ricci-gauge flow, conditional 4D Poincare
+    README.md, lakefile.toml, Poincare4D.lean, Poincare4D.svg
+    Poincare4D/             (Basic, Flow, Surgery, Conditional)
+    Poincare4DLive/         (live + manual)
 ```
 
 ## Live and Web versions
@@ -431,6 +445,8 @@ See `M4THDocs/M4THProtocol.md` for the full standard.
 - `M4THDocs/Four_Certified_Formalisations_in_Lean4.md` (v5.0.0) --
   concrete su(3) and SU(3) Wilson action, certified elliptic curve 5077a1,
   Sophie Germain prime-gap parity.
+- `M4THDocs/Smooth_4D_Poincare_in_Lean4.md` (v6.0.0) --
+  smooth surgery chains, coupled Ricci-gauge flow, conditional 4D Poincare.
 
 ## Related work
 
@@ -462,7 +478,7 @@ If you use this work in academic research, please cite:
   orcid     = {0009-0001-5993-4057},
   doi       = {10.5281/zenodo.21646239},
   year      = {2026},
-  version   = {v5.5.0},
+  version   = {v6.0.0},
   url       = {https://github.com/Alektronnik/M4TH}
 }
 ```

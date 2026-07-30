@@ -53,6 +53,7 @@ ALL_PKGS=(
     DiscreteAbelChebyshev
     KdV
     MertensPNT
+    Poincare4D
     PrimeGapsSophie
     SU3Concrete
     SU3Wilson

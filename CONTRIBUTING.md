@@ -1,7 +1,7 @@
 # Contributing to M4TH
 
 Thank you for your interest in contributing to this project.  M4TH is a monorepo
-of 15 self-contained Lean 4 packages spanning PDE, analytic number theory, gauge
+of 16 self-contained Lean 4 packages spanning PDE, analytic number theory, gauge
 theory, lattice field theory, and arithmetic geometry.  All packages depend only
 on Mathlib.
 
@@ -72,7 +72,7 @@ M4TH package).
 6. **Pull requests.**
    - Target the `main` branch.
    - One logical change per PR.
-   - Run `./M4TH.sh live` before submitting.  All 15 `.live.lean` files must
+   - Run `./M4TH.sh live` before submitting.  All 16 `.live.lean` files must
      compile.  `.web.lean` files target v4.33.0-rc1 and are verified on the
      web environment (live.lean-lang.org).
 

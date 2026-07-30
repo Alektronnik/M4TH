@@ -2,7 +2,7 @@ cff-version: 1.2.0
 message: "If you use this formalisation in your research, please cite it as follows."
 title: "M4TH: Formalised PDE, Analytic Number Theory, Gauge Theory, Lattice Field Theory, and Arithmetic Geometry in Lean 4"
 doi: 10.5281/zenodo.21646239
-version: 5.5.0
+version: 6.0.0
 date-released: 2026-07-29
 authors:
   - family-names: Izquierdo Perez
@@ -14,7 +14,7 @@ url: "https://github.com/Alektronnik/M4TH"
 abstract: >
   Self-contained formalisation in Lean 4 over Mathlib of elementary PDE theory,
   analytic number theory, gauge theory, lattice field theory, and arithmetic
-  geometry. Fifteen independent packages across five releases:
+  geometry. Sixteen independent packages across six releases:
   v1.0.0 -- PDE (ConservationLaws, BurgersBlowUp, KdV).
   v2.0.0 -- Riemann-von Mangoldt (DirichletEta, ZetaZeroCounting, XiLogResidue,
   XiLogDeriv).
@@ -26,6 +26,8 @@ abstract: >
   v5.5.0 -- M4TH protocol standardisation, web-layer compatibility with
   Lean v4.33.0-rc1 (.web.lean single-file variants, .web.README.md
   documentation), M4TH.sh unified validation script.
+  v6.0.0 -- Smooth 4D Poincare conjecture (conditional): surgery chains,
+  coupled Ricci-gauge flow, explicit typed PDE hypotheses (Poincare4D).
   Zero axioms, zero sorry.
   Every headline theorem carries the clean axiom certificate [propext,
   Classical.choice, Quot.sound].

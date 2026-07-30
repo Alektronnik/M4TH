@@ -66,3 +66,7 @@ srcDir = "XiLogResidue"
 [[lean_lib]]
 name = "ZetaZeroCounting"
 srcDir = "ZetaZeroCounting"
+
+[[lean_lib]]
+name = "Poincare4D"
+srcDir = "Poincare4D"
